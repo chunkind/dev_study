@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            기본선택자
+            - 자손 선택자와 후손 선택자
+            자손 - 바로 아래 있는 태그 ex) body의 자손은 div
+            후손 - 하위 영역의 모든 태그 ex) body의 후손은 div, ul, li
+        */
+        $(function(){
+            //자손 선택자
+            //$('body > *').css("color", "red");
+            //후손 선택자
+            //$('body *').css("color", "red");
+        });
+    </script>
+</head>
+<body>
+    <div style="color:red;">
+        <ul>
+            <li>만두</li>
+            <li>김밥</li>
+            <li>라면</li>
+            <li>사과</li>
+            <li>피자</li>
+        </ul>
+    </div>
+</body>
+</html>
