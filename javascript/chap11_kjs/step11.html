@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            인라인 이벤트 모델이나 고전 이벤트 모델은 한번에 하나의 이벤트 리스터만을
+            가질 수 있다.
+            DOM Level 0 이벤트 모델들의 단점을 보완하려고
+            만들어진 이벤트 모델이 DOM Level2 이벤트 모델이다.
+            
+            인터넷 익스플로러 이벤트 모델(IE에서만 실행 가능.)
+            
+            attachEvent(eventProperty, eventListener);
+            detachEvent(eventProperty, eventListener);
+            
+            * 참고
+            익스플로러 이벤트 모델에서 이벤트 리스너의 this 키워드는 이벤트 발생 객체를
+            의미하지 않는다. 
+            이벤트 리스너에서 this 키워드는 window 객체를 나타낸다.
+            이벤트 발생 객체를 사용하려면 이밴트 객체의 srcElement 속성을 사용한다.
+        */
+        var header = '';
+        var handler = '';
+        window.attachEvent('onload', function(){
+            //my-header를 가져온다.
+            header = document.getElementById('my-header');
+            
+            //인터넷 익스플로러의 경우 실행
+            if(header.attachEvent){
+                //이벤트 연결
+                //연결한 순서대로 출력된다.
+                header.attachEvent('onclick', function(){
+                    alert("클릭1");
+                });
+
+                handler = function () {
+                    alert("클릭2");
+                };
+                header.attachEvent('onclick', handler);
+
+                header.attachEvent('onclick', function(){
+                    alert("클릭3");
+                });
+            }
+        });
+        
+        
+        function deleteEvent(){
+            //이벤트 제거
+            header.detachEvent('onclick', handler);
+            //익명으로 준 함수는 제거 할 수 없다.
+        }
+    </script>
+</head>
+<body>
+    <h1 id="my-header">Click</h1>
+    <input type="button" value="이벤트 제거" onclick="deleteEvent()"/>
+</body>
+</html>

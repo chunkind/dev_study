@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            - 문서 객체 만들기(2)
+            텍스트 노드를 갖지 않는 노드를 생성 하는 법.
+        */
+        window.onload = function(){
+            //변수 선언
+            //img 요소 노드 생성.
+            var img = document.createElement('img');
+            //img tag에 속성 지정
+            img.src = "./img/ohs.jpeg";
+            img.width = 300;
+            img.height = 400;
+            
+            //노드를 body에 연결
+            document.body.appendChild(img);
+            
+            /*
+                위와 같은 방식은 웹 표준이 정의하거나 웹 브라우저가 지원하는 태그의 속성에만
+                사용할 수 있다. 2013년에 SVG 태그는 웹 브라우저에서 이러한 방식을 지원하지 않으므로
+                이 방법을 사용 할 수 없다. 웹 브라우저가 지원하지 않는 속성은 아래와 같은 메서드로
+                사용해야 속성을 넣을 수 있다.
+                
+                1) setAttribute(name, value) - 객체의 속성을 지정한다.
+                2) getAttribute(name, value) - 객체의 속성을 가져온다.
+            */
+            
+            var img2 = document.createElement('img');
+            img2.setAttribute('src','./img/cmj.jpg');
+            img2.width = 350;
+            img2.height = 280;
+            
+            //setAttribute() 메서드를 사용하지 않으면 불가능 하다.
+            //img2.data-property = '잘생겼다~'; //에러!!
+            img2.setAttribute("data-property","잘생겼다!!");
+            
+            alert(img2.getAttribute("data-property"));
+            
+            //body 노드에 연결
+            document.body.appendChild(img2);
+            
+        }
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

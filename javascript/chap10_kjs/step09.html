@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            문서 객체 가져오기 (3)
+            
+            1) document.querySelector(선택자) - 선택자로 가장 처음 선택되는 문서 객체를 가져온다.
+            2) document.querySelectorAll(선택자) - 선택자로 선택되는 문서 객체를 배열로 가져온다.
+        */
+        window.onload = function(){
+            cmj = document.querySelector('#cmj');
+            ohs = document.querySelector('#ohs');
+            lgb = document.querySelector('#lgb');
+            kjs = document.querySelector('#kjs');
+            
+        };
+        
+        function addTxt(){
+            cmj.innerHTML += "-건축가";
+            ohs.innerHTML += "-의사";
+            lgb.innerHTML += "-법무사";
+            kjs.innerHTML += "-프로그래머";
+        }
+    </script>
+</head>
+<body>
+    <h1 id="cmj">최민재</h1>
+    <h1 id="ohs">오형석</h1>
+    <h1 id="lgb">이기백</h1>
+    <h1 id="kjs">김준성</h1>
+    <input type="button" value="텍스트추가" onclick="addTxt()" />
+</body>
+</html>

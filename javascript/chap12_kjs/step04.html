@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            예외 처리 객체의 속성
+            1) message - 예외 메시지
+            2) description - 예외 설명
+            3) name - 예외 이름
+        */
+        //자바스크립트는 배열의 크기가 한정돼 있으므로 아래 코드는 예외를 발생 시킨다.
+        //배열의 최대 크기는 4,294,967,295까지 가능.
+        try{
+            var arry = new Array(999999999999999999);
+        }catch(exception){
+            var output = '';
+            for(var i in exception){
+                console.log(i + " : " + exception[i]);
+            }
+            
+            output = output.replace(/ /gi, '');
+            
+            if(output != ''){
+                console.log("true");
+                alert(output);
+            }else{
+                console.log("false");
+                alert("message : " + exception.message + "\ndescription : " 
+                    + exception.descripttion + "\nname : " + exception.name);
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

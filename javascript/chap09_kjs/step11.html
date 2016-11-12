@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            navigator 객체
+            
+            -속성
+            1) appCodeName - 브라우저의 코드명
+            2) appName - 브라우저의 이름
+            3) appVersion - 브라우저의 버전
+            4) platform - 사용중인 운영체제의 시스템 환경
+            5) userAgent - 브라우저의 전체적인 정보
+        */
+        
+        for(var key in navigator){
+            console.log("key : " + key + ", navigator[key] : " + navigator[key]);
+            for(var obj in navigator[key]){
+                if(navigator[key][obj] != ''){
+                    console.log("obj : " + obj + ", navigator[key][obj] : " + navigator[key][obj]);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

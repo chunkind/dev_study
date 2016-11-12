@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            문서 객체 배열에 for in 반복문을 사용 하면 안되 는 이유!!
+            for in을 사용하면 문서 객체 이외의 속성에도 접근 하기 때문.
+        */
+        window.onload = function () {
+            //문서 객체를 가져온다.
+            var headers = document.getElementsByTagName('h1');
+            
+            //출력
+            for(var key in headers){
+                console.log("key : " + key + ", headers[key] : " + headers[key]);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>김새봄</h1>
+    <h1>신수정</h1>
+    <h1>박정하</h1>
+</body>
+</html>

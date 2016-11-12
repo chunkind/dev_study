@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            이벤트 전달
+            이벤트 버블링 - 자식 노드에서 부모 노드 순으로 이벤트를 실행
+            이벤트 캡쳐링 - 부모 노드에서 자식 노드 순으로 이벤트를 실행
+            
+            IE가 캡쳐링을 지원하지 않으므로 이벤트 캡쳐링은 잘 사용하지 않는다.
+        */
+    </script>
+    <style>
+        *{
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div onclick="alert('outer-div')">
+        <div onclick="alert('inner-div')">
+            <h1 onclick="alert('header')">
+                <p onclick="alert('pagagraph')">Pagagraph</p>
+            </h1>
+        </div>
+    </div>
+</body>
+</html>

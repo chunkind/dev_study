@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            screen 객체의 속성
+            
+            1) width - 화면의 너비
+            2) height - 화면의 높이
+            3) availWidth - 실제 화면에서 사용 가능한 너비
+            4) availHeight - 실제 화면에서 사용 가능한 높이
+            5) colorDepth - 사용 가능한 색상 수
+            6) pixelDepth - 한 픽셀당 비트 수
+        */
+        /* 전체 화면 만들고 수렴하기. */
+        
+        var child = window.open('', '', 'width=300, height=200');
+        var width = window.screen.width;
+        var height = window.screen.height;
+        
+        console.log(width + ", " + height);
+        
+        child.moveTo(0,0); //화면 좌측 상단에 위치시키기
+        child.resizeTo(width, height); //전체화면 만들기.
+        
+        //1초마다 호출
+        setInterval(function(){
+            child.resizeBy(-20, -20);
+            child.moveBy(10, 10);
+        }, 1000);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

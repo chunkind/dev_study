@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            이벤트 관련 용어 정리
+            ex) window.onload = function(){};
+            1. 이벤트 이름(타입) - load
+            2. 이벤트 리스너(핸들러) - function(){};
+            3. 이벤트 속성 - onload
+            
+            4. 이벤트 모델
+                1) DOM Level0
+                    - 인라인 이벤트 모델
+                    - 기본 이벤트 모델
+                2) DOM Level2
+                    - 마이크로소프트 인터넷 익스플로러 이벤트 모델
+                    - 표준 이벤트 모델
+            
+            
+        */
+        
+        window.onload = function(){
+            //변수 선언
+            var header = document.getElementById("header");
+            
+            //리스너 생성
+            var whenClick = function(){
+                alert("CLICK");
+            }
+            //이벤트 연결
+            header.onclick = whenClick;
+        };
+    </script>
+</head>
+<body>
+    <h1 id="header">Click</h1>
+</body>
+</html>

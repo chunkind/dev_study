@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            표준 이벤트 모델
+            
+            표준 이벤트 모델은 W3C에서 공식적으로 지정한 DOM Level2 이벤트 모델이다.
+            인터넷 익스플로러 이벤트 모델과 마찬가지로 한 번에 여러 가지의 이벤트 리스터를 추가 할 수 있으며,
+            인터넷 익스플로러 이벤트 모델과 달리 이벤트 캠쳐링을 지원한다. 하지만 캡처링은 사실상
+            사용하지 않으므로 다루지 않겠다.
+            
+            1) addEventListener(eventName, handler, useCapture) - 이벤트 추가
+            2) removeEventListener(eventName, hanler) - 이벤트 제거
+            
+            useCapture의 디폴트 값은 false 이다.
+            
+            표준 이벤트 모델은 이벤트 리스너 안에서 this 키워드가 이벤트 발생 객체를 의미한다.
+        
+        */
+        window.onload = function(){
+            var header = document.getElementById('my-header');
+            
+            header.addEventListener('click', function(){
+                this.innerHTML += '+';
+            });
+        };
+    </script>
+</head>
+<body>
+    <h1 id="my-header">Click</h1>
+</body>
+</html>

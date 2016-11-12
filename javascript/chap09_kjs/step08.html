@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            location 객체 - 주소표시줄과 관련된 객체
+            
+            location객체의 속성과 메서드 알아보기.
+        */
+        for(var key in location){
+            console.log("key : " + key + ", location[key] : " + location[key]);
+            for(var obj in location[key]){
+                if(location[key][obj] != ''){
+                    console.log("obj : " + obj + ", location[key][obj] : " + location[key][obj]);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

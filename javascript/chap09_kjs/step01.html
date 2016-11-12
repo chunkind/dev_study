@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /* window 객체를 알아봅시다. */
+        var output = '';
+        for (var key in window){
+            console.log('key : ' + key + ", value : " +window[key]);
+            if(typeof(window[key]) == 'object'){
+                for (var obj in window[key]){
+                    console.log("obj : " + obj + ", objVal : " + window[key][obj]);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

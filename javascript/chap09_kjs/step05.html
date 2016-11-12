@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    /*
+        window의 기본 메서드 (단위 : 픽셀)
+        1) moveBy(x,y) - 윈도의 위치를 상대적으로 이동 합니다.
+        2) moveTo(x,y) - 윈도의 위치를 절대적으로 이동 합니다.
+        3) resizeBy(x,y) - 윈도의 크기를 상대적으로 지정합니다.
+        4) resizeTo(x,y) - 윈도의 크기를 절대적으로 지정합니다.
+        5) scrollBy(x,y) - 윈도의 스크롤의 위치를 상대적으로 이동 합니다.
+        6) scrollTo(x,y) - 윈도의 스크롤의 위치를 절대적으로 이동 합니다.
+        7) focus() - 윈도에 초점을 맞춥니다.
+        8) blur() - 윈도에 초점을 제거 합니다.
+        9) close() - 윈도를 닫습니다.
+    */
+      /* 자식창 이동 예제 */  
+        var child = window.open('', '', 'width=300, height=200');
+        child.moveTo(0,0);
+        
+        //1초마다 함수를 실행
+        setInterval(function(){
+            //child.moveBy(10,10); //현재 위치에서 10,10 이동.
+            //child.moveTo(10,10); //현재 화면에서 10,10 이동.
+        },1000);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

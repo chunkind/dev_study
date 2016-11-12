@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+//            var h1_id = document.getElementById("h1_id");
+//            h1_id.style.border = "2px solid black";
+//            h1_id.style.color = "orange";
+//            h1_id.style.fontFamily = "helvetica";
+            
+            var h1_txt = document.getElementsByName("h1_txt");
+            
+            console.log("size : " + h1_txt.length);
+            
+            //오류 코드.
+//            h1_txt.style.border = '2px solid black';
+//            h1_txt.style.color = "orange";
+//            h1_txt.style.fontFamily = 'helvetica';
+            
+            //정상코드.
+            for(var i=0; i<h1_txt.length; i++){
+                h1_txt[i].style.border = '2px solid black';
+                h1_txt[i].style.color = "orange";
+                h1_txt[i].style.fontFamily = 'helvetica';
+            }
+        };
+    </script>
+</head>
+<body>
+<!--    <h1 id="h1_id">커피</h1>-->
+    <h1 name="h1_txt">아메리카노</h1>
+    <h1 name="h1_txt">레몬에이드</h1>
+    <h1 name="h1_txt">우유</h1>
+</body>
+</html>

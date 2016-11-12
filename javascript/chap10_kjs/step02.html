@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            - 문서 객체 만들기(1)
+            
+             * document객체의 노드 생성 메서드
+            1) createElement(tagName) - 요소 노드를 생성합니다.
+            2) createTextNode(text) - 텍스트 노드를 생성합니다.
+            3) appendChild(node) - 객체에 노드를 연결합니다.
+            
+            
+        */
+        window.onload = function(){
+            //변수 선언
+            //노드만 생성했지 연결된 상태가 아니라 화면에 안나온다.
+            var header = document.createElement('h1');
+            var textNode = document.createTextNode('Hello DOM');
+            
+            //텍스트 노드를 요소 노드와 연결.
+            header.appendChild(textNode);
+            //요소 노드를 document와 연결.
+            document.body.appendChild(header);
+        };
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

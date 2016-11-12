@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            location의 속성과 메서드
+            
+            -속성
+            http://localhost:8080/Projects/Location.html?param=10
+
+            1) href - 문서의 URL주소
+            2) host - 호스트 이름과 포트 번호 (localhost:8080)
+            3) hostname - 호스트 이름 (localhost)
+            4) port - 포트 번호 (8080)
+            5) pathname - 디렉토리 경로 (/Projects/Location.html)
+            6) hash - 앵커 이름(#~)
+            7) search - 요청 매개변수 (?param=10)
+            8) protocol - 프로토콜 종류 (http:)
+
+            -메서드
+            1) assign(link) - 현재 위치를 이동합니다.
+            2) reload() - 새로고침합니다.
+            3) replace(link) - 현재 위치를 이동 합니다.(뒤로가기 불가.)
+        */
+        
+        function movePage(){
+            location.assign('http://www.naver.com');
+        }
+        
+        console.log("location.href : " + location.href);
+        console.log("host : " + location.host);
+        console.log("postname : " + location.postname);
+        console.log("port : " + location.port);
+        console.log("pathname : " + location.pathname);
+        console.log("hash : " + location.hash);
+        console.log("search : " + location.search);
+        console.log("protocol : " + location.protocol);
+    </script>
+</head>
+<body>
+    <input type="button" value="location" onclick="location = 'step09.html';" />
+    <input type="button" value="location.href" onclick="location.href = 'step09.html';" />
+    <input type="button" value="location.assign()" onclick="movePage()" />
+    <input type="button" value="location.replace()" onclick="location.replace('http://www.naver.com');" />
+    
+    <a href="#hihi" onclick="location = 'step09.html';">hast 를 보세용</a>
+</body>
+</html>

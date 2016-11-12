@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            예외 강제 발생 -
+            필요한 경우에는 예외를 강제로 발생시켜야 하는 경우도 있다.
+            객체를 사용하는 사용자에게 주의를 주고 예외와 관련된
+            처리를 해달라고 부탁할 수 있는 경우다.
+        */
+        //throw '에러가 발생 했습니다';
+        
+        //에러 잡기
+        /*try{
+            throw '에러가 발생 했습니다';
+        }catch(e){
+            if(e == '에러가 발생 했습니다'){
+                alert("그렇군.");
+            }
+        }*/
+        
+        //좀더 구체적으로 알아보자
+        /*
+            자바스크립트는 특정 숫자를 0으로 나눈다고 해서
+            문제가 발생 되지 않는다. 하지만 0으로 나누는 것을 막고
+            싶고 그러한 일이 발생하면 알려줄 수 있게 예외를 강제로 발생시킨것 이다.
+        */
+        function divide(alpha, beta){
+            if(beta == 0){
+                throw '0으로 나누지 마라!';
+            }else{
+                return alph/beta;
+            }
+        }
+        
+        //출력
+        try{
+            divide(10,0);
+        }catch(e){
+            alert('catch');
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

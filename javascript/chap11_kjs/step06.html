@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            inline 이벤트 모델
+        */
+        function whenClick(){
+            alert("hi");
+        }
+    </script>
+</head>
+<body>
+    <h1 onclick="alpha=10; alpha++; alert(alpha);">Click</h1>
+    <h1 onclick="whenClick()">Click2</h1>
+    <a href="javascript:whenClick()">Click3</a>
+</body>
+</html>

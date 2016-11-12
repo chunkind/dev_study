@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            이벤트 모델의 통합적 사용법
+        */
+        window.onload = function(){
+            var header = document.getElementById('my-header');
+            
+            if(header.attachEvent){
+                //인터넷 익스플로러의 경우 실행
+                var handler = function(){
+                    window.event.srcElement.style.color = 'blue';
+                    window.event.srcElement.style.detachEvent('onclick', handler);
+                }
+                header.attachEvent('onclick', handler);
+            }else{
+                //인터넷 익스플로러 외의 경우
+                var handler = function(){
+                    this.style.color = 'red';
+                    this.removeEventListener('click', handler);
+                }
+                header.addEventListener('click', handler);
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1 id="my-header">Click</h1>
+</body>
+</html>

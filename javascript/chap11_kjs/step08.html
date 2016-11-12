@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            고전 이벤트 모델은 return false를 입력하면 되지만
+            인라인 이벤트 모델을 사용할 때는 onsubmit 이벤트 속성에
+            return 함수() 형태를 입력해야 한다.
+        */
+        function whenSubmit(){
+            //유효성 검사
+            //return false;
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return whenSubmit()">
+        
+    </form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            textContent 속성
+            
+            "<h1>hi</h1>" 을 그대로 화면에 출력하고 싶을때
+            &lt;h1&gt;hi&lt;/h1&gt; 라고 사용해도 되지만
+            textContent속성을 사용해도 된다.
+        */
+        window.onload = function(){
+            var output = '';
+            output += '<ul>';
+            output += '<li>민재는 김유정을 좋아한다.</li>';
+            output += '<li>그러나 김유정은 민재를 모른다.</li>';
+            output += '</ul>';
+            
+            //innerHTML 속성에 문자열을 할당
+            document.body.textContent = output;
+            //document.body.innerHTML = output;
+        };
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

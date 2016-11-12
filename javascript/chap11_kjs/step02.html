@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            고전 이벤트 모델
+            
+        */
+        window.onload = function(){
+            //변수 선언
+            var header = document.getElementById("header");
+            
+            //이벤트 연결
+            header.onclick = function(){
+                alert("click");
+                
+                //이벤트 제거
+                header.onclick = null;
+            };
+            
+            
+        };
+    </script>
+</head>
+<body>
+    <h1 id="header">Click</h1>
+</body>
+</html>

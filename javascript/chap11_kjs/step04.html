@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            document.getElementById("header").onclick = function(e){
+                //이벤트 객체를 설정합니다.
+                /*
+                    EI 8 이하의 버전은 이벤트가 발생할 때 이벤트 객체를 window.event 속성으로
+                    전달하지만 다른 브라우저는 이벤트 리스터의 매개변수로 전달 하므로 이렇게 처리함.
+                */
+                var event = e || window.event;
+                
+                document.body.innerHTML = '';
+                for(var key in event){
+                    document.body.innerHTML += '<p>' + key + ': ' + event[key] + '</p>';
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+    <h1 id="header">click</h1>
+</body>
+</html>

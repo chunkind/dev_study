@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            문서 객체 가져오기
+            웹 페이지에 이미 존재하는 HTML태그를 자바스크립트로 가져오는 방법 1
+            
+            1) getElementById(id) - 태그의 id속성이 id와 일치하는 문서 객체를 가져온다.
+        */
+        window.onload = function(){
+            var ohs = document.getElementById('ohs');
+            var cmj = document.getElementById('cmj');
+
+            alert(ohs.innerHTML);
+
+            for(var key in ohs){
+                if(key == 'id')
+                console.log("key : " + key + ", ohs[key] : " +ohs[key]);
+            }
+            for(var key in cmj){
+                if(key == 'id')
+                console.log("key : " + key + ", cmj[key] : " +cmj[key]);
+            }
+            
+            //글자바꾸기
+            ohs.innerHTML = "오형석";
+            cmj.innerHTML = "최민재";
+        };
+    </script>
+</head>
+<body>
+    <h1 id="ohs">ㅇㅎㅅ</h1>
+    <h1 id="cmj">ㅊㅁㅈ</h1>
+</body>
+</html>

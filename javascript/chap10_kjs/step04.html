@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            innerHTML 속성을 이용해 문서 객체 만들기.
+            
+            1) innerHTML - 태그의 내부를 의미한다.
+            
+            <h1>     Hello DOM..!    </h1>
+           여는태그   innerHTML 속성     닫는태그
+           
+           인터넷 익스플로러(IE)를 제외한 브라우저는 모든 문서 객체의 innerHTML 속성을
+           바꿀 수 있지만, 인터넷 익스플로러는 col, colgraoup, frameset, head, html
+           , style, table, tbody, tfoot, thead, title, tr 태그의 innerHTML 속성을
+           바꿀 수 없다.
+        */
+        
+        window.onload = function(){
+            //변수 선언
+            var output = '';
+            output += '<ul>';
+            output += '<li>오형석</li>';
+            output += '<li>오윤경</li>';
+            output += '</ul>';
+            
+            //innerHTML 속성에 문자열을 할당.
+            document.body.innerHTML = output;
+            
+            //문자열 추가
+            document.body.innerHTML += '<h1>형석아 치킨 사왔다!!</h1>';
+            //document.body.innerHTML = '<h1>형석아 치킨 사왔다!!</h1>';
+            
+            //alert으로 출력해보기
+            alert(document.body.innerHTML);
+        };
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            //윈도우 객체의 속성을 알아 봅시다.
+            
+            open(URL, name, opteions) - 새로운 window 객체를 생성한다.
+            
+            opteions-
+            1) height - 새 윈도의 높이 (픽셀 값)
+            2) width - 새 윈도의 너비 (픽셀 값)
+            3) location - 주소 입력창의 유무 (yes, no, 1, 0)
+            3) menubar - 메뉴의 유무 (yes, no, 1, 0)
+            4) resizable - 화면 크기 조절 가능 여부 (yes, no, 1, 0)
+            5) status - 상태 표시줄의 유무 (yes, no, 1, 0)
+            6) toolbar - 상태 표시줄의 유무 (yes, no, 1, 0)
+        */
+        /* 여러 종류의 창을 띄어보자 */
+        
+        function open1(){
+            window.open('http://www.naver.com');
+        }
+        function open1(){
+            var child = window.open('','','width=300, height=200');
+            child.document.write('<h1>자식창입니다.</h1>');
+        }
+        function open1(){
+            window.open('http://blog.naver.com/chunkind','child','')
+        }
+    </script>
+</head>
+<body>
+    <a href="#" onclick="open1(); return false;">탭띄우기</a><br/>
+    <a href="#" onclick="open2(); return false;">이름 없는 창</a><br/>
+    <a href="#" onclick="open3(); return false;">이름 있는 창</a><br/>
+</body>
+</html>

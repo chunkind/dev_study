@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            디폴트 이벤트 제거
+            일부 HTML 태그는 이미 이벤트 리스너가 있다.
+            이것을 디폴트 이벤트 라고 한다.
+            예를 들면 a태그는 클릭하면 다른 페이지로 이동하는데, 이것이
+            a 태그가 가진 디폴트 이벤트이다.
+            
+            디폴트 이벤트를 제거하는 것은 입력 양식에 많이 사용된다.
+            입력 양식의 submit 버튼을 누르면 자동으로 입력 양식을 제출하고 페이지를 새로고침하는
+            것이 디폴트 이벤트이다. 하지만, 사용자가 회원 가입 양식을 제대로 작성하지도 않았는데
+            입력 양식을 제출하면 안된다.
+        */
+        window.onload = function(){
+            //이벤트 없애기
+//            document.getElementById('my-form').onsubmit = function(){
+//                return false;
+//            };
+            //유효성 검사
+            document.getElementById('my-form').onsubmit = function(){
+                //변수 선언
+                var pass = document.getElementById('pass').value;
+                var passCheck = document.getElementById('pass-check').value;
+                
+                //비밀번호가 같은지 확인
+                if(pass == passCheck){
+                    alert('성공');
+                }else{
+                    alert('다시 입력해주세요.');
+                    return false;
+                }
+            };
+        }
+    </script>
+</head>
+<body>
+    <form id="my-form">
+        <label for="name">이름</label><br/>
+        <input type="text" name="name" id="name" /><br/>
+        <label for="pass">비밀번호</label><br/>
+        <input type="password" name="pass" id="pass" /><br/>
+        <label for="pass-check">비밀번호 확인</label><br/>
+        <input type="password" id="pass-check" /><br/>
+        <input type="submit" value="제출"/>
+    </form>
+</body>
+</html>

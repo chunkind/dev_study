@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            javascript에서 스타일 속성 사용하기
+            
+            스타일 속성
+            backgroud-color 를 예를 들면
+            backgroundCloolr 라고 사용해야한다.
+            
+            '-'을 제거하고 카멜케이스를 적용한다 생가하면 됨.
+        */
+        
+        window.onload =function(){
+            var area = document.getElementById("area");
+            area.style.display = "inline-block";
+            area.style.width = "300px";
+            area.style.height = "300px";
+            area.style.backgroundColor = "black";
+        };
+    </script>
+    <style>
+        /*#area{
+            display: inline-block;
+            width: 300px;
+            height: 300px;
+            background-color: black;
+        }*/
+    </style>
+</head>
+<body>
+    <div id="area"></div>
+</body>
+</html>

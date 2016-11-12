@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            고급 예외 처리 - try - catch 사용하기.
+            try{
+                코드
+            }catch(exception){
+                예외 발생시 처리할 코드
+            }finally{
+                무조건 처리해야할 코드 (생략가능)
+            }
+        */
+        
+        //예외 발생코드
+        //willExcept.byeBye(); 
+        
+        //예외 잡기
+        try{
+            console.log("1 입니다.");
+            willExcept.byeBye();
+            console.log("2 입니다."); //try 구문 종료
+        }catch(e){
+            console.log("3 입니다.");
+            console.log("error 내용 : " + e);
+        }finally{
+            console.log("4 입니다.");
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*팝업차단했을 경우.*/
+        
+        var child = window.open('','','width=300, height=200');
+        
+        if(child){
+            child.document.write('<h1>형석아 윤경이는 잘 있지?</h1>');
+        }else{
+            alert("팝업 차단을 해재해주세요.")
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

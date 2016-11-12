@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            이벤트 전달 막기.
+            
+            p태그를 선택하면 이벤트 버블링이 일어나 자식 노드부터 실행된다.
+            paragraph -> header 순으로.
+            이 코드에서 이벤트 전달을 막아 header 출력을 막는 예제이다.
+            
+        */
+        window.onload = function(){
+            //이벤트를 연결
+            document.getElementById('header').onclick = function(){
+                alert('header');
+            };
+//            document.getElementById('paragraph').onclick = function(){
+//                alert('paragraph');
+//            };
+            
+            /*
+                인터넷 익스플로러와 그외 브라우저가 이벤트 전달을 막는 방법은 다르다.
+            
+                인터넷 익스플로러 - 이벤트 객체의 cancelBubble 속성을 true로 변경
+                그 이외의 브라우저 - 이벤트 객체의 stopPropagation() 메서드 사용
+            */
+            document.getElementById('paragraph').onclick = function(e){
+                //이벤트 객체를 처리
+                var event = e || window.event;
+                
+                //이벤트 발생을 알린다.
+                alert('paragraph');
+                
+                //이벤트 전달을 제거
+                event.cancelBubble = true;
+                /*
+                    위코드는 에러를 일으키지 않는다.
+                    속성을 사용하는 것은 에러의 가능성이 있으나
+                    속성에 값을 넣는건 에러가 되지 않는다.
+                */
+                if(event.stopPropagation){
+                    event.stopPropagation();
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+    <h1 id="header">
+        <p id="paragraph">Pagagraph</p>
+    </h1>
+</body>
+</html>

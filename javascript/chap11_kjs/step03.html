@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        /*
+            이벤트 리스터에서의 this
+        */
+        window.onload = function(){
+            document.getElementById("header").onclick = function(){
+                //여기서 this는 발생한 이벤트 객체를 말한다.
+                //alert(this);
+                
+                this.style.color = "orange";
+                this.style.background = "red";
+            };
+        };
+    </script>
+</head>
+<body>
+    <h1 id="header">Click</h1>
+</body>
+</html>
