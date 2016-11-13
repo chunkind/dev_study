@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
-        .high-light{
-            background: yellow;
-        }
+        .high-light-0{background: yellow;}
+        .high-light-1{background: orange;}
+        .high-light-2{background: blue;}
+        .high-light-3{background: green;}
+        .high-light-4{background: red;}
     </style>
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script>
@@ -15,10 +17,14 @@
             
             1.addClass() - class 추가
             2.removeClass() - class 제거
-            
         */
         $(function(){
-            $('h1').addClass('high-light');
+            /*$('h1').each(function(index, item){
+                $(item).addClass('high-light-'+index);
+            });*/
+            $('h1').addClass(function(index){
+                return 'high-light-' + index;
+            });
         });
     </script>
 </head>

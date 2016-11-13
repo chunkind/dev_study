@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            특정 위치의 문서 객체 선택
+            1.eq() - 특정 위치에 존재하는 문서 객체를 선택
+            2.first() - 첫 번째에 위치하는 문서 객체를 선택
+            3.last() - 마지막에 위치하는 문서 객체를 선택
+        */
+        $(function(){
+            $('h1').first().css('background','gray');
+            $('h1').eq(1).css('background','orange');
+            $('h1').eq(-2).css('background','red');
+            $('h1').last().css('background','yellow');
+        });
+    </script>
+</head>
+<body>
+    <h1>피자</h1>
+    <h1>만두</h1>
+    <h1>고기</h1>
+    <h1>파스타</h1>
+    <h1>오이</h1>
+</body>
+</html>

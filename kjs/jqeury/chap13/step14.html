@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            객체 확장
+            1.$.extend()
+        */
+        $(document).ready(function(){
+            //기존 javascript 에서 속성 추가.
+            var object = {};
+            object.name = "김준성";
+            object.gender = 'Male';
+            object.part = 'back-end developer';
+            
+            //$.extends() 사용
+            $.extend(object, {
+                region: '부천',
+                hobby: '독서'
+            });
+            
+            var output = '';
+            $.each(object, function (key, item){
+                output += key + " : " + item + '\n';
+            });
+            alert(output);
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

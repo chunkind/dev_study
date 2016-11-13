@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script>
+        /*
+            기본 필터 메서드
+            filter() - 문서 객체를 필터링합니다.
+            
+            ex)
+            $(selector).filter(selector);
+            $(selector).filter(function(){});
+        */
+        $(function(){
+            //1번 형태
+            /*$('h3:even').css({
+                backgroundColor:'black',
+                color:'white'
+            });*/
+            //2번 형태
+            /*$('h3').filter(':even').css({
+                backgroundColor:'red',
+                color:'white'
+            });*/
+            //index 제어
+            $('h3').filter(function(index){
+                return index % 3 == 0;
+            }).css({
+                background: 'black',
+                color: 'white'
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>스터디 인원</h1>
+    <h3>오형석</h3>
+    <h3>최민재</h3>
+    <h3>이기백</h3>
+    <h3>김준성</h3>
+    <h3>이상철</h3>
+    <h3>신수정</h3>
+    <h3>김새봄</h3>
+    <h3>박정하</h3>
+</body>
+</html>
