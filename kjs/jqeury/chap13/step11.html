@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            배열 관리
+            
+            each() 메서드의 형태
+            1. $.each(object.function(index, item){});
+            2. $(selector).each(function(index, item){});
+            3. [].forEach(function(item,index){});
+            
+            * ECMAScript5에서 추가된 forEach() 메서드와 매개변수의 순서가 다르므로 주의
+            $.each(object.function(index, item){});
+            [].forEach(function(item,index){});
+        */
+        $(function(){
+            var array = [
+                {name:'Hanbit Media' , hobby:'http://hanb.co.kr'},
+                {name:'Naver' , hobby:'http://naver.com'},
+                {name:'Daum' , hobby:'http://daum.net'},
+                {name:'Paran' , hobby:'http://paran.com'}
+            ];
+            
+            //$.each() 메서드 사용
+            $.each(array, function(index, item){
+                //index - 배열의 인덱스, 객체의 키 item - 해당 인덱스나 키가 가진 값
+                
+                //변수선언
+                var output = '';
+                
+                //문자열 만들기
+                output += '<a href="' + item.link + '">';
+                output += '     <h1>' + item.name + '</h1>';
+                output += '</a>';
+                
+                //바인딩
+                document.body.innerHTML += output;
+            });
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
