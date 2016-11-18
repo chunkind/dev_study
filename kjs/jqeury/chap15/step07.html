@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            문서 객체 생성(2)
+            
+            $() - 문서 객체를 생성한다.
+            
+            텍스트 노드를 갖지 않는 문서 객체 생성
+        */
+        $(window).load(function(){
+            //$('<img />').attr('src', '../../img/cmj.jpg').attr("width",'300px').attr('height',"200px").appendTo('body');
+            $('<img />', {
+                src : '../../img/cmj.jpg',
+                width : 300,
+                height : 200
+            }).appendTo('body');
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

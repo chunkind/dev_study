@@ -25,18 +25,6 @@
         xml += '   </friend>';
         xml += '</friends>';
         
-        $(function(){
-            var xmlDoc = $.parseXML(xml);
-            $(xmlDoc).find('friend').each(function(index){
-                var output = '';
-                output += '<div>';
-                output += '   <h1>' + $(this).find('name').text() + '</h1>';
-                output += '   <p>' + $(this).find('language').text() + '</p>';
-                output += '</div>';
-                
-                document.body.innerHTML += output;
-            });
-        });
     </script>
 </head>
 <body>

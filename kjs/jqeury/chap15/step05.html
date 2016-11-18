@@ -3,18 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <style>
+        div{
+            background-color: rosybrown;
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script>
         /*
             문서 객체 제거
             remove() - 문서 객체를 제거합니다.
             empty() - 문서 객체 내부를 비웁니다.
+            
+            차이점
+            remove 는 샐랙터 포함 모든 문서 객체를 지운다.
+            empty는 샐랙터로 선택한 문서 객체만을 제외한 text값과 하위 문서객체 모두를 지운다.
+            
         */
+        $(function(){
+            $('input[type=button]:eq(0)').click(function(){
+                //$('div').remove();
+                $('h1').first().remove();
+            });
+            $('input[type=button]:eq(1)').click(function(){
+                //$('div').empty();
+                $('h1').first().empty();
+            });
+        });
     </script>
 </head>
 <body>
     <div>
-        <h1></h1>
-        <h1></h1>
+        <h1>치킨1</h1>
+        <h1>치킨2</h1>
+        <h1>치킨3</h1>
     </div>
+    <input type="button" value="remove"/>
+    <input type="button" value="empty"/>
 </body>
 </html>

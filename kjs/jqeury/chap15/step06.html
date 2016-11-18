@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            문서 객체 생성(1)
+            
+            $() - 문서 객체를 생성한다.
+            
+            텍스트 노드를 갖는 문서 객체 생성
+        */
+        $(window).load(function(){
+          /*
+            $(function(){}) or $(document).ready(function(){}) - DOM 객체만 로드 되자마자 바로 실행 (실행순서1)
+            $(window).load(function(){}) - 해당 페이지의 모든 외부 리소스, 이미지 등이 로드 된후 실행 (실행순서2)
+          */  
+            //$('<h1></h1>').html('안녕 민재야?').appendTo('body');
+            $('<h1>안녕 민재야?</h1>').appendTo('body');
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
