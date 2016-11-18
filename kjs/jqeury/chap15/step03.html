@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .first{color:red;}
+        .second{color:pink;}
+        .third{color:orange;}
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            문서 객체의 스타일 검사
+            css() - 스타일과 관련된 모든 기능을 수행한다.
+            
+            문서 객체의 스타일 추가
+            1. $(selector).css(name, value);
+            2. $(selector).css(name, function(){});
+            3. $(selector).css(object);
+        */
+        $(document).ready(function(){
+            //스타일 검사
+//            var color = $('h1').css('color');
+//            console.log(color);
+            
+            //스타일 추가1
+//            $('h1').css('color','black');
+            
+            //스타일 추가2
+//            var color = {'red', 'white', 'purple'};
+//            $('h1').css('color', function(i){
+//                return color[i];
+//            });
+            
+            //스타일 추가3
+            var color = ['red', 'white', 'purple'];
+            $('h1').css({
+                color: function(i){
+                    return color[i];
+                },
+                backgroundColor: 'black'
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1 class="first">오형석</h1>
+    <h1 class="second">오준석</h1>
+    <h1 class="third">오인호</h1>
+</body>
+</html>

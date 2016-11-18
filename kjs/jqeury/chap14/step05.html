@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            문서 객체의 특징 판별
+            is() - 문서 객체의 특징을 판별
+        */
+        $(function(){
+            $('h1').each(function(){
+                if($(this).is('.select')){
+                    $(this).css('background','orange');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1 class="select">오형석</h1>
+    <h1>최민재</h1>
+    <h1 class="select">이기백</h1>
+</body>
+</html>

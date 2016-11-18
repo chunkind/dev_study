@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            문서 객체의 속성 검사
+            attr() - 속성과 관련된 모든 기능을 수행한다.
+            removeAttr(name) - 문서 객체의 속성을 제거한다.
+            
+            사용법
+            $(selector).attr(name,value);
+            $(selector).attr(name,function(index,attr){});
+            $(selector).attr(object);
+            
+            * removeClass(), removeAttr() 메서드 모두 클래스 속성을 제거 할 수 있다.
+            하지만, removeAttr() 메서드를 사용하면 모든 클래스 속성이 한 번에 제거 되는
+            것과 달리 removeClass() 메서드를 사용하면 여러 개의 클래스 속성 중 선택적
+            으로 제거 할 수 있다.
+        */
+        $(function(){
+            //1.정보 가져오기
+            var src = $('img'); //length = 3
+            for(var i=0; i<src.length; i++){
+                //안됨
+                //console.log(src[i].attr('src'));
+                //됨
+                console.log(src.attr('src'));
+            }
+            /*
+                대부분의 값을 알아내는 jQuery 메서드는 여러 개의 문서 객체를
+                선택했을 때 첫 번째에 위치한 문서 객체의 값을 출력한다.
+            */
+            
+            //2.정보 변경
+            $('input[type=button]').click(function(){
+                doAction();                              
+            });
+        });
+        
+        function doAction(){
+            var value = $('select').val();
+            if(value == 1){
+                changeSize1();
+            }else if(value == 2){
+                changeSize2();
+            }else if(value == 3){
+                changeSize3();
+            }else{
+                changeSize4();
+            }
+        }
+        
+        function changeSize1(){
+            $('img').attr('width',200).attr('height',200);
+        }
+        
+        function changeSize2(){
+            $('img').attr('width',function(i){
+                return (i + 1) * 100;
+            }).attr('height',function(i){
+                return (i + 1) * 100;
+            });
+        }
+        
+        function changeSize3(){
+            $('img').attr({
+                width: function(i){
+                    return (i + 1) * 100;
+                },
+                height: 100
+            });
+        }
+        
+        function changeSize4(){
+            /*$('img').removeAttr('width');
+            $('img').removeAttr('height');*/
+            
+            $('img').removeAttr('width').removeAttr('height');
+        }
+    </script>
+</head>
+<body>
+    <img src="../../img/ohs.jpeg" />
+    <img src="../../img/ohs2.jpg" />
+    <img src="../../img/cmj.jpg" />
+    <select>
+        <option value="1">size변경1</option>
+        <option value="2">size변경2</option>
+        <option value="3">size변경3</option>
+        <option value="4">초기화</option>
+    </select>
+    <input type="button" value="실행">
+</body>
+</html>
+
+
+
+
+
+
+
+

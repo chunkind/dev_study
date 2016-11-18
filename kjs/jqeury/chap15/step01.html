@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .colorAdd{
+            background-color: aqua;
+        }
+        .color0{
+            color: burlywood;
+        }
+        .color1{
+            color:rosybrown;
+        }
+        .color2{
+            color:royalblue;
+        }
+        .color3{
+            color:coral;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            문서 객체의 클래스 속성 추가/제거
+            1.addClass() - 문서 객체의 클래스 속성을 추가 한다.
+            2.removeClass() - 문서 객체의 클래스 속성을 제거 한다.(매개변수를 입력하지 않으면 모두 제거함)
+            3.toggleClass() - 문서 객체의 클래스 속성을 추가/제거 한다.
+        */
+        $(function(){
+            
+        });
+        
+        function colorChange(){
+            $('h1').addClass(function(index){
+                return 'color' + index;
+            });
+            $('h1').addClass('colorAdd');
+        }
+        function colorRemove(){
+            $('h1').removeClass(function(index){
+                return 'color' + index;
+            });
+            $('h1').removeClass('colorAdd');
+        }
+        function colorToggle(){
+            $('h1').toggleClass(function(index){
+                return 'color' + index;
+            });
+            $('h1').toggleClass('colorAdd');
+        }
+    </script>
+</head>
+<body>
+    <h1>피자</h1>
+    <h1>자장면</h1>
+    <h1>회</h1>
+    <h1>족발</h1>
+    <a href="javascript:colorChange()">컬러 바꾸기</a>
+    <a href="javascript:colorRemove()">컬러 지우기</a>
+    <a href="javascript:colorToggle()">컬러 바꾸기/지우기</a>
+</body>
+</html>
