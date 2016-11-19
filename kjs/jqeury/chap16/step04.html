@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            이벤트 연결 제거
+            off() - 이벤트를 제거 한다.
+            
+            1. $(selector).off()
+             - 해당 문서 객체와 관련된 모든 이벤트를 제거 한다.
+            2. $(selector).off(eventName)
+             - 해당 문서 객체의 특정 이벤트와 관련된 모든 이벤트를 제거 한다.
+            3. $(selector).off(eventName, function)
+             - 특정 이벤트 리스너를 제거 한다.
+             
+             one() - 이벤트를 한 번만 연결
+             
+             $(selector).one(eventName, function(){})
+             $(selector).one(object)
+        */
+        $(function(){
+            //이벤트 1번만 발생 시키기 1
+            $('h1').click(function(){
+                $(this).html($(this).html() + ' 사줘');
+                //이벤트 제거
+                $(this).off();
+            });
+            
+            //이벤트 1번만 발생 시키기2
+        });
+    </script>
+</head>
+<body>
+    <h1>피자</h1>
+    <h1>치킨</h1>
+    <h1>스시</h1>
+</body>
+</html>

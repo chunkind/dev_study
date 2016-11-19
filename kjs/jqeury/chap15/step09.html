@@ -5,19 +5,25 @@
     <title>Document</title>
     <style>
         img{
-            width: 100px;
             height: 100px;
             margin: 1px;
             padding: 1px;
             border: 1px solid gray;
         }
     </style>
-    <script src="http://code.jqeury.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script>
         /*
-            문서 객체 이동
+            문서 객체 이동(1)
             
         */
+        $(function(){
+            $('img').css('width', 200);
+            
+            setInterval(function(){
+                $('img').first().appendTo('body');
+            }, 2000);
+        });
     </script>
 </head>
 <body>
