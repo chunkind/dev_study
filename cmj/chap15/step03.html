@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문서 객체의 속성 검사</title>
+</head>
+    <script src = "http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            attr() --> 속성과 관련된 모든 기능을 수행 합니다.
+            
+           ----------------------------------------------------------------------------------------
+           대부분의 값을 알아내는 jQuery 메서드는 여러 개의 문서 객체를 선택했을 때 첫번째의 위치한 문서 객체의 값을 출력.
+            
+           ----------------------------------------------------------------------------------------
+        */
+            
+    </script>
+<body>
+    <img src = "Chrysanthemum.jpg" />
+    <img src = "Desert.jpg" />
+    <img src = "Hydrangeas.jpg" />
+</body>
+<script>
+    $(document).ready(function() {
+       //변수를 선언합니다.
+        var src = $('img').attr('src');
+        
+        //출력
+        alert(src);
+    });
+</script>
+</html>
+
+

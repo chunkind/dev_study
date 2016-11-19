@@ -14,23 +14,24 @@
             $(selector).filter(function(){});
         */
         $(function(){
-            //1번 형태
-            /*$('h3:even').css({
-                backgroundColor:'black',
-                color:'white'
-            });*/
-            //2번 형태
-            /*$('h3').filter(':even').css({
-                backgroundColor:'red',
-                color:'white'
-            });*/
-            //index 제어
-            $('h3').filter(function(index){
-                return index % 3 == 0;
-            }).css({
-                background: 'black',
-                color: 'white'
-            });
+//            $('h3').filter(':even').css({
+//                backgroundColor : 'black',
+//                color : 'white'
+//            });
+           $('h3').filter(function(index){
+               return index % 3 == 0;
+           }).css({
+               background : 'black',
+               color : 'white'
+           });
+            
+//            var h3 = $('h3');
+//            var filter = h3.filter(function(){
+//                
+//            });
+//            var css = filter.css({
+//                
+//            });
         });
     </script>
 </head>

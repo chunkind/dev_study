@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문서 객체의 클래스 속성 제거</title>
+</head>
+    <script src = "http://code.jquery.com/jquery-1.10.2.js">
+    </script>
+    <script>
+        /*
+            removeClass() --> 문서 객체의 클래스 속성을 제거 합니다.
+            
+           ----------------------------------------------------------------------------------------
+                addClass() 메서드와 removeClass() 메서드 이외에 toggleClass() 메서드도 존재한다.
+                toggleClass() 메서드는 매개변수로 입력한 클래스 속성이 이미 지정돼 있으면 제거하고,
+                지정돼 있지 않으면 추가한다.
+           ----------------------------------------------------------------------------------------
+           
+        */
+    </script>
+<body>
+    <h1 class = "item">Header-0</h1>
+    <h1 class = "item select">Header-1</h1>
+    <h1 class = "item">Header-2</h1>
+</body>
+
+<script>
+    $(document).ready(function() {
+        $('h1').removeClass('select');
+    });
+    
+    
+    
+    
+//    $(document).ready(function() {
+//        $('h1').toggleClass('select');
+//    });
+</script>
+</html>
