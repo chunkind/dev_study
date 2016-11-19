@@ -31,10 +31,24 @@
             $(selector).append(function(index){});
         */
         $(window).load(function(){
-            var h1 = '<h1>오형석</h1>';
-            var h2 = '<h2>오윤경</h2>';
+//            var h1 = '<h1>오형석</h1>';
+//            var h2 = '<h2>오윤경</h2>';
+//            
+//            $('body').append(h1, h2, h1, h2);
             
-            $('body').append(h1, h2, h1, h2);
+            var content = [
+                {name:'최민재', region:'부산'},
+                {name:'오형석', region:'경기'},
+                {name:'죄밍키', region:'서울'}
+            ];
+            
+            $('div').append(function(index){
+                var item = content[index];
+                var output = '';
+                output += '<h1>' + item.name + '</h1>';
+                output += '<h2>' + item.region + '</h2>';
+                return output;
+            });
         });
     </script>
 </head>

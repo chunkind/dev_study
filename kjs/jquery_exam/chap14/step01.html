@@ -13,6 +13,33 @@
             $(selector).filter(selector);
             $(selector).filter(function(){});
         */
+        $(function(){
+//            $('h3').filter(':even').css({
+//                backgroundColor : 'black',
+//                color: 'white'
+//            });
+            
+            $('h3').filter(function(index){
+                return index % 3 == 0;
+            }).css({
+                background : 'black',
+                color : 'white'
+            }).css({
+                
+            }).css({
+                
+            }).css({
+                
+            });
+            
+//            var h3 = $('h3');
+//            var filter = h3.filter(function(){
+//                
+//            });
+//            var css = filter.css({
+//                
+//            });
+        });
     </script>
 </head>
 <body>
