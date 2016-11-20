@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            width: 50px;
+            height: 50px;
+            background-color: orange;
+            /* 위치 속성 left, top을 변경하는 animate() 메서드를 사용하려면 positon 스타일 속성이 absolute 이거나 relative 여야 한다. */
+            position: relative;
+            border-radius: 15px;
+        }
+    </style>
+    <script src="../../../common/js/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            사용자 정의 효과
+            
+            animate() - 사용자 지정 효과를 생성한다.
+            
+            1. $(selector).animate(object);
+            2. $(selector).animate(object, speed);
+            3. $(selector).animate(object, speed, easing);
+            4. $(selector).animate(object, speed, easing, callback);
+            
+            object
+             - opacity, height, top, width, left, margin, right, padding, bottom
+            speed
+             - 효과를 진행할 속도를 지정
+             - 밀리 초 단위의 숫자 또는 문자열 slow, normal, fast를 입력
+            callback
+             - 효과를 모두 완료하고 실행할 함수를 지정
+            easing
+             - 애니메이션의 easing 형태를 지정
+             - 별도의 플러그인을 사용하지 않으면 문자열 linear와 swing만 입력 가능
+        */
+        $(function(){
+            $('div').hover(function(){
+                $(this).animate({
+                    left: 1500
+                }, 'slow');
+            }, function(){
+                $(this).animate({
+                    left: 0
+                }, 'slow');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div></div><div></div>
+    <div></div><div></div>
+    <div></div><div></div>
+</body>
+</html>
