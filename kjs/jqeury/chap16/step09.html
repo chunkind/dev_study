@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            기본 이벤트와 이벤트 전달
+            preventDefault() - 기본 이벤트를 제거
+            stopPropagation() - 이벤트 전달을 제거
+        */
+        $(document).ready(function(){
+            //이벤트 전달, 기본 이벤트 제거 방법 1
+            /*$('a').click(function(e){
+                $(this).css('background-color','blue');
+                //이벤트 전달 제거
+                e.stopPropagation();
+                //기본 이벤트 제거
+                e.preventDefault();
+            });*/
+            //이벤트 전달, 기본 이벤트 제거 방법 2
+            $('a').click(function(e){
+                $(this).css('background-color','blue');
+                //javascript 에서는 기본 이벤트만 제거 되지만
+                //jquery 에서는 기본 이벤트와 이벤트 전달을 제거시킨다.
+                return false;
+            });
+            
+            $('h1').click(function(){
+                $(this).css('background-color','red');
+            });
+        });
+    </script>
+</head>
+<body>
+    <style>
+        *{
+            margin: 5px; 
+            padding: 5px;
+            border: 3px solid black;
+        }
+    </style>
+    <h1>
+        <a href="http://www.naver.com">Naver</a>
+    </h1>
+</body>
+</html>

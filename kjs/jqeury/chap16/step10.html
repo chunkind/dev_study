@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            이벤트 연결 범위 한정 -
+        */
+        $(function(){
+            //$('h1').on('click', function(){
+            
+            //2번째 매개변수로 이벤트 범위를 한정할 수 있다.
+            //이렇게 범위를 한정하는 이벤트 연결방식이 delegate 방식이다.
+            $('#wrap').on('click', 'h1', function(){
+                var length = $('h1').length;
+                var targetHTML = $(this).html();
+                $('#wrap').append('<h1>' + length + ' - ' + targetHTML + '</h1>');
+                
+                //delegate 이벤트 제거
+                $('#wrap').off('click','h1');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <h1>오형석</h1>
+    </div>
+</body>
+</html>

@@ -7,10 +7,47 @@
     <script>
         /*
             이벤트 객체
+            event.pageX - 브라우저의 화면을 기준으로 한 마우스의 X좌표 위치
+            event.pageY - 브라우저의 화면을 기준으로 한 마우스의 Y좌표 위치
+            event.preventDefault() - 기본 이벤트를 제거 한다.
+            event.stopPropagation() - 이벤트 전달을 제거 한다.
         */
+        $(function(){
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            
+            $(canvas).on({
+                mousedown:function(e){
+                    //마우스 클릭버큰을 눌렀을시 위치를 얻어낸다.
+                    var position = $(this).offset();
+                    var x = e.pageX - position.left;
+                    var y = e.pageY - position.top;
+                    
+                    console.log(x + ", " + y);
+                    
+                    //선을 그린다.
+                    context.beginPath();
+                    context.moveTo(x, y);
+                },
+                mouseup:function(e){
+                    //마우스 클릭버튼을 때었을시 위치를 얻어낸다.
+                    var position = $(this).offset();
+                    var x = e.pageX - position.left;
+                    var y = e.pageY - position.top;
+                    
+                    console.log(x + ", " + y);
+                    
+                    //선을 그린다.
+                    context.lineTo(x, y);
+                    context.stroke();
+                }
+            });
+        });
     </script>
 </head>
 <body>
-    
+    <canvas id="canvas" width="700" height="400" style="border: 3px solid black">
+        
+    </canvas>
 </body>
 </html>
