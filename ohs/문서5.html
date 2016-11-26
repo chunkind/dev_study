@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+       <script>   
+           
+           //우선 본문 다이브를 선언 하고
+           //다이브 밑에 스크립트 쓰고 거기서 attr을 이용해 date 추가 해준다.
+           //제이 쿼리를 이용해서 시간을 출력한다.
+           //removeattr을 이용해서 date를 지워보
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+        $(document).ready(function(){
+            //$('div').removeAttr(date);
+            //속성 제거 했다.
+
+            document.write((date.getMonth() + 1) + "월 " +
+                date.getDate() + "일 " +
+                date.getHours() + "시 " +
+                date.getMinutes() + "분 " +
+                date.getSeconds() + "초<br/>");
+            
+
+   
+        });
+    </script>
+
+</head>
+    <body> 
+        <div></div>
+        <script>    
+            var date = new Date();
+            $('div').attr(date);
+    </script>
+    </body>
+</html>

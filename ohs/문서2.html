@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>태그 선택자 와 클래스 선택자</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+       <script>
+            $(document).ready(function(){
+            $('h1').addClass('item');
+            $('span').addClass('active');
+            $('.active').css('background','yellow');
+            //이 페이지에는 총 3개의 클래스가 있다
+            $('span').removeClass();
+            $('.active').css('background','black');
+            //SPAN테그에 모든 클래스를 제거후 과연 제거 되었는지 확인 해보자
+            //H1의 클래스인 item을 매개변수로 넣어서 삭제 해보다
+            $('h1').removeClass('item');
+            $('.item').css('background','orange');
+            //모두 삭제가 되어서 더이상 클래스를 이용할수 없
+
+        });
+    </script>
+
+</head>
+    <body> 
+    <h1>태그</h1>
+    <div>
+        저의 <span class="pasitive" id="">장점</span>은<span class="pasitive">긍정적인 성격</span> 입니다.<br />
+        저의 <span class="negative">단점</span> <span class="negative">지저분한 스타입</span> 입니다.<br />
+    </div>
+    </body>
+</html>
