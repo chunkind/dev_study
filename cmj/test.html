@@ -4,25 +4,13 @@
     <meta charset="UTF-8">
     <title>문서 객체의 클래스 속성 추가</title>
 </head>
-    <script src = "http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src = "../common/js/jquery-1.10.2.js"></script>
     <script>
-        /*
-            addClass() --> 문서 객체의 클래스 속성을 추가.
-        */
+    $(function(){
+        alert("hi");
+    });
     </script>
 <body>
-    <h1>Header-0</h1>
-    <h1>Header-1</h1>
-    <h1>Header-2</h1>
 </body>
-    <script>
-//        $(document).ready(function() {
-//           $('h1').addClass('item'); 
-//        });
-        $(document).ready(function() {
-            $('h1').addClass(function (index) {
-                return 'class' + index;
-            });
-        });
-    </script>
+
 </html>
