@@ -62,3 +62,9 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2016-12-03 00:00:12.314
 !MESSAGE Invalid site reference %updateSiteURL in feature com.pramati.eclipse.feature.
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2016-12-03 00:20:47.368
+!MESSAGE already installed: org.eclipse.jst.server.generic.jonas4
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2016-12-03 00:21:23.742
+!MESSAGE already installed: org.eclipse.jst.server.generic.jonas4
