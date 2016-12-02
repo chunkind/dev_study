@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<a href="GT2">예제 1 실행</a>
+<!-- 
+/부터 시작 하면 ROOT Path 부터 잡힌다.
+ -->
+<!-- <a href="/web01_BasicServlet/GT2">예제 1 실행</a> -->
+
+
+</body>
+</html>
