@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+// 문서 객체 이동     
+    /*$(document).ready(function(){
+       $('img').first().appendTo('body'); 
+    });*/
+
+// setInterval() 함수를 사용하면 문서 객체의 순서를 변경     
+   /* $(document).ready(function(){
+       $('img').css('width',200);
+        
+        setInterval(function(){
+            $('img').first().appendTo('body');
+        },2000);    
+    });*/
+
+// 문서 객체 복제 
+// 문서 객체를 생성하지 않고 기존의 문서 객체를 선택하고 
+// 문서 객체 삽입 메소드를 사용하면 문서 객체가 이동 
+    /*$(document).ready(function(){
+       $('div').append($('h1')); 
+    });*/
+    
+    $(document).ready(function(){
+       $('div').append($('h1').clone()); 
+    });
+</script>
+</head>
+<body>
+   <!-- 문서 객체 복제 -->
+    <!--<img src="Chrysanthemum.jpg" />
+    <img src="Desert.jpeg" />
+    <img src="Hydrangeas.jpg" />-->
+    
+    <!-- 문서 객체 이동 -->
+    <h1>HEADER</h1>
+    <hr/><div></div><hr/>
+</body>
+</html>
