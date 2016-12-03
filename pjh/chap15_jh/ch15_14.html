@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter15.문서 객체 조작</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+       /* 
+       
+       15.13 문서 객체 삽입(1)
+        
+       - jQuery에는 문서 객체에 문서 객체를 추가히는 메서드가 8개
+       
+       $(A).appendTo(B) :  A를 B(태그 내)의 뒷부분에 추가
+       $(A).prependTo(B) : A를 B(태그 내)의 앞부분에 추가
+       $(A).insertAfter(B) : A를 B의 (태그) 뒤에 추가
+       $(A).insertBefore(B) : A를 B의 (태그) 앞에 추가
+
+
+       */
+        
+        $(document).ready(function(){
+            
+           
+            $('h1').appendTo('h2'); //h1 를 h2 태그 내의 뒷부분에 추가
+            
+            $('h3').insertAfter('h4');  //h3 를 h4 의 태그 뒤에 추가
+            
+            
+            
+          
+        })
+    </script>
+</head>
+<body>
+    <h1>H1태그</h1>
+    <h2>H2태그</h2>
+    <h3>H3태그</h3>
+    <h4>H4태그</h4>
+</body>
+</html>

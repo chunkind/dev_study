@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter15.문서 객체 조작</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+       /* 
+       
+       15.8 문서 객체의 내부 검사
+        
+       -html() : 문서 객체 내부의 글자와 관련된 모든 기능을 수행.(HTML 태그 인식)
+       -text() : 문서 객체 내부의 글자와 관련된 모든 기능을 수행.
+
+       */
+        
+        $(document).ready(function(){
+            
+            var html = $('h1').html();
+            
+            alert(html);
+            
+            /*var text = $('h1').text();
+            
+            alert(text);*/
+            
+            // text() 메서드는 첫 번째 문서 객체의 글자를 가져오는 것이 아니라 
+            // 선택자로 선택한 모든 문서 객체의 글자를 이어서 출력.
+            
+        })
+    </script>
+</head>
+<body>
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>
+</body>
+</html>
