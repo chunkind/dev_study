@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문서 객체의 속성 제거</title>
+   
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        // 1. removeAttr(name) : 문서 객체의 속성을 제거
+        
+        $(document).ready(function (){
+            //$('h1').removeAttr('data-indx');
+            //$('span').removeClass('data-indx');
+            $('h1').removeAttr('color');
+            //('h1').removeAttr('style');
+            
+            
+        });
+        
+        
+        
+    /*
+    [   Tip_
+        removeClass() 메서드와 removeAttr() 메서드 모두 클래스 속성을 제거함.
+        removeAttr() 메서드를 사용하면 모든 클래스 속성이 한 번에 제거되는 것과 달리 
+        removeClass() 메서드를 사용하면 여러 개의 클래스 속성 중 선택적으로 제거할 수 있다.  ]
+    */
+    </script>
+    
+</head>
+<body>
+    <h1 data-indx="0" color="red">remove1</h1>
+    <h1 data-indx="1" style="color:blue;">remove2</h1>
+    <h1 data-indx="2">remove3</h1>
+    
+    <span data-index="3">span_attr_remove1</span>
+   <!--
+      [ TIP_
+        SPAN 태그는 "Inline Text Container (문장 단위로 텍스트 영역을 지정하는 것)"인데, 그 자체로는 아무 역할도 하지 않고,
+
+        문장의 특정 구역에 CSS스타일을 지정할 때 사용합니다.
+
+        DIV 태그의 역할과도 비슷하지만, 
+        DIV 태그는 사각형 박스 모양으로 구역을 지정하고, 
+        SPAN은 한 문장 단위입니다. ]
+   -->
+</body>
+</html>

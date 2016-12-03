@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문서 객체의 스타일 검사</title>
+    <style>
+        .css1{color:red; font-size: 15px;}
+        .css2{color:pink;}
+        .css3{color:orange;}
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        // 1.css : 스타일과 관련된 모든 기능 수행
+        $(document).ready(function(){
+            //변수 선언
+            var color = $('.css2').css('color');
+            var fontSize = $('.css1').css('font-size');
+            alert(color);
+            alert(fontSize);
+        });
+    </script>
+</head>
+<body>
+    <h1 class="css1">css1</h1>
+    <h1 class="css2">css2</h1>
+    <h1 class="css3">css3</h1>
+</body>
+</html>

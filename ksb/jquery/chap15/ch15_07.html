@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문서 객체의 내부 추가</title>
+    
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        /*
+            문서 객체의 내부 내용물 추가시 html(), text() 메서드가 사용된다.
+            
+            [ 사용형태 ]
+            1.  $(selector).html(value);
+                $(selector).text(value);
+            2.  $(selector).html(function(index,html){});
+                $(selector).text(function(index,text){});
+        */
+        $(document).ready(function(){
+            ///////////////////////////////////////////////////////////////////
+            //1. html() or text() 메서드는 매개변수로 입력하고자 하는 html문자열을 입력.
+            //   html() or text() 메서드는 html태그를 인식하여 문자열 삽입
+            //$('div').html('<h1>html() method</h1>');
+            //$('div').text('<h1>text() method</h1>');   // 태그인식 불가
+            ///////////////////////////////////////////////////////////////////
+            
+            ///////////////////////////////////////////////////////////////////
+            //2. html() or text() 함수를 매개변수로 입력할 때는 index를 매개변수로
+            /*
+            $('div').html(function(index){
+                return '<h1>함수이용'+index+'</h1>'
+            });
+            */
+            
+            /*
+            $('div').text(function(index){
+                return '<h1>함수이용'+index+'</h1>'
+            });
+            // 태그인식 불가
+            */
+            ///////////////////////////////////////////////////////////////////
+            
+            
+             ///////////////////////////////////////////////////////////////////
+            //3. html() or text() 메서드의 매개변수로 입력한 함수의 두 번째 매개변수
+            /*
+            $('h2').html(function(index,html){
+                return '*'+html+']'
+            });
+            */
+            
+            $('h2').text(function(index,text){
+                return '*'+text+']'
+            });
+            ///////////////////////////////////////////////////////////////////
+        });
+    </script>
+</head>
+<body>
+    <!-- 1,2번 예제 태그 -->
+    <div></div>
+    <div></div>
+    <div></div>
+    <!-- //1,2번 예제 태그 -->
+    
+    <!-- 3번 예제 태그 -->
+    <h2>h2_1</h2>
+    <h2>h2_2</h2>
+    <h2>h2_3</h2>
+    <!-- //3번 예제 태그 --> 
+</body>
+</html>

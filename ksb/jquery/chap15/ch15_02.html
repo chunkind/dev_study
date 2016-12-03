@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문서 객체의 속성 추가</title>
+   
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        
+    //  1. attr() 
+    //  - 속성과 관련된 모든 기능을 수행.(문서 객체의 속성을 알아내는 기능을 수행한다.)
+
+        $(document).ready(function(){
+        //변수 선언 {
+            var src = $('img').attr('src');
+            //img태그 맨 첫번째의 값만 단일로 출력
+            //alert(src);
+        //  }
+            
+    
+        //  문서 객체의 속성 추가
+        //  attr() 메서드의 3가지 형태 사용법
+        //  1. $(select).attr(name,value);
+        //  2. $(select).attr(name,function(index,attr){});
+        //  3. $(select).attr(object);
+    
+            
+            //  [ 1.$(select).attr(name,value) 형태 ]  {
+            //  첫 번째 매개변수에는 속성 이름 입력
+            //  두 번째 매개변수에는 값 입력
+            
+                $('img').attr('width',100);
+            
+            //  }
+            
+            // [ 2.$(select).attr(name,function(index,attr){}) 형태 ] {
+            //  첫 번째 매개변수에는 속성의 이름
+            //  두 번째 매개변수에는 index 매개변수를 갖는 함수를 입력
+            
+                /*
+                $('img').attr('width', function (index){
+                    return (index + 1) * 50; 
+                });
+                */
+            
+            //  }
+            
+            //  [ 3.(select).attr(object) 형태 ] {
+            //  매개변수로 입력.. 매개변수로 입력한 객체에는 키로 속성의 이름을 지정하고 값을 입력한다.
+            //  값을 입력할 때는 1번 형태와 2번 형태를 모두 사용할 수 있다.
+            
+                /*
+                $('img').attr({
+                    width: function (index){
+                        return (index + 1) * 50;
+                    },
+                    height: 100
+                })
+                */
+            
+            //  }
+            
+        });
+    </script>
+</head>
+<body>
+    <img src='../chap10/img/moon.jpg' />
+    <img src='../chap10/img/sun.jpg' />
+    <img src='../chap10/img/moon.jpg' />
+</body>
+</html>
