@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter15.문서 객체 조작</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+       /* 
+       
+       15.9 문서 객체의 내부 추가
+       
+       - 문서 객체의 내부에 내용물을 추가하고 싶을 때도 html() 메서드와 text() 메서드를 사용.
+       - 두 메서드 모두 다음과 같은 형태로 시용.
+       
+        1. $(selector).html(value); 
+           $(selector).text(value);
+           
+        2. $(selector).html(function(index. html) { });
+           $(selector).text(function(index. text) { });
+
+       */
+        
+        $(document).ready(function(){
+            
+            //$('div').html('<h1>$().html() Method</h1>'); 
+            //html태그를 인식
+            
+            
+            //$('div').text('<h1>$().html() Method</h1>'); 
+            //html태그를 인식 못함. 문자열 그대로 입력 
+            
+            $('div').html(function(index){
+                
+                return '<h1>Header-' + index + '</h1>';
+                
+            });
+            
+            
+        })
+    </script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

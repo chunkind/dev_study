@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter15.문서 객체 조작</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <style>
+        .first { color: red; }
+        .second { color: pink; }
+        .third { color: orange; }
+    </style>
+      
+      
+      <script>
+       /* 
+       
+       15.6 문서 객체의 스타일 검사
+        
+       - css() : 스타일과 관련된 모든 기능을 수행한다.
+       
+       - 특정 문서 객체의 스타일 속성을 알고 싶을 때는 css('스타일 속성명')을 사용.
+
+       */
+        
+        $(document).ready(function(){
+            
+          var color = $('h1').css('color'); //첫 번째 문서 객체의 스타일 속성을 가져옴 
+            
+            alert(color); 
+            
+        })
+    </script>
+</head>
+<body>
+    <h1 class="first">Header-0</h1>
+    <h1 class="second">Header-1</h>
+    <h1 class="third">Header-2</h1>
+</body>
+</html>

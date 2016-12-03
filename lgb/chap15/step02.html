@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script>
+// 문서 객체의 속성 제거 
+// 첫 번째 매개변수에 삭제하려는 속성의 이름을 입력 
+// removeClass(), removeAttr() 차이점 
+// removeAttr() : 모든 클래스 속성이 한번에 제거 
+// removeClass() : 여러 개의 클래스 속성 중 선택적으로 제거 
+    /*$(document).ready(function(){
+       $('h1').removeAttr('data-index'); 
+    });*/
+
+// 문서 객체의 스타일 검사 
+// 속성 검사 
+// background-color 스타일 속성의 경우 문자열 그대로 
+// background-color를 넣어도 되고 backgroundcolor로 넣어도 됨    
+   /* $(document).ready(function(){
+        var color = $('h1').css('color');
+        alert(color);
+    });*/
+    
+// 문서 객체의 스타일 추가 
+// 1번 형태     
+    /*$(document).ready(function(){
+        $('h1').css('color','red');
+    });*/
+    
+// 2번 형태     
+    /* $(document).ready(function(){
+         var color = ['red','yellow','purple'];
+    
+         $('h1').css('color',function(index){
+           return color[index]; 
+        });
+    });*/
+// 3번 형태 
+    /*$(document).ready(function(){
+       var color = ['red','blue','orange'];
+        
+        $('h1').css({
+           color: function(index){
+               return color[index];
+           }, 
+            backgroundColor: 'black'
+        });
+    });*/
+    
+// 문서 객체의 내부 검사 
+// html(), text() 
+// html() 메서드는 HTML 태그를 인식, text() 메서드는 HTML 태그를 인식 x
+    /*$(document).ready(function(){
+       var html = $('h1').html();
+        
+        alert(html);
+    });*/
+    
+    /*$(document).ready(function(){
+       var text = $('h1').text();
+        
+        alert(text);
+    });*/
+    // 첫 번째 문서 객체의 글자를 가져오는 것이 아니라 
+    // 선택자로 선택한 모든 문서 객체의 글자를 이어서 출력. 
+    
+// 문서 객체의 내부 추가 
+// 문서 객체의 내부에 내용물을 추가하고 싶을 때도 html(), text() 메서드 사용
+   /* $(document).ready(function(){
+       $('div').html('<h1>$().html() Method</h1>'); 
+    });*/
+    
+    /*$(document).ready(function(){
+       $('div').text('<h1>$().html() Method</h1>'); 
+    });*/ // 문자열을 그대로 입력한다..
+    
+    // 함수를 매개변수로 입력할 때는 index를 매개변수로 넣는다. 
+    /*$(document).ready(function(){
+       $('div').html(function(index){
+          return '<h1>Header-'+index+'</h1>'; 
+       }); 
+    });*/
+    
+    // html() 메서드의 매개변수로 입력한 함수의 매개변수를 두 개 사용하면
+    // 두 번째 매개변수에 있던 HTML의 내용을 의미 
+        /*$(document).ready(function(){
+            $('h1').html(function(index,html){
+                return '★'+html+'★';
+            });
+        });*/
+    
+    // 문서 객체 제거 
+    /*$(document).ready(function(){
+       $('h1').first().remove(); 
+    });*/
+    
+    $(document).ready(function(){
+       $('div').empty(); 
+    });
+    
+</script>
+<style>
+    .first { color: red;}
+    .second {color: pink;}
+    .thrid { color: orange;}
+</style>
+</head>
+<body>
+    <!--<h1 data-index="0">Header-0</h1>
+    <h1 data-index="1">Header-1</h1>
+    <h1 data-index="2">Header-2</h1>-->
+    
+    <!--<h1 class="first">Header-0</h1>
+    <h1 class="second">Header-1</h1>
+    <h1 class="thrid">Header-2</h1>-->
+    
+    <!-- 스타일 추가 -->
+    <!--<h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>-->
+    
+    <!-- 문서 객체의 내부 추가 -->
+    <!--<div></div>
+    <div></div>
+    <div></div>-->
+    
+    <!--<h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>-->
+    
+    <!-- 문서 객체 제거 -->
+    <div>
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    </div>
+</body>
+</html>

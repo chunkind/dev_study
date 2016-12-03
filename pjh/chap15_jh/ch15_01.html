@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter15.문서 객체 조작</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <style>
+    .item {background-color: gold;}
+        
+    .class0 {color: red;}
+    .class1 {color: orange;}    
+    .class2 {color: blue;}
+    
+    </style>
+    <script>
+       /* 
+       
+       15.1 문서 객체의 클래스 속성 추가
+        
+       -addClass() : 문서 객체의 클래스 속성을 추가한다.
+
+       -사용 형태
+       1.addClass('클래스 속성')
+       2.addClass(function([index]){ }) 
+       
+       */
+        
+        $(document).ready(function(){
+            
+            $('h1').addClass('item');
+            
+            
+            /*$('h1').addClass(function(index){
+                             
+                    return 'class' + index;        
+             });*/
+            
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>
+</body>
+</html>
