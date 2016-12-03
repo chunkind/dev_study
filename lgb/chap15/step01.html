@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script>
+// 문서 객체 조작 
+// 문서 객체의 클래스 속성 추가 
+    $(document).ready(function(){
+       $('h1').addClass('item'); 
+    });
+    
+// JQuery 메서드는 대부분 이렇게 매개변수에 문자열을 입력하는 방법 외에 
+// 함수를 매개변수로 입력할 수도 있다. 
+    /*$(document).ready(function(){
+        $('h1').addClass(function(index){ // int : 0,1,2,3
+            return 'class' + index;
+        });
+    });*/
+
+// 문서 객체의 클래스 속성 제거 
+// Element로 마우스 클릭해서 확인      
+    /*$(document).ready(function(){
+       $('h1').removeClass('item'); 
+    });*/
+
+// 문서 객체의 속성 검사 
+    /*$(document).ready(function(){
+       var src = $('img').attr('src');
+        
+        alert(src);
+    });*/
+    // 실행 결과 문서 객체의 속성을 출력 
+    // JQuery 메서드는 여러 개의 문서 객체를 선택했을 때 
+    // 첫 번째에 위치한 문서 객체의 값을 출력 
+
+    
+// 문서 객체의 속성 추가 
+// 세 가지 형태가 있다.
+// 1번 형태 : 매개변수에는 속성 이름 입력하고, 두 번째 매개변수에는 값을 넣음
+    /*$(document).ready(function(){
+       $('img').attr('width',200); 
+    }); */ // width 속성이 변경 
+
+
+// 2번 형태 : 첫 번째 매개변수에는 속성의 이름 입력
+// 두 번째 매개변수에는 index 매개변수를 갖는 함수 입력. 이전 addClass()  
+// index + 1을 하는 이유는 0부터 시작하기 때문에 
+// 곱하면 이미지가 나타나지 않는다... 
+    /*$(document).ready(function(){
+       $('img').attr('width', function(index){
+          return (index+1) * 100;    
+       }); 
+    });*/
+ 
+// 3번 형태 : 매개변수에 객체를 입력 
+// 매개변수로 입력한 객체에는 키로 속성의 이름을 지정하고 값을 입력 
+// 값을 입력할 때는 1번 형태와 2번 형태를 모두 사용 
+    /*$(document).ready(function(){
+       $('img').attr({
+          width: function(index){
+            return (index+1) * 100;   
+          },
+           height: 100
+       }); 
+    });*/
+    
+</script>
+</head>
+<body>
+  
+   <h1>Header-0</h1>
+   <h1>Header-1</h1> 
+   <h1>Header-2</h1> 
+   
+  <!-- 
+   <h1 class="class">Header-0</h1> 
+   <h1 class="class">Header-1</h1> 
+   <h1 class="class">Header-2</h1> 
+   <h1 class="class">Header-3</h1> 
+   -->
+   
+   <!-- removeClass() 메서드 -->
+   <!--<h1 class="item">Header-0</h1>
+   <h1 class="item select">Header-1</h1>
+   <h1 class="item">Header-2</h1>-->
+   
+   <!-- attr() 메서드 -->
+   <!--<img src="Chrysanthemum.jpg"/>
+   <img src="Desert.jpeg"/>
+   <img src="Hydrangeas.jpg"/>-->
+   
+   <!-- attr() 메서드 속성 추가 -->
+   <!--<img src="Chrysanthemum.jpg"/>
+   <img src="Desert.jpeg"/>
+   <img src="Hydrangeas.jpg"/>-->
+   
+</body>
+</html>
+
+
