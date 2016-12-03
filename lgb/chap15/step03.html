@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+// 문서 객체 생성(1) 
+// $() 메소드로 문서 객체를 생성할 때..$() 메소드의 매개변수에 HTML 태그를 
+// 문자열로 넣기만 하면 문서 객체가 생성
+// 생성한 문서 객체를 body 태그에 추가하려면 appendTo() 메소드를 사용   
+// $() 메서드의 내부에는 HTML 태그를 넣는다고 했으므로 내용을 바로 넣을 수도 있다
+    
+    /*$(document).ready(function(){
+       $('<h1></h1>').html('Hello JQuery...!').appendTo('body'); 
+    });*/
+    
+     /*$(document).ready(function(){
+       $('<h1>Hi JQuery!!</h1>').appendTo('body'); 
+    });*/
+    
+    /*$(document).ready(function(){
+       $('<img src="Desert.jpeg">').appendTo('body').css('width',200); 
+    });*/
+
+// 문서 객체 생성(2)
+// 텍스트 노드를 갖지 않는 문서 객체를 생성하는 방법
+// img 태그를 생성할 때는 $() 메소드로 문서 객체를 생성하고 
+// attr() 메소드로 속성을 입력 
+    
+/*$(document).ready(function(){
+   $('<img />').attr('src','Chrysanthemum.jpg').appendTo('body');
+});*/
+
+// attr() 메소드를 사용하지 않아도 $() 메소드의 두 번째 매개변수에 객체를 
+// 넣고 원하는 속성을 입력 
+    $(document).ready(function(){
+       $('<img />', {
+          src: 'Chrysanthemum.jpg',
+        width: 200,
+        height: 150
+           
+       }).appendTo('body'); 
+    });
+    
+// 문서 객체 삽입(1)
+// $(A).appendTo(B)  // $(A).prependTo(B) 
+// $(A).insertAfter(B)  // $(A).insertBefore(B)
+
+// 문서 객체 삽입(2)
+// 첫 번째 형태 
+    /*$(document).ready(function(){
+       var h1 = '<h1>Header-1</h1>';
+       var h2 = '<h2>Header-2</h2>';
+        
+        $('body').append(h1,h2,h1,h2);
+    });*/
+    
+// 두 번째 형태 
+// 선택한 문서 객체에 서로 다른 내용을 추가 
+     /*$(document).ready(function(){
+       var content = [
+         {name: 'John Legend', region: '서울시 강북구'},
+         {name: 'Coldplay',region: '과천시 부림동'},
+         {name: 'Troye Sivan', region: '교대입구'}
+       ];
+       
+         $('div').append(function(index){
+             var item = content[index];
+             var output = '';
+             
+             output += '<h1>'+item.name+'</h1>';
+             output += '<h2>'+item.region+'</h2>';
+             
+             return output;
+         });
+    });*/
+</script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>
+
+
+
+
+
+
+
+

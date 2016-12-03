@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -11,13 +11,13 @@
    
         $(document).ready(function(){
             function getAttr(){
-             var input = $('input').attr('type');
+             var input = $('input');
                 //특정 속성의 값을 알아내고 싶을떄는 매개변수에
                 //속성 이름을 입력
-                if (input.type == "checkbox" && inputs.checked == true) {
+                if (input.type == "checkbox" && input.checked == true) {
                     alert(input+"을 눌렀군");
                 }
-                if (inputs.type == "text" && inputs.name == "txt") {
+                if (input.type == "text" && input.name == "txt") {
                     alert("당신이 입력한 문자는="+input);
 
                 }
