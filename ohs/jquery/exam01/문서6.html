@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+         css() - 스타일과 관련된 모든 기능을 수행한다.
+         
+         문서 객체의 스타일 추가
+         1. $(selector).css(name, value);
+         2. $(selector).css(name, function(){});
+         3. $(selector).css(object);
+     */
+        //1.
+        function setFont() {
+            $('#span').css('color', 'orange');
+            $('#span').css('fontWeight', 'bold');
+            $('#span').css('fontSize', '2em');
+        }
+
+
+
+        //문제 신문기사의 버튼을 실행되게 하여라
+       
+
+        
+        var ptag;
+        $(document).ready(function(){
+            ptag = $('#article');
+
+        });
+
+        function fnArticle(flag) {
+      
+            switch (flag) {
+                case "+":
+
+                    ptag.css('fontSize', '2em');
+                    break;
+                case "-":
+
+                    break;
+                case "R":
+                    ptag.css('color', 'red');
+                    break;
+                case "G":
+                    ptag.css('color', 'green');
+                    break;
+                case "B":
+                    ptag.css('color', 'blue');
+                    break;
+                case "BO":              
+                    ptag.css('fontWeight', 'bold');
+                    break;
+                case "NO":
+                    ptag.css('fontWeight', 'normal');
+                    break;
+                default:
+                    ptag.css('color', 'black');
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+    <h2>제이쿼리 CSS</h2>
+    <span id="span">SPAN태그</span>
+    <input type="button" value="글꼴바꾸기" onclick="setFont()" />
+    <fieldset>
+        <legend>신문기사</legend>
+        <button onclick="fnArticle('+')">+</button>
+        <button onclick="fnArticle('-')">-</button>
+        <button onclick="fnArticle('R')">Red</button>
+        <button onclick="fnArticle('G')">Green</button>
+        <button onclick="fnArticle('B')">Blue</button>
+        <button onclick="fnArticle('')">Black</button>
+        <button onclick="fnArticle('BO')">볼드체</button>
+        <button onclick="fnArticle('NO')">보통</button>
+        <p style="font-size:10px;" id="article">
+            박 대통령은 이날 청와대에서 열린 대통령 주재 수석비서관회의에<br />
+            참석해 이 같이 밝히며 “각 수석들은 국민을 대신해 일하고<br />
+            있는 분들인 만큼, 국민을 위해서 잘못된 그 어떤 것들에도<br />
+            결코 굴복하거나 용인하지 않겠다는 강한 의지를 가지고<br />
+            일해주길 바란다”고 당부했다.<br />
+        </p>
+    </fieldset>
+
+    
+</body>
+</html>
