@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        //XMLHttpRequest 객체 생성 함수
+        function createRequest(){
+            var request;
+            try{
+                request = new XMLHttpRequest();
+            }catch(e){
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                
+                for(var i=0; i<versions.length; i++){
+                    try{
+                        return new ActiveXObject(versions[i]);
+                    }catch(e2){}
+                }
+            }
+            return request;
+        }
+        
+        var request = new createRequest();
+        request.open('GET', '/data.html', false);
+        
+        //Ajax 수행
+        request.send();
+        
+        //출력
+        document.body.innerHTML += request.responseText;
+    </script>
+</body>
+</html>
