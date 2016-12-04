@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<a href="Basic">예제1</a><br>
+<a href="">예제2</a><br>
+<a href="">예제3</a><br>
+</body>
+</html>
