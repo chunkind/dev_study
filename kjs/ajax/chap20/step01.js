@@ -1,3 +1,4 @@
+'use strict'
 /*
     응답과 응답 형식.
 */
@@ -8,15 +9,15 @@ var express = require('express');
 var items = [
     {
         name:'우유',
-        price:'2000'
+        price:2000
     },
     {
         name:'홍차',
-        price:'5000'
+        price:5000
     },
     {
         name:'커피',
-        price:'5000'
+        price:5000
     }
 ];
 
@@ -79,21 +80,29 @@ app.all('/data.xml',function(request, response){
     var output = '';
     output += '<?xml version="1.0" encoding="UTF-8" ?>';
     output += '<products>';
-    items.forEach(function(item){
+//    items.forEach(function(item){
+//        output += '<product>';
+//        output += '     <name>' + item.name + '</name>';
+//        output += '     <price>' + item.price + '</price>';
+//        output += '</product>';
+//    });
+    items.map((item) => {
         output += '<product>';
         output += '     <name>' + item.name + '</name>';
         output += '     <price>' + item.price + '</price>';
         output += '</product>';
-    });
+    })
     output += '</products>';
     response.type('text/xml');
     response.send(output);
 });
 
 //웹 서버를 실행
-http.createServer(app).listen(52273, function(){
+/*http.createServer(app).listen(52273, function(){
     console.log('Server Running at http://127.0.0.1:52273');
-});
+});*/
+
+http.createServer(app).listen(52273, () => console.log('Server Running at http://127.0.0.1:52273'));
 
 
 

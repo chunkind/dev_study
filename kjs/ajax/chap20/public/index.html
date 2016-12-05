@@ -30,11 +30,82 @@
             return request;
         }
         
-        var request = new createRequest();
-        request.open('GET', '/data.html', false);
+        //XMLHttpRequest 객체를 생성
+        var request = createRequest();
+        
+        /*
+            XMLHttpRequest의 상태가 변경될 때마다 이벤트를 호출 한다.
+            readyState 속성          설명
+            0                       request 객체를 만들었지만 open()메서드로 초기화하지 않았음
+            1                       request 객체를 만들고 초기화했지만 send()메서드가 사용되지 않음
+            2                       send() 메서드를 사용했지만 아직 데이터를 받지 못함
+            3                       데이터의 일부만을 받음
+            4                       모든 데이터를 받음
+        */
+        request.onreadystatechange = function(e){
+            if(request.readyState == 4){
+                /*
+                    HTTP Status Code       설명             예
+                    1XX                     처리 중         100 Continue
+                    2XX                     성공            200 OK
+                    3XX                     리다이랙트       300 Multiple Choices
+                    4XX                     클라이언트 오류   400 Bad Request
+                    5XX                     서버 오류        500 Internal Server Error
+                */
+                if(request.status == 200){
+                    //Html 요청
+                    //document.body.innerHTML += request.responseText;
+                    
+                    //Json 요청
+                    //var json = eval('(' + request.responseText + ')');
+                    /*var json = JSON.parse(request.responseText);
+                    var output = '';
+                    for(var i=0; i<json.length; i++){
+                        for(var key in json[i]){
+                            output += '<h1>' + i + ':' + json[i][key] + '</h1>';
+                        }
+                    }
+                    document.body.innerHTML += output;*/
+                    
+                    //xml 요청
+                    /*
+                        일반적으로 문서 객체를 조작할 때 사용하는 속성
+                        속성          설명
+                        nodeValue     문서 객체의 내부 글자
+                        attributes    문서 객체의 속성
+                        
+                        XML을 조작할때 자주 사용하는 메서드
+                        메서드                     설명
+                        getElementById(id)        id 속성이 일치하는 문서 객체를 선택함
+                        getElementsByTagName(name)태그 이름이 일치하는 문서객체를 선택함
+                        
+                    */
+                    //alert(request.responseXML);
+                    var xml = request.responseXML;
+                    var names = xml.getElementsByTagName('name');
+                    var prices = xml.getElementsByTagName('price');
+                    for(var i=0; i<names.length; i++){
+                        var name = names[i].childNodes[0].nodeValue;
+                        var price = price[i].childNodes[0].nodeValue;
+                        document.body.innerHTML += '<h1>' + name + '</h1>';
+                        document.body.innerHTML += '<h2>' + price + '</h2>';
+                    }
+                }
+            }
+        };
+        
+        //동기방식 호출
+        //request.open('GET', '/data.html', false);
+        //비동기방식 호출
+        //request.open('GET', '/data.html', true);
+        //request.open('GET', '/data.json', true);
+        request.open('GET', '/data.xml', true);
         
         //Ajax 수행
+        var prevDate = new Date();
         request.send();
+        var nowDate = new Date();
+        console.log("수행된 시간 : " + (nowDate - prevDate))
         
         //출력
         document.body.innerHTML += request.responseText;
