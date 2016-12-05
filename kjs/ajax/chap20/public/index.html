@@ -25,7 +25,9 @@
                 for(var i=0; i<versions.length; i++){
                     try{
                         return new ActiveXObject(versions[i]);
-                    }catch(e2){}
+                    }catch(e2){
+                        console.log("request object is failed while creating..")
+                    }
                 }
             }
             return request;
@@ -93,15 +95,15 @@
                     }*/
                     
                     //xml을 json으로 변환후 처리
-                    console.log("request.responseText : " +request.responseText);
+                    console.log("request.responseText - \n" +request.responseText);
                     var json = xml2json.parser(request.responseText);
                     var output = '';
-                    console.log("sieze : " + json.products.length);
-                    for(var i=0; i<json.products.length; i++){
+                    console.log("size : " + json.products);
+                    for(var i=0; i<json.products; i++){
                         output += '<h1>' + json.products[i].name + '</h1>';
                         output += '<h2>' + json.products[i].price + '</h2>';
                     }
-                    console.log(output);
+                    console.log("output - \n" + output);
                     document.body.innerHTML += output;
                 }
             }

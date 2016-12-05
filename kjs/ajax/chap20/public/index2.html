@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XMLHttpRequest</title>
+    <script src="xml2json.js"></script>
+</head>
+<body>
+    <script>
+        //XMLHttpRequest 객체 생성 함수
+        function createRequest(){
+            var request;
+            try{
+                request = new XMLHttpRequest();
+            }catch(e){
+                var versions = [
+                    'Msxml2.XMLHTTP.6.0',
+                    'Msxml2.XMLHTTP.5.0',
+                    'Msxml2.XMLHTTP.4.0',
+                    'Msxml2.XMLHTTP.3.0',
+                    'Msxml2.XMLHTTP',
+                    'Microsoft.XMLHttp'
+                ];
+                
+                for(var i=0; i<versions.length; i++){
+                    try{
+                        return new ActiveXObject(versions[i]);
+                    }catch(e2){
+                        console.log("request object is failed while creating..")
+                    }
+                }
+            }
+            return request;
+        }
+        
+        //XMLHttpRequest 객체를 생성
+        var request = createRequest();
+        request.onreadystatechange = function(e){
+            if(request.readyState == 4){
+                if(request.status == 200){
+                    console.log("request.responseText - \n" +request.responseText);
+                    var json = xml2json.parser(request.responseText);
+                    var output = '';
+                    console.log("size : " + json.products);
+                    for(var i=0; i<json.products; i++){
+                        output += '<h1>' + json.products[i].name + '</h1>';
+                        output += '<h2>' + json.products[i].price + '</h2>';
+                    }
+                    console.log("output - \n" + output);
+                    document.body.innerHTML += output;
+                }
+            }
+        };
+        request.open('GET', '/data.xml', true);
+        
+        //Ajax 수행
+        var prevDate = new Date();
+        request.send();
+        var nowDate = new Date();
+        console.log("수행된 시간 : " + (nowDate - prevDate))
+        
+        //출력
+        document.body.innerHTML += request.responseText;
+    </script>
+</body>
+</html>
