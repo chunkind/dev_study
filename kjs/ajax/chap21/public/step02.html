@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            - $.ajax() 메서드의 옵션
+            옵션 속성 이름               설명                                  자료형
+            async                       동기,비동기를 지정한다.                 Boolean
+            complete(xhr,status)        Ajax 완료 이벤트 리스너를 지정한다.     Function
+            data                        요청 매개변수를 지정한다.               Object, String
+            error(xhr,status,error)     Ajax 실패이벤트 리스너를 지정한다.      Function
+            jsonp                       JSONP 매개변수 이름을 지정한다.         String
+            jsonpCallback               JSONP 콜백 함수 이름을 지정한다.        String, Function
+            seccess(data,status,xhr)    Ajax 성공 이벤트 리스너를 지정한다.     Function, Array
+            timeout                     만료 시간을 지정한다.                   Number
+            type                        'GET' 또는 'POST' 등을 지정한다.       String
+            url                         대상 URL을 지정한다.                   String
+            
+            - 추가적인 jQuery Ajax 메서드
+            $.get() - get방식으로 Ajax를 수행
+            $.post() - post방식으로 Ajax를 수행
+            $.getJSON() - get방식으로 Ajax를 수행해 JSON 데이터를 가져옴
+            $.getScript() - get방식으로 Ajax를 수행해 Script 데이터를 가져옴
+            $(selector).load() - Ajax를 수행하고 선택자로 선택한 문서 객체 안에 집어 넣음
+            
+            ex)
+            $.get(url, function(data, textStatus, jqXHR){});
+            $.post(url, function(data, textStatus, jqXHR){});
+            
+            $.get(url, data, function(data, textStatus, jqXHR){});
+            $.post(url, data, function(data, textStatus, jqXHR){});
+        */
+        $(function(){
+            /*$.ajax({
+                url: "/parameter",
+                type: 'GET',
+                data: {
+                    name: 'test',
+                    region: 'test'
+                },
+                success: function(data){ 
+                    $('body').append(data);
+                }
+            });*/
+            
+            /*$.get('/data.html', function(data){
+                $('body').html(data);
+            });*/
+            
+            /*$('body').load('/data.html');*/
+            
+            //JSON 데이터 다루기.
+            /*$.getJSON('/data.json', function(data){
+                $.each(data, function(key, value){
+                    $('body').append('<h1>' + value.name + ':' + value.price + '</h1>');
+                });
+            });*/
+            
+            //XML 데이터 다루기.
+            $.ajax({
+                url: 'data.xml',
+                success: function(data){
+                    $(data).find('product').each(function(){
+                        var name = $(this).find("name").text();
+                        var price = $(this).find("price").text();
+                        
+                        $('<h1></h1>').text(name + '::' + price).appendTo('body');
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

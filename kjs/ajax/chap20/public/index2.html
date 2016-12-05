@@ -3,15 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>XMLHttpRequest</title>
-    <script src="xml2json.js"></script>
-</head>
-<body>
     <script>
-        //XMLHttpRequest 객체 생성 함수
         function createRequest(){
-            var request;
             try{
-                request = new XMLHttpRequest();
+                return new XMLHttpRequest();
             }catch(e){
                 var versions = [
                     'Msxml2.XMLHTTP.6.0',
@@ -25,42 +20,88 @@
                 for(var i=0; i<versions.length; i++){
                     try{
                         return new ActiveXObject(versions[i]);
-                    }catch(e2){
-                        console.log("request object is failed while creating..")
-                    }
+                    }catch(e2){ console.log("request object is failed while creating.."); }
                 }
             }
-            return request;
         }
-        
-        //XMLHttpRequest 객체를 생성
-        var request = createRequest();
-        request.onreadystatechange = function(e){
-            if(request.readyState == 4){
-                if(request.status == 200){
-                    console.log("request.responseText - \n" +request.responseText);
-                    var json = xml2json.parser(request.responseText);
-                    var output = '';
-                    console.log("size : " + json.products);
-                    for(var i=0; i<json.products; i++){
-                        output += '<h1>' + json.products[i].name + '</h1>';
-                        output += '<h2>' + json.products[i].price + '</h2>';
-                    }
-                    console.log("output - \n" + output);
-                    document.body.innerHTML += output;
-                }
-            }
-        };
-        request.open('GET', '/data.xml', true);
-        
-        //Ajax 수행
-        var prevDate = new Date();
-        request.send();
-        var nowDate = new Date();
-        console.log("수행된 시간 : " + (nowDate - prevDate))
-        
-        //출력
-        document.body.innerHTML += request.responseText;
     </script>
+    <script>
+        window.onload = function(){
+            //select
+            document.getElementById('get').onclick = function(){
+                //ajax 수행
+                var request = createRequest();
+                request.open("GET", '/products?name=kjs&region=seoul&dummy=' + new Date().getTime()/*오토캐싱*/, false);
+                request.send();
+                
+                //출력
+                document.getElementById("output").value = request.responseText;
+            };
+            
+            //register
+            document.getElementById('post').onclick = function(){
+                //변수
+                var name = document.getElementById("name").value;
+                var price = document.getElementById("price").value;
+                
+                //ajax 수행
+                var request = createRequest();
+                request.open("POST", '/products', false);
+                request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                request.send('name=' + name + "&price=" + price);
+                
+                //출력
+                document.getElementById("output").value = request.responseText;
+            };
+            
+            //update
+            document.getElementById('put').onclick = function(){
+                //변수
+                var name = document.getElementById("name").value;
+                var price = document.getElementById("price").value;
+                
+                 //ajax 수행
+                var request = createRequest();
+                request.open("PUT", '/products/0', false);
+                request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                request.send('name=' + name + "&price=" + price);
+                
+                //출력
+                document.getElementById("output").value = request.responseText;
+            };
+            
+            //delete
+            document.getElementById('delete').onclick = function(){
+                //ajax수행
+                var request = createRequest();
+                request.open("DELETE", '/products/0', false);
+                request.send();
+                
+                //출력
+                document.getElementById("output").value = request.responseText;
+            };
+        }
+    </script>
+</head>
+<body>
+    <button id="get">GET</button>
+    <button id="post">POST</button>
+    <button id="put">PUT</button>
+    <button id="delete">DELETE</button>
+    <h1>input</h1>
+    <input id="name" />
+    <input id="price" />
+    <h1>output</h1>
+    <textarea id="output" disabled="disabled" cols="100" rows="20"></textarea>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
