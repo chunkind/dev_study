@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>XMLHttpRequest</title>
+    <script src="xml2json.js"></script>
 </head>
 <body>
     <script>
@@ -81,7 +82,7 @@
                         
                     */
                     //alert(request.responseXML);
-                    var xml = request.responseXML;
+                    /*var xml = request.responseXML;
                     var names = xml.getElementsByTagName('name');
                     var prices = xml.getElementsByTagName('price');
                     for(var i=0; i<names.length; i++){
@@ -89,7 +90,19 @@
                         var price = price[i].childNodes[0].nodeValue;
                         document.body.innerHTML += '<h1>' + name + '</h1>';
                         document.body.innerHTML += '<h2>' + price + '</h2>';
+                    }*/
+                    
+                    //xml을 json으로 변환후 처리
+                    console.log("request.responseText : " +request.responseText);
+                    var json = xml2json.parser(request.responseText);
+                    var output = '';
+                    console.log("sieze : " + json.products.length);
+                    for(var i=0; i<json.products.length; i++){
+                        output += '<h1>' + json.products[i].name + '</h1>';
+                        output += '<h2>' + json.products[i].price + '</h2>';
                     }
+                    console.log(output);
+                    document.body.innerHTML += output;
                 }
             }
         };
