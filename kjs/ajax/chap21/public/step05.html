@@ -14,12 +14,41 @@
         2. serializeArray() - 모두 입력 양식과 함께 사용하는 메서드 이다.
         
         jQuery Ajax로 입력 양식을 전송하는 방법은 약 다섯가지 정도로 정리할수 있다.
-        여깃 ㅓ5가지 방법 모두 살펴보자
+        여기서 5가지 방법 모두 살펴보자
         
-        page - 627 부터
     */
-        $(function(){
+        /*
+            1번째 방법
+            각각의 입력 양식에서 value 속성을 직접 가져온 뒤 URL을 생성한다.
+        */
+        /*$(function(){
             $('#my-form').submit(function(event){
+                //입력 양식의 value 속성가져오기
+                var name = $('#name').val();
+                var region = $('#region').val();
+                
+                //ajax 요청
+                var url = '/parameter?name=' + name + '&region=' + region;
+                $('#wrap').load(url);
+                
+                event.preventDefault();
+            });
+        });*/
+        
+        /*
+            2번째 방법
+            각각의 입력 양식에서 value 속성을 가져온후 value 속성을 이용해 객체를 만들고 param() 메서드를 사용해 쿼리로만든후 ajax관련 된 메서드의 data 속성에 넣는다. 
+        */
+        $(function(){
+            $('#my-form').submit(function(even){
+                var name = $('#name').val();
+                var region = $('#region').val();
+                
+                var url = '/parameter';
+                var data = {name : name, region: region};
+                var params = $.param(data);
+                $('#wrap').load(url, params);
+                
                 event.preventDefault();
             });
         });
