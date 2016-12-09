@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>매개변수 context</title>
+    <style>
+    * { margin: 0px; padding : 0px }
+    div{
+        margin: 5px; padding : 3px;
+        border: 3px solid black;
+        border-radius : 10px;
+    }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+    /*
+        지금까지 사용한 selector 매개변수 이외에 context 매개변수도 넣을 수 있다.
+        매개변수 context는 selector가 적용하는 범위를 한정한다.
+    */
+        $(document).ready(function(){
+            // 이벤트 연결
+            $('div').click(function(){
+                // 변수 선언
+                
+                //this 키워드를 $ ( ) 메서드의 두 번째 매개변수로 넣어줍니다. 
+                //범위를 이벤트 발생 객체로 한정하므로 쉽게 이벤트 발생 객체 안에만 선택자를 적용할 수 있습니다.
+                var h1Tag = $('h1',this).text();
+                var pTag = $('P',this).text();
+                // 출력.
+                alert(h1Tag + ' \n' + pTag);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <h1>매개변수 context1</h1>
+        <p>context1</p>
+    </div>
+    <div>
+        <h1>매개변수 context2</h1>
+        <p>context2</p>
+    </div>
+    <div>
+        <h1>매개변수 context3</h1>
+        <p>context3</p>
+    </div>
+</body>
+</html>
