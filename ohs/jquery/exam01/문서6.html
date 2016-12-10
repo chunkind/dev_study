@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -32,16 +32,17 @@
             ptag = $('#article');
 
         });
-
+        
+        size = 10;
         function fnArticle(flag) {
-      
+            
             switch (flag) {
                 case "+":
-
-                    ptag.css('fontSize', '2em');
+                    size = size +4;       
+                    ptag.css('fontSize', size + '2px');
                     break;
                 case "-":
-
+                    size = size - 4;    
                     break;
                 case "R":
                     ptag.css('color', 'red');
