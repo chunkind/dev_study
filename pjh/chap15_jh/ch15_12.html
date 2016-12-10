@@ -22,9 +22,16 @@
         $(document).ready(function(){
             //생성한 문서 객체에 문서 객체 모델 조작 메서드로 내용 추가 가능.
             //생성한 문서 객체를 body 태그에 추가하려면 appendTo ( ) 메서드를 사용
-           // $('<h1></h1>').html('Hello World ..!').appendTo('body');
+            //$('<h1></h1>').html('Hello World ..!').appendTo('body');
             
             //$()메서드 내부에 HTML 태그를 넣어도 됨
+<<<<<<< HEAD
+           //$('<h1>Hello World ~~!</h1>').appendTo('body');
+            
+            //★실습 - img태그를 동작으로 생성해 body태그에 추가
+            $('<img />').attr('src', "img/Desert.jpg" ).appendTo('body').css('width',200);
+           $('<img src="img/Desert.jpg" />').appendTo('body');
+=======
             //$('<h1>Hello World ~~!</h1>').appendTo('body');
             
             //★실습 - img태그를 동작으로 생성해 body태그에 추가
@@ -42,6 +49,7 @@
             }).appendTo("body");
             
             //  생성한 문서객체를 추가하기위해 appendTo(위치)메서드 사용.
+>>>>>>> 9d16f2dbf5e5d086fbaf8b351f52e11dca8c834c
         })
     </script>
 </head>
