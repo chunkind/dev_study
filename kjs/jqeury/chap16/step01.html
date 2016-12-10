@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <style>
-        .reverse{
-            background: black;
-            color: white;
-        }
-    </style>
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script>
-        /*
-            이벤트 연결 기본
-            jquery로 이벤트를 연결하는 가장 기본적인 방법은 on() 메서드를 사용하는 것이다.
-            
-            on() - 이벤트를 연결한다.
-            
-            1. $(selector).on(eventName, function(){})
-            2. $(selector).on(object)
-            
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+.reverse{
+    background: black;
+    color: white;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+/*
+    이벤트 연결 기본
+    jquery로 이벤트를 연결하는 가장 기본적인 방법은 on() 메서드를 사용하는 것이다.
+
+    on() - 이벤트를 연결한다.
+
+    1. $(selector).on(eventName, function(){})
+    2. $(selector).on(object)
+*/
+$(function(){
+    $('h1').on('click', function(){
+        $(this).html(function(index, html){
+            return html + ' 멍청이 ';
+        });
+    });
+
+    $('h1').on({
+        mouseenter : function(){$(this).addClass('reverse')},
+        mouseleave : function(){$(this).removeClass('reverse')}
+    });
+});
+</script>
+</head>
+<body>
+    <h1>오형석</h1>
+    <h1>오윤경</h1>
+    <h1>치  킨</h1>
+</body>
+</html>
+
+
+<!-- 
 이벤트 종류
 abort 이미지의 다운로드를 중지할 때 (브라우저의 중지버튼)
 activate 개체가 활성활 될 때 발생(태그의 기능이 작용할 때 발생하는 이벤트로 예를 들어 링크를 누를 경우 링크가 옮겨질때 발생하는 것을 감지하는 이벤트 핸들러)
@@ -99,24 +122,4 @@ start 마퀴개체에서 매 루프가 시작될때 발생
 stop 사용자가 stop버튼을 눌렀을 경우 혹은 페이지를 떠날때 발생
 submit 폼이 전송되기 바로전에 발생
 unload 개체가 언로드되기 직전에 발생
-        */
-        $(function(){
-            $('h1').on('click', function(){
-                $(this).html(function(index, html){
-                    return html + ' 멍청이 ';
-                });
-            });
-            
-            $('h1').on({
-                mouseenter : function(){$(this).addClass('reverse')},
-                mouseleave : function(){$(this).removeClass('reverse')}
-            });
-        });
-    </script>
-</head>
-<body>
-    <h1>오형석</h1>
-    <h1>오윤경</h1>
-    <h1>치  킨</h1>
-</body>
-</html>
+-->

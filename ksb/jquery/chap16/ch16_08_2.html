@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>trigger() 2</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        /*
+            trigger() : 이벤트를 강제로 발생
+            
+            [사용형태]
+            1 $(selector).trigger(eventName)
+            2 $(selector).trigger(eventName,data)
+              :매개변수 data는 일반적으로 배열을 집어넣는다.
+        */
+        
+        // document객체에 ready 이벤트 연결
+        $(document).ready(function (event){
+      
+            //이벤트 연결
+            $('h1').click(function(event,data1,data2){
+                
+                alert(data1 + ' : ' + data2);
+            });
+            
+            //이벤트 강제로 발생
+            $('h1').eq(1).trigger('click', [273, 52]);
+            //묘드를 실행하면 문자열 ‘273 : 52’를 출력합니다
+            //TIP_ trigger() 메서드의 두 번째 매개변수에 배열을 입력하면 데이터가 자동으로 이벤트 리스너에 순서대로 추가 전송됩니다.
+            
+        }); 
+    </script>
+</head>
+<body>
+    <h1>Start :</h1>
+    <h1>Start :</h1>
+</body>
+</html>

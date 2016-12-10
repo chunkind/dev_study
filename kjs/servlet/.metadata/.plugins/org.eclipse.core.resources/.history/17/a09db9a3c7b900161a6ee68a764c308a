@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#body{
+	text-align: center;
+	background-color: yellow;
+	}
+</style>
+</head>
+<body id="body">
+	<h1>Input Name Form..</h1><p>
+	<form action="/ex02/FN">
+	NAME : <input type="text" name = "name"><br><br>
+	<input type="submit" value="SEND"><br>
+	</form>
+</body>
+</html>

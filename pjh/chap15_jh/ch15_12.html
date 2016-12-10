@@ -25,11 +25,31 @@
             //$('<h1></h1>').html('Hello World ..!').appendTo('body');
             
             //$()메서드 내부에 HTML 태그를 넣어도 됨
+<<<<<<< HEAD
            //$('<h1>Hello World ~~!</h1>').appendTo('body');
             
             //★실습 - img태그를 동작으로 생성해 body태그에 추가
             $('<img />').attr('src', "img/Desert.jpg" ).appendTo('body').css('width',200);
            $('<img src="img/Desert.jpg" />').appendTo('body');
+=======
+            //$('<h1>Hello World ~~!</h1>').appendTo('body');
+            
+            //★실습 - img태그를 동작으로 생성해 body태그에 추가
+            
+            
+            $("<img />").attr("src","./img/Chrysanthemum.jpg").appendTo("body");
+            
+            //2-1. 문서 객체의 속성 지정.
+            
+            
+            $("<img />",{
+                src: './img/Desert.jpg',
+                width: 350,
+                height: 350
+            }).appendTo("body");
+            
+            //  생성한 문서객체를 추가하기위해 appendTo(위치)메서드 사용.
+>>>>>>> 9d16f2dbf5e5d086fbaf8b351f52e11dca8c834c
         })
     </script>
 </head>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	form{
+	text-align: center;
+	}
+</style>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+$(function(){
+	$('input[type="button"]').eq(0).click(function(){
+		alert("0")
+	});
+	$('input[type="button"]').eq(1).click(function(){
+		alert("1")
+	});
+});
+</script>
+</head>
+<body>
+<h1 align="center">Form Test.....</h1><p>
+<form action="frm.jsp" method ="get">
+	 이 름 : <input type="text" name="userName"><br><br>
+	 주 소 : <input type="text" name="userAddr"><br><br>
+	 기 수 : <input type="text" name="userKisu"><br><br>
+	<input type="button" value ="send1">
+	<input type="button" value ="send2">
+	<input type="reset" value ="Clear">
+</form>
+</body>
+</html>
