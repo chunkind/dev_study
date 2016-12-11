@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>find()</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 이벤트 연결
+            $('div').click(function(){
+                // 변수 선언
+                
+                //this 키워드를 $ ( ) 메서드의 두 번째 매개변수로 넣어줍니다. 
+                //범위를 이벤트 발생 객체로 한정하므로 쉽게 이벤트 발생 객체 안에만 선택자를 적용할 수 있습니다.
+                var h1Tag = $(this).find('h1').text();
+                var pTag = $(this).find('p').text();
+                // 출력.
+                alert(h1Tag + ' \n' + pTag);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <h1>find</h1>
+        <p>find1</p>
+    </div>
+    <div>
+        <h1>find2</h1>
+        <p>find2</p>
+    </div>
+    <div>
+        <h1>find3</h1>
+        <p>find3</p>
+    </div>
+</body>
+</html>
