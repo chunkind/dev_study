@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+<meta charset=utf-8>
+<title>서버연동없이 이미지 미리보기.</title>
+<body>
+<article>
+  <p><input type=file></p>
+  <p>이미지 미리보기</p>
+  <div id="holder"></div>
+</article>
+
+<script>
+var upload = document.getElementsByTagName('input')[0];
+var holder = document.getElementById('holder');
+
+upload.onchange = function(e){
+    try{
+        e.preventDefault();
+        var file = upload.files[0];
+        var reader = new FileReader();
+        reader.onload = function(event){
+            var img = new Image();
+            img.src = event.target.result;
+            //크기 제한.
+            if (img.width > 560) { // holder width
+                img.width = 560;
+            }
+            holder.innerHTML = '';
+            holder.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+        return false;
+    }catch(e){
+        readUrlUnderEI9(this);
+    }
+    
+};
+    
+function readUrlUnderEI9(obj){
+    var file = obj.files[0];
+    var reader = new FileReader();
+    reader.onload = function(e){
+        html = "<img src=" + e.target.result + " style='width:50%; height:100%;'/>";
+        $('#holder').append(html);
+    }
+    reader.readAsDataURL(upload);
+}
+</script>
+</body>
+</html>
