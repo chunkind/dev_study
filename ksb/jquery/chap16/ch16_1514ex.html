@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>입력 양식 이벤트2</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+            
+            
+            $('#option').change(function(){
+                var opval = $('#option').val();
+                
+                if(opval == 'select-option'){
+                    $('#select-option').css('display','inline-block');
+                    $('#text-option').css('display','none');
+                }else{
+                    $('#select-option').css('display','none');
+                    $('#text-option').css('display','inline-block');
+                }
+            });
+            
+            
+            /*$(".onlynum").keyup(function(){
+                $(this).val($(this).val().replace(regEng,""));
+            });*/
+            
+        });
+        
+       var checkIsNum = function(id) {
+         var regNum = /[^0-9]/g;     //숫자만 정규식
+         //var regEng = /[^\!-z]/g;    //영문만 정규식
+         var val = $( "#"+id ).val();
+         //test() : 문자열에서 일치 테스트 반환값은 false,true
+             if(regexp.test(val)){
+                //alert("숫자만 입력가능 합니다.");
+                $("#"+id).val(val.replace(regNum,''));
+             }
+        };
+    </script>
+</head>
+<body>
+    <div>
+        <select id="option">
+            <option value="text-option">text option</option>
+            <option value="select-option">select option</option>
+        </select>
+        <input type="text" id="text-option" maxlength="5" onkeyup="return checkIsNum('text-option');"/>
+        <select  id="select-option" style="display:none;">
+            <option>a option</option>
+            <option>b option</option>
+            <option>c option</option>
+        </select>
+        <input type="submit" value="검색" />
+    </div>
+</body>
+</html>

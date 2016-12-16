@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>윈도 이벤트</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        /*
+            윈도 이벤트는 윈도 객체만 사용할 수 있는 이벤트가 아니라 
+            window 객체와 document 객체 이외에
+            img 태그 등이 사용할 수 있는 이벤트이다.
+            
+            [윈도 이벤트]
+            1. ready   : 문서 객체가 준비 완료되면
+            2. load    : 윈도(문서 객체)를 불러들일 때 발생
+            3. unload  : 윈도를 닫을 때 발생
+            4. resize  : 윈도의 크기를 변화시킬 때 발생
+            5. scroll  : 윈도를 스크롤할 때 발생
+            6. error   : 에러가 있을 때 발생
+        */
+        $(document).ready(function(){
+            $(window).scroll(function(){
+                var scrollH     = $(window).scrollTop() + $(window).height();
+                var documentH   = $(document).height()-200;
+                
+                if(scrollH == documentH){
+                    for(var i=0; i<10; i++){
+                        $('<h1>'+documentH+'</h1>').appendTo('body');
+                    }
+                }
+            });
+        });
+        
+        $(document).ready(function(){
+            for(var i=0; i<20; i++){
+                $('<h1>'+$(window).height()+'</h1>').appendTo('body');
+            }
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

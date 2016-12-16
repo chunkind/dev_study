@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>입력 양식 이벤트2</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#all-check').change(function(){
+                if(this.checked){
+                    $('#check-item').children().prop('checked',true);
+                }else{
+                    $('#check-item').children().prop('checked',false);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="checkbox" id="all-check" />
+    <label>All</label>
+    <div id="check-item">
+        <input type="checkbox" />
+        <label>A option</label>
+        <input type="checkbox" />
+        <label>B option</label>
+        <input type="checkbox" />
+        <label>C option</label>
+        <input type="checkbox" />
+        <label>D option</label>
+    </div>
+</body>
+</html>

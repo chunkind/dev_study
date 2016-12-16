@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>키보드 이벤트</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        /*
+            1. keydown  : 키보드를 누를 때 발생
+            2. keypress : 글자가 입력될 때 발생 (한글로 사용할 수 없다. 예를들어 글자 수 세기)
+            3. keyup    : 키보드를 뗄 때 발생
+        */
+        
+        // textarea태그에 keyup 이벤트를 연결하여 keyup 이벤트가 발생하면 글자의 개수를 받아 출력하는 예제
+        
+        $(document).ready(function(e){
+            $('textarea').keyup(function(){
+                //남은 글자 수를 구한다.
+                var inputLength = $(this).val().length;
+                var remain = 10 - inputLength;
+                
+                //문서 객체에 입력
+                $('h1').html(remain);
+                
+                // 간단한 퀴즈~ 10글자 이상일 경우 '더이상 입력할 수 없다'는 알림창 + h1태그의 글색을 레드로 변경
+                
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <p>지금 내 생각을</p>
+        <h1>10</h1>
+        <textarea col="70" rows="5"></textarea>
+    </div>
+</body>
+</html>
