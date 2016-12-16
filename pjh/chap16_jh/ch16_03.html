@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter16.이벤트</title>
+    <style>
+        .reverse{
+            background: black;
+            color: white;
+        }    
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+    /*
+        16.3 이벤트 연결 제거
+        
+        - 이벤트를 제거할 때는 off()메서드를 사용
+        
+        - 다음 3가지 형태로 사용
+        1. $(selector).off() 
+           → 해당 문서 객체와 관련된 모든 이벤트를 제거
+        2. $(selector).off(eventName)
+           → 해당 문서 객체의 특정 이벤트와 관련된 모든 이벤트를 제거
+        3. $(selector).off(eventName,function)
+           → 특정 이벤트 리스너를 제거    
+           
+        - on()메서드와 off메서드를 사용하면 이벤트를 딱 한 번만 실행시키는것을 쉽게 구현 가능.
+    */    
+        
+        $(function(){
+            
+            $('h1').click(function a(event){
+               
+                
+                $(this).html('CLICK');
+                alert('이벤트가 발생했습니다.')
+                
+                //1. 해당 문서 객체와 관련된 모든 이벤트를 제거. 
+                //( 따라서 click뿐만 아니라 hover이벤트도 제거.)
+                
+                //$(this).off(); 
+                
+                //2. 해당 문서 객체의 특정 이벤트와 관련된 모든 이벤트를 제거
+                //$(this).off('click');
+                
+                //3. 특정 이벤트 리스너를 제거   
+                $(this).off('click',a)
+        
+            });
+            
+           
+            /*$('h1').click(function b(event){
+               
+                alert('bbbbb');
+        
+            });*/
+            
+            
+            
+            $('h1').hover(function(){ $(this).css('background','yellow')},
+                          function(){ $(this).css('background','white')});
+            
+            
+            //이러한 기능을 제공하는 jquery메서드 
+            //one() : 이벤트를 한 번만 연결한다.
+            
+            /*$('h1').one('click',function(){
+                
+                $(this).html('CLICK');
+                alert('이벤트가 발생했습니다.');
+                
+            })*/
+            
+            
+            
+        });
+        
+        
+    </script>
+</head>
+<body>
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>
+</body>
+</html>

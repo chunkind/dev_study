@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter16.이벤트</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+
+/*
+
+  16.6 이벤트 강제 발생
+  
+  - jQuery에서 이벤트를 강제로 발생시킬 때는 trigger()메서드를 사용.
+  
+  - 다음과 같은 형태로 사용
+   1.$(selector).trigger(eventName)
+   2.$(selector).trigger(eventName,data) - 2번째 매개변수 data에는 일반적으로 배열을 넣는다.
+  
+ */
+
+
+	$(function(){ 
+		
+		/* 1.$(selector).trigger(eventName) */
+		 $('h1').click(function(){
+			
+			$(this).html(function(index,html){
+				return html + '★';
+				
+			});
+				
+		}); 
+
+        
+        
+		//★실습!
+        
+        //마지막에 위치한 h1태그에 click이벤트를 강제로 발생시킨다.
+        //setInterval메서드를 사용하여 1초마다 함수를 실행
+        
+		
+        
+        
+        
+        
+		/* 2.$(selector).trigger(eventName,data) */
+		/*$('h1').click(function(event,data1,data2,data3,data4){
+		
+			alert(data1 + ' : ' + data2 + ' : ' +  data3 + ' : ' +  data4);
+			
+		});
+	
+
+		
+		$('h1').eq(1).trigger('click',[111,222,333,444]); */
+		//trigger()메서드의 두 번째 매개변수에 배열을 입력하면 
+		//데이터가 자동으로 이벤트 리스너에 순서대로 추가 전송됨.
+		
+		
+	});
+
+</script>
+</head>
+<body>
+    <h1>Start: </h1>
+	<h1>Start: </h1>
+</body>
+</html>

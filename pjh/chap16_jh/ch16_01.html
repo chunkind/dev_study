@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter16.이벤트</title>
+    <style>
+        .reverse{
+            background: black;
+            color: white;
+        }    
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+    /*
+        16.1 이벤트 연결 기본
+        
+        - jQuery로 이벤트를 연결하는 가장 기본적인 방법은 on() 메서드를 사용하는 것
+    
+        1. $(selector).on(eventName,function(event){ })
+                           이벤트명, 이벤트 리스너(이벤트 발생시 호출되는 함수)
+           -> 이벤트 리스너 안에서 this키워드는 이벤트가 발생한 객체를 의미.
+        2. $(selector).on(object)
+    
+    */
+        
+        $(function(){
+            
+           //1.    
+           $('h1').on('click',function(){
+               
+              $(this).html(function(index, html){
+                        //원래 있던 html내용 
+                 return html + '+'; 
+                  
+              });
+               
+           });
+        
+            
+            //2. 여러개의 이벤트를 연결하고 싶을 때 
+            /*$('h1').on({
+                
+                mouseenter : function() { $(this).addClass('reverse'); },
+                mouseleave : function() { $(this).removeClass('reverse'); },
+                
+            })*/
+            
+        });
+    
+    </script>
+</head>
+<body>
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>
+</body>
+</html>

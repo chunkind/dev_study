@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter16.이벤트</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script>
+/*
+
+  16.12 입력 양식 이벤트
+  
+  change : 입력 양식의 내용을 변경할 때 발생
+  focus : 입력 양식에 초점을 맞추면 발생
+  focusin : 입력 양식에 초점이 맞추어지기 바로 전에 발생
+  focusout : 입력 양식에 초점이 사라지기 바로 전에 발생
+  blur : 입력 양식에 초점이 사라지면 발생
+  select : 입력 양식을 선택할 때 발생 (input[type="text"]태그 및 textarea태그 제외)
+  submit : submit버튼을 누르면 발생
+  reset : reset버튼을 누르면 발생
+
+ */
+    
+    $(function(){
+        //submit이벤트는 form태그에서 발생하는 이벤트
+        //입력 양식의 유효성 검사를 할 때는 기본 이벤트를 제거해야 한다.
+        $('#my-form').submit(function(event){
+            
+            //1. 입력한 이름,비밀번호 값을 받아와서 출력하기
+            
+            
+            //2. 기본이벤트 제거
+            
+        });
+        
+        
+    });
+    
+</script>
+</head>
+<body>
+    <form id="my-form">
+        <table>
+            <tr>
+                <td>이름: </td>
+                <td><input type="text" name="name" id="name" /></td>
+            </tr>
+            <tr>
+                <td>비밀번호: </td>
+                <td><input type="password" name="password" id="password" /></td>
+            </tr>
+        </table>
+        <input type="submit" value="제출" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter16.이벤트</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+
+        /*
+
+          16.8 이벤트 연결 범위 한정
+
+          - 이벤트를 연결할 때 사용하는 on() 메서드.
+          - on()메서드의 매개변수
+            on(types, selector, data, fn, one)
+
+          - on()메서드는 selector 매개변수로 이벤트 범위를 한정할 수 있다.
+            이렇게 범위를 한정하는 이벤트 연결 방식을 "delegate방식"이라고 한다.
+
+         */
+ 
+ 	$(function(){
+ 		/* 
+ 		$('h1').on('click',function(){
+ 			var length = $('h1').length;  // $('h1').length는 h1 문서객체의 갯수
+ 			var targetHTML = $(this).html();
+ 			$('#wrap').append('<h1>' + length + ' - ' + targetHTML + '</h1>');
+ 			//새로 생긴 h1태그를 클릭하면 아무일도 일어나지 않음
+ 			//on()메서드는 현재 존재하는 태그에만 이벤트를 연결하기 때문.
+ 			
+ 			//따라서 이러한 경우에는 상위 태그에 이벤트를 연결하고 
+ 			//'h1태그를 클릭했을 때'를 검출해야 한다.
+ 			
+ 		});
+ 		 */
+ 	
+ 		 
+ 		//delegate방식을 사용하는 on()메서드.(새로 생성되는 태그도 이벤트가 적용됨)
+		$('#wrap').on('click','h1',function(){
+            
+			var length = $('h1').length;
+			var targetHTML = $(this).html(); //this는 #wrap태그가 아니라 h1태그 
+			$('#wrap').append('<h1>' + length + ' - ' + targetHTML + '</h1>');
+			
+			
+			// 이벤트 제거
+			//$('#wrap').off('click','h1');
+			
+		});
+ 		
+ 		
+ 	});
+ 
+ 
+</script>
+</head>
+<body>
+	<div id="wrap">
+		<h1>Header</h1>
+	</div>
+</body>
+</html>
