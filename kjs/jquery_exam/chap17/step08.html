@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../common/jquery-ui-1.12.1/jquery-ui.css" />
+    <style>
+        .reverse{
+            color: white;
+            background-color: black;
+        }
+    </style>
+    <script src="../../../common/js/jquery-1.10.2.js"></script>
+    <script src="../../../common/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script>
+        /*
+            jQuery UI Effect 플러그인
+            jQuery  UI플러그인 공식 사이트
+            http://jqueryui.com/
+            
+            jQuery UI Effect는 2008년 초에 정말 많이 사용된 Effect 관련 플러그인을 모아 정리한 것이다. jQuery UI Effect 플러그인에는 다음 기능이 있다.
+            1.색상 변환 애니메이션
+            2.addClass(), removeClass(), switchClass() 메서드에 애니메이션 기능 추가
+            3.고수준의 시각적 효과
+            4.추가적인 easing 형태
+            
+            제일 먼저 색상 변환 애니메이션을 알아보자
+            
+            색상 변환 애니메이션
+        */
+        $(function(){
+            $('div').hover(function(){
+                //두번째 인자값은 애니매이션 적용속도를 
+                $(this).addClass('reverse', 1000);
+            }, function(){
+                $(this).removeClass('reverse', 1000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <h1>오형석</h1>
+        <p>#치킨 #다이어트 #소개팅 #차였다</p>
+    </div>
+    <div>
+        <h1>오윤경</h1>
+        <p>#성당 #소개팅 #찼다</p>
+    </div>
+    <div>
+        <h1>최민재</h1>
+        <p>#말 #말말 #말말말 #새벽4시</p>
+    </div>
+</body>
+</html>
