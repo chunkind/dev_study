@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hover() </title>
+    <style>
+        .reverse{
+            color:blue;
+            font-size: 50px;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+    /*
+        hover() : mouseenter 이벤트와 mouseleave 이벤트를 동시에 연결.
+
+        [사용 형태]
+        $ (selector).hover(function(event) { }, function(event) { });
+    */
+        $(document).ready(function(){
+            // 이벤트 연결
+            $('h1').hover(function(){
+               $(this).addClass('reverse');
+            }, function(){
+                $(this).removeClass('reverse');
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    <h1>hover()메서드를 이용한 이벤트연결1</h1>
+    <h1>hover()메서드를 이용한 이벤트연결2</h1>
+    <h1>hover()메서드를 이용한 이벤트연결3</h1>
+</body>
+</html>

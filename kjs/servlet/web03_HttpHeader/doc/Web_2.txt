@@ -1,0 +1,212 @@
+<eclipse>
+
+-> java resource
+-> src	(basic < step < ~.java)
+
+
+-> Web Content
+|	test.html	
+|	test.jsp
+-->WEB-INF
+	|
+	--> web.xml(★)
+		|
+		-->lib
+
+
+이 디렉토리 구조는 굳이 알지 안아도 된다. web.xml만 알면된다.
+위에처럼 코딩해 놓은것이 돌아가는건 server이다. < WAS -> container >
+위에 작성해 놓은것디 WAS로 자동으로 가는걸 배포,배치(=(re)Deploy)라 한다. <위에는 정적인문서로 아래는 동적인 문서로 배포,배치>
+WAS의 디렉토리 구조를 알자.왜? -> 전 세계적으로 표준화 되어있다.
+
+WAS -> Container
+Context_Path(=Web Application Root, = 프로젝트명) <- 이게 제일 위에 올라와야 한다.
+     |
+     |
+     -> WEB-INF 를 중심으로 위에는 정적인 문서(Static Document) 아래에는 동적인 문서(Dynamic Document)가 배포된다.(★ 쌤은 이걸 가장 중요시한다. 시험에 꼭 나온다 ★)
+
+
+WEB-INF 밑에는 세가지가 있다. 
+1. classes라는 폴더
+2. web.xml
+3. lib
+위 세개의 디렉터리 구조는 변하지 않는다! 동일하다! CJ 프로그램이 WAS에서 돌아가기 때문! 1열부터 14열까지는 바뀐다. 하지만 이건 안바뀐다.
+폴더이름에 '-' 이건 안넣는다. 보통 '_' 이걸 넣는데 여긴 '-' 이다! 절대 건드리지 말자!
+----------------------------------------------------------------------------------------------
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+Context_Path(=Web Application Root, = 프로젝트명)
+     |	test.html
+     |	test.jsp		(정적)
+     |				
+     -> WEB-INF(★)
+	     |	classes	( basic < step < ~.class )
+	     |	web.xml
+	     |	lib		(동적)
+
+★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+-----------------------------------------------------------------------------------------------
+
+ 공통으로 쓰는건 D:\cmj\webPro\apache-tomcat-7.0.64\lib 여기다가 넣으면 된다. 
+
+서버가 start 될때 제일 먼저 하는게 web.xml을 읽어 들인다.
+그래서 web.xml 을 Deployment Descriptor(DD file) 라 한다. ( = 배치 설명서)
+서버는 web.xml 얘만 인식을 한다.
+
+Web Application 이라는 용어와 Static Document 용어와 Dynamic Document 용어를 정리하자.
+Web에서 구동되는 프로그램은 Static Document 와 Dynamic Document 밖에 없다.
+정적인문서와 동적인문서가 서로 다르게 저장되는 것은 서로 다르게 구동된다는 것을 의미 한다.
+정적인 문서는 Web Server(httpd)에서 구동된다. 
+동적인 문서는 Container(= WAS)에서 구동된다.
+
+???????????????????Context_Path????????????????? 이게 webPro에서 어디에 있어???????????????
+Context 는 'web01_BasicServlet' 이 폴더이고 
+Context_Path 는'web01_BasicServlet'<-이 폴더 안의 경로' D:\cmj\webPro\apache-tomcat-7.0.64\webapps\web01_BasicServlet'이다.
+Container란 무엇인가 ? -> JVM 안에서 클래스 파일의 멤버들이 실행되고 기타 등등이 이뤄진다.
+Container는 서블릿들이 만들어지고 사라지는 환경 같은 것이다. 그리고 JVM 과 비슷한 존재이다. 그러므로 거기서 값이 할당 되고, 
+호출이 된다. 즉 JVM에 비해서 어마어마하게 큰 환경이다.
+
+==============================================================================================================================
+
+
+<<<<<<<<      Client는 웹브라우저의 Client다.      >>>>>>>>      
+
+1번째 요청.
+-> 정적인문서를 요청해 보겟다.(데몬과 상관있다. container랑은 상관없다.)
+모든 요청은 데몬이 받는다. (요청이 들어오면 데몬이 돌면서 찾는다.) 그걸 이제 다시 응답.		{ client -> httpd -> ~.html -> httpd -> client }
+html은 요청을 하고 응답을 받은거다. (~html은 미리 만들어져 있는것.)
+
+<!DOCTYPE html> <- html의 선언부!
+<html> <- body다!
+
+<form 테그 밑에 반드시 와야 하는게 있다! 그게 action 이다!
+<form action ="FN" > 이래야 내가 전송을 눌렀을때 액션이 실행된다.
+이름 : (박스) -> <input type ="text"> 이리 하면 된다.
+이름 : ((박스)에(이름)을 넣을라면) -> <input type ="text" name ="name"> 이리 하면 된다.
+send 버튼 --> <input type="submit" value="SEND">      
+
+------------------------------------------------------------------------------------------
+<body>
+	<form action="FN">
+	NAME : <input type="text" name = "name"><br><br>
+	<input type="submit" value="SEND">
+	</form>
+</body> <<<-------------요것이 form 테그 이다!
+              
+------------------------------------------------------------------------------------------
+
+2번째 요청.
+
+name : 최민재
+			이 사이에 <form_action = FN
+send 클릭
+Action에 걸린 이름과 DD File에 걸린 url-pattern과 같아야 한다.
+FN - formName 풀네임은 --> formNameServlet
+
+데몬이 요청을 받아서 도시락을 열어보면 static한 문서에 대한 요청인지 dynamic한 문서에 대한 요청인지 판단할 수 있다.
+그런데 FN이라고 날아온 요청은 자신이 해결할 수 없는 요청이다. 이 판단이 데몬에서 가능하다는 것이다. 
+그런데 판단할 수 없다면 동적인 문서라고 생각하고 바로 Container에게 제어권을 넘기는 것이다.
+
+통신은 내가 서버상에 무엇을 요구하는지 적어서 보내면 된다.
+send를 누르면 진행이 된다. 요청에 내용을 날리면 FN에 어떤   "               녹음 확인                         "
+
+데몬이 쪽지를 받는다. 뜯어서 내가 확인할께 아니면(dynamic) 포기 또는 container에게 던진다.
+그러면 container가 쪽지를 바탕으로 동작 시킨다.
+container가 DB를 읽는다. 그럼 첫번째 FN- > formNameServlet을 찾는다. -> basic.step.FNS
+
+----------------------- 오늘의 키포인트 doGet!! --------------------  <<< 확실히 이해 하자 >>>
+request 는 쪽지에 대한 정보!
+string = request.getParameter("name");
+
+웹에서 한글은 요청할때 한글이 날라간다. 그래서 요청할때 한글 처리를 해줘야 한다.  << 방향성이 중요하다!! 요청인지~?! 응답인지~?! >>
+
+"EUC-KR" 은 완벽한 한글 처리가 안된다!
+지금 배우는 한글 처리는 끝까지 간다! 스프링에서도 이거랑 똑같이 하면된다.
+window- Preferences -> general -> Editors ->
+
+
+request.setCharacterEncoding("utf-8");
+response.setContentType("text/html;charset=utf-8");			<<("text/html;charset=utf-8")  <- 이건 마임type>>
+
+
+
+클라이언트의 최초의 요청은 web site이다. 요청이 들어가면 httpd라는 데몬이 받는다.(스트림을 통해 간다)
+그럼 <html>로 가서 정보를 받아와 web site로 응답을 해 준다.
+
+
+
+서비스 메서드는 요청을 수행하는 메서드이다.	service(reg-res)
+컨테이너는 해당정보를 바탕으로 HttpServletRequest 객체를 만든다. 그와 동시에 HttpServletResponse 객체도 만들어준다.
+그리고 서비스 메서드를 수행하기 위해서 호출한다. 이때, 미리 만들어 놓은 객체를 건네준다.
+요청을 수행하려면 어떤 요청이 들어왔는지 알아야한다. 그래서 인자로 req와 res를 두개 넣어줌.
+
+
+WAS의 구동원리.
+
+서버 스타트되자마자 일어나는일. 
+
+1. Web.sml(DDFile)파일을 읽는다.
+2. DD에 등록된 서블릿을 생성.  --> 생성자 Call. 누가?? WAS가! 그래서 객체가 만들어짐.     >>> 이때, 생성자는 단 하나만 만들어짐. 서비스가 여러번 일어나더라도! 왜?? 쓰레드로 처리하니까~~
+
+-----          1번과 2 번을 Ready-On상태이다.          -----          
+
+3. Client가 요청을 하면, (요청쪽지를 바탕으로 req객체 , 응답할 쪽지를 바탕으로 res객체) 두개의 객체를 생성!! 
+4. Service( ) 를 Calling 이때, 만들어 놓은 req, res를 passing Into! (집어넣고 호출!)
+5. doGet( )을 재호출. << 저기 괄호 안에는 위에 요청,응답 쪽지 저게 똑같이 들어간다. >>
+Service가 돈다는건 Thread가 run처럼 돈다는거임.
+6. doGet( )가 수행. { }/ (브레이스가 끝!)
+7. doGet이 수행을 한다는건 응답을 했다는거임. 응답을 하면 어떤일이? --> Thread가 죽음!(정확히는 3개! :: response, request, Thread)
+죽은 후 또 요청!! 그럼 1번과 2번은 빼고 3~7번까지는 계속 반복됨!
+
+
+
+
+<<<<<<<<<<        Demon        >>>>>>>>>>        
+
+1. Client의 모든 요청을 Http(데몬)가 받는다!
+2. 정적인 문서인지 동적인 문서를 요청하는지를 판단.
+3. 만약 동적인 문서의 요청이라면 요청정보를 container 로 넘긴다.
+4. 모든 응답은 데몬을 거쳐서 응답한다.
+
+
+
+서블릿에
+		out.println("당신의 이름 :" + name + "<br>");
+		out.println("당신의 주소 :" + addr + "<br>");
+		out.println("당신의 기수 :" + kisu + "<br>");
+
+이런 코드가 들어가면 안된다. 왜?? --> 로직 중심이기 때문에!!
+서블릿을 완벽한 로직으로 jsp를 완벽한 테블릿으로 만드는게 우리에 목표이다.
+근데 jsp는 왜 간단해?? 
+-> <li> 당신의 이름 :: <%= request.getParameter("userName")  %><br> 얘를
+---->	<li> 당신의 이름 :: <% out.println(request.getParameter("userName"));  %><br> 이렇게 해도 된다.
+
+
+CGI 는 서버에서 돌아가는 프로그램이다. 그러므로 서블릿도 CGI 프로그램이다.
+서블릿에서 가장 핵심이 되는 클래스는 GenericServlet이다. 이 두개의 부모는 Servlet 과 ServletConfig 이다.
+Servlet으로 물려받은 기능은 init(), service(), destory(), getServletConfig() 이다. 
+ServletConfig으로 물려받은 기능은 getInitParameter(), getInitParameterName() 이다.
+GenericServlet의 service의 메소드는 service(req 와 res)이다.
+
+ServletRequest 와 ServletResponse는 interface이다.			ServletRequest 와 ServletResponse의 방향성을 알자!!!
+이 두객체는 GenericServlet의 Service( )(서비서메소드)를 통해 Association을 가진다.
+
+ServletRequest 와 ServletResponse의 방향성 ::
+->  ServletRequest는 Client에서 Server로 ServletResponse는 Server에서 Client로!
+
+ServletRequest<getParameter("폼이름")> 와 ServletResponse<getWriter()>
+
+String : getParameter("폼이름");
+String[ ] : getParameterValues("폼이름");
+Map : get Parameter()
+Enumeration : getParameterNames();
+
+ServletRequest 의 부모자식은 HttpServletRequest
+ServletResponse는 부모자식이 HttpServletResponse
+HttpServletRequest, HttpServletResponse 는 HttpServlet의 Association이다.
+그리고 HttpServletRequest, HttpServletResponse 얘네 둘은 Http Header에 세션을 가지고 있다.
+
+
+
+
+
