@@ -3,17 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <script>
-        window.onload = function(){
-            
-        };
-        function change(a){
-            var str = a.innerHTML;
-            a.setAttribute("alt", str );
-        }
-    </script>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
-<a href="#" class="on" onclick="javascript:change(this)" >클릭</a>
+    <div id="name_help1">
+        
+    </div>
+    <div id="name_help2">
+        
+    </div>
 </body>
 </html>
+<script>
+    /*
+        innerHTML과 html() 의 차이
+    */
+    var selecter1 = document.getElementById("name_help1");
+    var selecter2 = $("#name_help2");
+    
+    //콘솔로 출력
+    console.log("selecter1 : " + selecter1);
+    console.log("selecter2 : " + selecter2);
+    
+    //상세하게 까보자
+    console.log("selecter1 --------------------------------------------------------------")
+    for(var k in selecter1){
+        console.log(k + " : " + selecter1[k]);
+    }
+    console.log("selecter2 --------------------------------------------------------------")
+    for(var k in selecter2){
+        console.log(k + " : " + selecter2[k]);
+    }
+    
+    selecter1.innerHTML = "이름을 입력하세요";
+    selecter2.innerHTML = "이름을 입력하세요";
+    
+    
+    /*
+        결론 selecter1 에는 innerHTML 이라는 속성이 있지만
+        selecter2 에는 innerHTML 이라는 속성이 없다.(대신 html 이라는 함수 속성이 있음.)
+    */
+    
+</script>

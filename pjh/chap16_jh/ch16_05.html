@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter16.이벤트</title>
+    <style>
+        * { margin: 0px; padding: 0px }
+        
+        div
+        {   margin: 5px; padding: 3px;
+            border: 3px solid black;
+            border-radius: 10px;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+
+/*
+
+  16.5 이벤트 객체
+  
+  - 모든 이벤트 리스너는 이벤트 객체가 있음
+  - 기존 자바스크립트의 이벤트 객체는 브라우저마다 사용방법은 물론 이벤트 객체에 있는 속성도 다름
+  - jQuery가 스스로 이벤트 객체를 정형화하므로 
+    jQuery의 이벤트 객체는 모든 브라우저가 같은 방법으로 사용하고 같은 속성을 갖음.
+  
+    * 이벤트 객체의 속성
+    
+    event.pageX : 브라우저 화면을 기준으로 한 마우스의 X 좌표 위치
+    event.pageY : 브라우저 화면을 기준으로 한 마우스의 Y 좌표 위치
+    event.preventDefault() : 기존 이벤트를 제거합니다.
+    event.stopPropagation() : 이벤트 전달을 제거합니다.
+  
+ */
+
+
+$(function(){
+	
+	var canvas = document.getElementById('canvas');
+	//jQuery가 아직 canvas태그를 정식으로 지원하지 않아, document.getElementById를 이용해서canvas객체를 얻는다.
+	var context = canvas.getContext('2d');
+	
+	//이벤트 연결
+	$(canvas).on({
+		
+		mousedown : function(event){ 
+			//문서 객체와 마우스 커서의 상대 위치를 구하는 방법
+			
+			//위치를 얻음.
+			var position = $(this).offset();
+			var x = event.pageX - position.left;
+			var y = event.pageY - position.top;
+			
+			//선을 그림.
+			context.beginPath();
+			context.moveTo(x,y);
+		},
+		mouseup : function(event){ 
+			//위치를 얻음.
+			var position = $(this).offset();
+			var x = event.pageX - position.left;
+			var y = event.pageY - position.top;
+			
+			//선을 그림.
+			context.lineTo(x,y);
+			context.stroke();
+			
+		}
+	});
+	
+	
+});
+</script>
+</head>
+<body>
+    <canvas id="canvas" width="700" height="400" style="border: 3px solid black">
+        
+    </canvas>
+</body>
+</html>

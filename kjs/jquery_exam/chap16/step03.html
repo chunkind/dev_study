@@ -14,13 +14,12 @@
 /*
     간단한 형태의 이벤트 연결 방법에서 한 단계 더 나아가 jQuery는 이벤트 연결 메서드도 제공한다.
     hover() - mouseenter 이벤트와 mouseleave 이벤트를 동시에 연결 한다.
+    
+    hover()의 사용형태
+    hover(function(){},function(){});
 */
 $(document).ready(function(){
-    $('h1').hover(function(){
-        $(this).addClass('reverse');
-    }, function(){
-        $(this).removeClass('reverse');
-    });
+    //이전예제를 hover() addClass() removeClass() 를 이용하여 고치시오.
 });
 </script>
 </head>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter16.이벤트</title>
+    <style>
+       * {
+            margin : 5px; padding: 5px;
+            border : 3px solid black;
+       }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+
+/*
+
+  16.7 기본 이벤트와 이벤트 전달
+  
+  - 이벤트 객체의 메서드
+ 	 preventDefault() : 기본 이벤트를 제거한다.
+  	 stopPropagation() : 이벤트 전달을 제거한다.
+  	 
+ */
+ 
+ 	$(function(){
+ 		
+ 		$('a').click(function(event){
+ 			$(this).css('background-color','blue');
+ 		/* 	event.stopPropagation(); //이벤트 전달을 제거 
+ 			event.preventDefault(); //a태그의 기본 이벤트를 제거 */
+ 			
+ 			return false; 
+ 			// stopPropagation()와 preventDefault()메서드를 함께 사용하는 경우가 많아
+ 			// return false를 사용하면 이 두가지를 함께 적용하는 것으로 인식 
+ 			// (기존 자바스크립트는 return false를 사용 시 기본 이벤트만 제거.)
+ 			
+ 		});
+ 		
+ 		$('h1').click(function(){
+ 			
+ 			$(this).css('background-color','red');
+ 			
+ 		});
+ 		
+ 		// a태그를 클릭하면 a태그 이외에도 h1태그에 이벤트 전달이 일어남.
+ 		/*
+ 		cf. 일반적으로 자바스크립트의 이벤트 전달 순서는 이벤트 버블링 방식을 따름.
+  	     이벤트 버블링은 자식 노드에서 부모 노드 순으로 이벤트를 실행하는 것을 의미 
+ 		*/
+ 		
+ 	});
+ 
+</script>
+</head>
+<body>
+	<h1>
+	  <a href="http://hanb.co.kr">Hanb Media</a>	
+	</h1>
+</body>
+</html>

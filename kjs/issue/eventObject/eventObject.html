@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        window.load = function(){
+            
+        };
+        
+        function keyupFn(e){
+            var event = e || window.event;
+            for(var key in event){
+                document.body.innerHTML += '<p>' + key + ': ' + event[key] + '</p>'; 
+            }
+            
+            console.log(event.keyCode);
+        }
+    </script>
+</head>
+<body>
+    <input type="text" onkeyup="keyupFn()">
+</body>
+</html>

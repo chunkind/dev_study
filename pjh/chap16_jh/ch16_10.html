@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>jQuery - chapter16.이벤트</title>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script>
+
+/*
+
+  16.10 키보드 이벤트
+  
+  - keydown : 키보드를 누를 때 발생
+  - keypress : 글자가 입력될 때 발생 (한글로 입력할때는 사용X)
+  - keyup : 키보드를 뗄 때 발생 
+  
+ *아래 예제에서 keydown이벤트가 아니라 keyup이벤트를 사용하는 이유?
+ 
+ - 키보드 이벤트 발생 순서
+    1. 사용자가 키보드를 누름
+    2. keydown 이벤트 발생
+    3. 글자가 입력됨
+    4. keypress 이벤트 발생
+    5. 사용자가 키보드에서 손을 뗌
+    6. keyup 이벤트  발생
+
+ 따라서, keydown이벤트가 발생한 순간에는 글자가 입력돼 있지 않음.
+ 입력한 글자 수를 표시해야하므로 keyup이벤트를 사용
+    
+ */
+    
+    $(function(){
+        //한글은 keypress이벤트를 지원하지 않아 keyup이벤트 사용.
+        $('textarea').keyup(function(){
+            
+            //★실습!
+            //1.현재까지 입력한 글자 수를 얻는다. 
+            
+            
+            //2. 남은 글자 수를 얻는다. ( 150 - 현재까지 입력한 글자 수 )
+            
+            
+            //3. h1태그 내에 남은 글자 수를 출력
+            
+            
+            //4. 글자수가 150개를 초과했을 때(남은 글자수가 0보다 작을때)는 
+            //   h1태그 내의 글자를 빨간색으로 표시
+            
+
+        
+        });
+        
+        
+    });
+    
+</script>
+</head>
+<body>
+    <div>
+        <p>남은 글자 수</p>
+        <h1>150</h1>
+        <textarea cols="70" rows="5"></textarea>
+    </div>
+</body>
+</html>

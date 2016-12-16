@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트 연결 기본</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+    /*
+        [이벤트 연결 메서드]
+        on() : 이벤트를 연결 [메서드는 한 번에 여러 종류의 이벤트를 연결하거나， 간단한 이벤트 연결 방법으로 연결할 수 없을 때 사용합]
+
+        ps. jquery로 연결하는 가장 기본적인 방법이라고 한다.
+
+        [사용 형태]
+        1. $(select).on(eventName, function(event () {}))
+         - 매개변수에 이벤트 이름, 이벤트 리스너 입력 [this 키워드는 이벤트가 발생한 객체를 의미]
+        2. $(select).on(object)
+    */
+        //1.$(document).ready() 메소드는 문서가 완전히 로드되었을 때, 함수를 실행하는 것을 허용
+        $(document).ready(function(){
+            //2. 이벤트 연결
+            $('h1').on('click',function(){
+                //h1 태그를 클릭하면
+               $(this).html(function(index,html){
+                   // this는 이벤트가 발생한 객체를 의미 즉, 클릭한 태그
+                   //? index의 값은 
+                  return html + '+'; 
+               });
+            });
+            
+            $('h1').on({
+                mouseenter:function(){
+                    //마우스가 진입하면 클래스 속성 추가
+                    $(this).addClass('reverse');
+                },
+                mouseleave:function(){
+                    // 마우스가 빠져나오면 클랙스 속성 제거
+                    $(this).removeClass('reverse');
+                }
+            });
+        });
+    </script>
+    <style>
+        .reverse{
+            color:blue;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>on()메서드를 이용한 이벤트연결1</h1>
+    <h1>on()메서드를 이용한 이벤트연결2</h1>
+    <h1>on()메서드를 이용한 이벤트연결3</h1>
+</body>
+</html>
