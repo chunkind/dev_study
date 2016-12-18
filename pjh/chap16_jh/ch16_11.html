@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter16.이벤트</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script>
+
+/*
+
+  16.11 윈도 이벤트
+  
+  - 윈도 이벤트는 윈도 객체만 사용할 수 있는 이벤트가 아니라
+    window객체와 document객체 이외에 img태그 등이 사용할 수 있는 이벤트.
+    
+    ready : 문서 객체가 준비 완료되면
+    load : 윈도(문서 객체)를 불러들일 때 발생
+    unload : 윈도(문서 객체〉를 닫을 때 발생
+    reslze : 윈도의 크기를 변화시킬 때 발생
+    scroll : 윈도를 스크롤할 때 발생
+    error : 에러가 있을 때 발생
+
+ */
+    
+    $(function(){
+        //사용자가 마우스 스크롤을 움직이면 무조건 scroll이벤트가 발생.
+        $(window).scroll(function(){
+            
+            
+            var scrollHeight = $(window).scrollTop() + $(window).height();
+            
+            console.log("$(window).scrollTop() ▶" + $(window).scrollTop());
+            console.log("$(window).height() ▶" + $(window).height());
+            
+            console.log("둘을 합한 값 ▶▶▶" + scrollHeight);
+            
+            var documentHeight = $(document).height(); //document객체의 height속성은 문서 전체의 높이를 의미 
+            
+            console.log("$(document).height() ▶" + documentHeight );
+            console.log(" ");
+            
+            //화면 끝까지 스크롤이 내려가면 
+            //window객체의 scrollTop속성과 height속성을 합한 값이 document객체의 높이와 같아짐 -> 이를 사용해 스크롤이 끝까지 도달했다는 것을 인식
+
+           /* if(scrollHeight == documentHeight){ 
+                for(var i = 0; i<10; i++){
+                    $('<h1>Infinity Scroll</h1>').appendTo('body');
+                }
+            }*/
+            
+        });
+        
+        
+        
+         //테스트를 위해 내부에 공간을 채운다.
+        for(var i=0; i<20; i++){
+            $('<h1>Infinity Scroll</h1>').appendTo('body');
+        }
+        
+        
+    });
+    
+    
+    
+</script>
+</head>
+<body>
+    
+</body>
+</html>

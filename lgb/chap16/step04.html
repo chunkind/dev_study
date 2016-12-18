@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+// 키보드 이벤트 
+// val() 메서드를 매개변수 없이 사용하면 입력 양식의 value 속성을 알아낼수 있음    
+    /*$(function(event){
+        $('textarea').keyup(function(){
+           var inputLength = $(this).val().length;
+           var remain = 150 - inputLength;
+            
+           $('h1').html(remain); 
+            
+           if(remain >= 0){
+               $(this).css('color','black');
+           }else {
+               $(this).css('color','red');
+           }    
+        });    
+    });*/
+
+// 윈도 이벤트 
+    /*$(document).ready(function(){
+        $(window).scroll(function(){
+           var scrollHeight = $(window).scrollTop() + $(window).height();
+           var documentHeight = $(document).height();
+            
+            if(scrollHeight == documentHeight){
+                for(var i=0; i<10; i++){
+                    $('<h1>Infinity Scroll</h1>').appendTo('body');
+                }
+            }
+        });
+            $(function(){
+               for(var i=0; i<20; i++){
+                   $('<h1>Infinity Scroll</h1>').appendTo('body');
+               } 
+            });
+    });*/
+    
+// 입력 양식 이벤트 
+    $(function(){
+       $('myForm').submit(function(event){
+          var name = $('#name').val();
+          var password = $('#pwd').val();
+           
+           alert(name + ' : ' + password);
+           
+           // 기본 이벤트 제거 
+          event.preventDefault();
+       }); 
+    });
+    
+    /*$(function(){
+       $('#allCheck').change(function(){
+          if(this.checked) {
+              $('#checkItem').children().prop('checked', true);
+          } else{
+              $('#checkItem').children().prop('checked',false);
+          }
+       }); 
+    });*/
+</script>
+</head>
+<body>
+   
+    <!--<div>
+        <p>지금 내 생각을</p>
+        <h1>150</h1>
+        <textarea cols="70" rows="5"></textarea>
+    </div>-->
+    
+    
+    
+    <form id="myForm">
+        <table>
+            <tr>
+                <td>이름: </td>
+                <td><input type="text" name="name" id="name" /></td>
+            </tr>
+            <tr>
+                <td>비밀번호: </td>
+                <td><input type="password" name="pwd" id="pwd"/></td>
+            </tr>
+        </table>
+        <input type="submit" value="제출"/>
+    </form>
+    
+    
+    <!--<input type="checkbox" id="allCheck"/>
+    <label>All</label>
+    <div id="checkItem">
+        <input type="checkbox"/>
+        <label>A Option</label>
+        <input type="checkbox"/>
+        <label>B Option</label>
+        <input type="checkbox"/>
+        <label>C Option</label>
+    </div>-->
+</body>
+</html>

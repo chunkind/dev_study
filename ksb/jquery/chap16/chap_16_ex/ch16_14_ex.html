@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>입력 양식 이벤트</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        /*
+            [입력 양식 이벤트]
+            1. change   : 입력 양식의 내용을 변경할 때 발생
+            2. focus    : 입력 양식에 초점을 맞추면 발생
+            3. focusin  : 입력 양식에 초점을 맞추어 지기 바로 전에 발생
+            4. focusout : 입력 양식에 초점이 사라지기 바로 전에 발생
+            5. blur     : 입력 양식에 초점이 사라지면 발생
+            6. select   : 입력 양식을 선택할 때 발생(input[type="text"])태그 및 textarea 태그 제외)
+            7. submit   : submit 버튼을 누르면 발생
+            8. reset    : reset 버튼을 누르면 발생
+        */
+        
+        $(document).ready(function(){
+            //submit 기본이벤트 제거
+            $('#my-form').submit(function(e){
+                //입력 양식의 value를 가져온다
+                var name = $('#name').val();
+                var pw = $('#pw').val();
+                
+                //출력
+                alert(name + ' : '+pw);
+                
+                //기본 이벤트 제거
+                e.preventDefault();
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="my-form">
+        <table>
+            <tr>
+                <th>이름</th>
+                <td><input type="text" name="name" id="name" /></td>
+            </tr>
+            <tr>
+                <th>비번</th>
+                <td><input type="password" name="pw" id="pw" /></td>
+            </tr>
+        </table>
+        <input type="submit" value="제출" />
+    </form>
+</body>
+</html>

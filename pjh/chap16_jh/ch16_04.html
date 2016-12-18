@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter16.이벤트</title>
+    <style>
+        * { margin: 0px; padding: 0px }
+        
+        div
+        {   margin: 5px; padding: 3px;
+            border: 3px solid black;
+            border-radius: 10px;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+    /*
+        16.4 매개변수 context
+        
+        - jQuery메서드는 매개변수를 두 개 입력할 수 있다.
+          → $(selector,context) 
+        
+        - 매개변수 context는 selector가 적용하는 범위를 한정한다.
+           일반적으로 이벤트와 함께 사용.
+        
+    
+    */
+    $(function(){
+        
+        
+        //find 메서드 사용
+        $('div').click(function(){
+            
+           var header = $(this).find('h1').text();
+           var paragraph = $(this).find('p').text();
+                
+             alert(header + '\n' + paragraph);
+            
+        });
+        
+        
+       /* $('div').click(function(){
+            
+           //click이벤트가 발생한 문서 객체(div) 안에서 h1태그와 p태그를 선택하고 싶을 때
+           //this키워드를 $()메서드의 두 번째 매개변수로 넣어준다.
+           var header = $('h1', this).text();
+           var paragraph = $('p', this).text();
+            
+            alert(header + '\n' + paragraph);
+            
+        });*/
+        
+        
+    });
+        
+        
+    </script>
+</head>
+<body>
+   <div>
+       <h1>Header 1</h1>
+       <p>Paragraph</p>
+   </div>
+   <div>
+       <h1>Header 2</h1>
+       <p>Paragraph</p>
+   </div>
+   <div>
+       <h1>Header 3</h1>
+       <p>Paragraph</p>
+   </div>   
+</body>
+</html>

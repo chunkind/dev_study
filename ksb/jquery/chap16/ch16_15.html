@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>입력 양식 이벤트2</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        //type속성이 checkbox와 radio 인 input태그 상태를 변경하는 이벤트는 click이벤트가 아니라 change이벤트 이다.
+        
+        //check속성 변경
+        $(document).ready(function(){
+            $('#all-check').change(function(){
+                if(this.checked){
+                    //children() 함수는 필터된 선택자와 일치하는 요소들 각각의 자식 요소들을 가져올 수 있습니다.
+                    $('#check-item').children().prop('checked',true);
+                }else{
+                    $('#check-item').children().prop('checked',false);
+                }
+            });
+        });
+        
+        /*
+            체크 상채를 확일할 때는 입력 객체의 checked 속성을 확인.
+            체크 상태를 바꿀때는 prop() 메서드를 사용.
+            
+            TIP_ 일반적인 태그속성의 값을 변경하고자 할때는 attr()함수를 사용하고, 
+                 태그속성에 따라서 기능이 제어되는 속성에 대해서는 prop()함수를 사용합니다.
+        */
+    </script>
+</head>
+<body>
+    <input type="checkbox" id="all-check" />
+    <label>All</label>
+    <div id="check-item">
+        <input type="checkbox" />
+        <label>A option</label>
+        <input type="checkbox" />
+        <label>B option</label>
+        <input type="checkbox" />
+        <label>C option</label>
+        <input type="checkbox" />
+        <label>D option</label>
+    </div>
+</body>
+</html>

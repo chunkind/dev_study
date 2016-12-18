@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+// 이벤트 객체 
+    /*$(function(){
+       var canvas = document.getElementById('canvas');
+       var context = canvas.getContext('2d');
+        
+        $(canvas).on({
+           mousedown: function(event){
+               var position = $(this).offset();
+               var x = event.pageX - position.left;
+               var y = event.pageY = position.top;
+               
+               context.beginPath();
+               context.moveTo(x,y);
+           },
+           mouseup : function(event){
+               var position = $(this).offset();
+               var x = event.pageX - position.left;
+               var y = event.pageY - position.top;
+               
+               context.lineTo(x,y);
+               context.stroke();
+           }
+        });
+    });*/
+
+// 이벤트 강제 발생 
+    /*$(function(){
+       $('h1').click(function(){
+          $(this).html(function(index,html){
+             return html + '★'; 
+          }); 
+       }); 
+        
+        setInterval(function(){
+            $('h1').last().trigger('click');
+        },1000);
+    });*/
+// trigger() 메서드를 사용한 매개변수 전달 
+    $(function(){
+       $('h1').click(function(event, data1, data2, data3){
+          alert(data1 + ' : ' + data2 + ' : ' + data3); 
+       }); 
+        $('h1').eq(1).trigger('click',[273,52,11]);
+    });
+</script>
+</head>
+<body>
+    <!--<canvas id="canvas" width="700" height="400" style="border:3px solid black">
+    </canvas>-->
+    
+    <h1>Start: </h1>
+    <h1>Start: </h1>
+    <h1>Start: </h1>
+</body>
+</html>
