@@ -40,13 +40,17 @@
             $('div').hover(function(){
                 $(this).animate({
                     left: 1500
-                }, 'slow');
+                }, 'slow', 'swing', a);
             }, function(){
                 $(this).animate({
                     left: 0
                 }, 'slow');
             });
         });
+        
+        function a(){
+            alert("끝")
+        }
     </script>
 </head>
 <body>

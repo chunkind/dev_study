@@ -19,11 +19,19 @@
                 var inputLength = $(this).val().length;
                 var remain = 10 - inputLength;
                 
-                //문서 객체에 입력
-                $('h1').html(remain);
+                
                 
                 // 간단한 퀴즈~ 10글자 이상일 경우 '더이상 입력할 수 없다'는 알림창 + h1태그의 글색을 레드로 변경
-                
+                if(inputLength>10){
+                    var msg = "더이상 입력 ㄴㄴ";
+                    alert(msg);
+                    $('h1').html(msg);
+                    $('h1').css("color","red");
+                    return false;
+                }else{
+                    //문서 객체에 입력
+                    $('h1').html(remain);
+                }
             });
         });
     </script>

@@ -9,10 +9,15 @@
             
             //var regEng = /[^\!-z]/g;    //영문만 정규식
             
-            $('#???').???(function(){
-                var opval = $('#???').val();
-                
-                    //hit_조건문을 사용하여 속성변경
+            $('#option').change(function(){
+                var opval = $('#option').val();
+                //hit_조건문을 사용하여 속성변경
+                if(opval == 'text-option'){
+                    $('#text-option').css("display","inline-block");
+                    $('#select-option').css("display","none");
+                }else{
+                    $('#text-option').css("display","none");
+                    $('#select-option').css("display","inline-block");
                 }
             });
             
@@ -37,6 +42,13 @@
             
             
             //1. 조건문을 사용하여 test() 사용
+            if(regNum.test(val)){
+                //문자
+                alert("문자 입력 ㄴㄴㄴ");
+                //var str = val.replace(regNum,'');
+                var str = val.replace(regNum,'');
+                $("#"+id).val(str);
+            }
             
             //2. value값을 구하고 replace('a','')를 이용해 숫자가 아닌 문자열은 지움.
         };
