@@ -1,3 +1,0 @@
-#Tomcat publish data
-#Sun Dec 04 12:31:25 KST 2016
-org.eclipse.jst.jee.server\:web03_HttpHeader=C\:\\development\\apache-tomcat-7.0.73\\webapps\\web03_HttpHeader
