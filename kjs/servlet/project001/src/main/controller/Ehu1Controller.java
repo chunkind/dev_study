@@ -41,10 +41,10 @@ public class Ehu1Controller extends HttpServlet{
 		out.print("<body>");
 		out.print("<div class=\"left\">");
 		out.print("<h6>" + id +"님 환영합니다^^</h6>");
-		out.print("<a href=\"main.do\">메인</a><br/>");
-		out.print("<a href=\"intro.do\" class=\"selected\">나를소개합니다.</a><br/>");
-		out.print("<a href=\"/main/ehu1.html\">에휴1</a><br/>");
-		out.print("<a href=\"/main/ehu2.html\">에휴2</a><br/>");
+		out.print("<a href=\"/main.do\">메인</a><br/>");
+		out.print("<a href=\"/intro.do\" class=\"selected\">나를소개합니다.</a><br/>");
+		out.print("<a href=\"/ehu1.do\">에휴1</a><br/>");
+		out.print("<a href=\"/ehu2.do\">에휴2</a><br/>");
 		out.print("<a href=\"/index.html\">멘 처음으로</a>");
 		out.print("</div>");
 		out.print("<div class=\"main\">");
