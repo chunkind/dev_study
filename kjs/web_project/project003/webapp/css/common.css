@@ -7,12 +7,13 @@
 }
 .left a{
 	text-decoration: none;
+	color:black;
 }
 
 .main{
 	display:inline-block;
 	font-size:20px;
 }
-.selected{
+.left a .selected{
 	color:blue;
 }

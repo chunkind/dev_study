@@ -27,6 +27,9 @@ public class MainController extends HttpServlet{
 		
 		String page = request.getParameter("command");
 		
+		//리퀘스트 바인딩
+		request.setAttribute("page", page);
+		
 		if(page.equals("main")){
 			view = request.getRequestDispatcher("/WEB-INF/jsp/main/main.jsp");
 		}else if(page.equals("ehu1")){
