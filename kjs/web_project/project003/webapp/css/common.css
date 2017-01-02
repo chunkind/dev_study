@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+.left{
+	display:inline-block;
+	margin:10px;
+	padding:10px;
+	font-size:20px;
+}
+.left a{
+	text-decoration: none;
+}
+
+.main{
+	display:inline-block;
+	font-size:20px;
+}
+.selected{
+	color:blue;
+}
