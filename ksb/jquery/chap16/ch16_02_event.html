@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트 연결 기본</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        /*
+        표 16-2 간단한 이벤트 언결
+        blur            : 서식 필드가 포커스를 잃었을 때 실행.
+        focus           : 서식 필드가 포커스를 얻었을 때 실행.
+        focusin 
+        focusout 
+        load
+        reslze 
+        scroll 
+        unload 
+        click           : 이벤트 처리 함수를 HTML 요소에 붙입니다. 이 함수는 HTML 요소를 클릭 하였을 때 실행.
+        dblclick        : 이벤트 처리 함수를 HTML 요소에 붙임. 이 함수는 HTML 요소를 더블클릭 하였을 때 실행.
+        mousedown 
+        mouseup 
+        mousemove 
+        mouseover 
+        mouseout
+        mouseenter      : 마우스 포인터가 HTML 요소에 들어섰을 때, 실행.
+        mouseleave      : 마우스 포인터가 HTML 요소에 빠져나왔을 때, 실행.
+        change 
+        select 
+        submit
+        keydown 
+        keypress 
+        keyup 
+        error 
+        ready
+        hover           : mouseenter()와 mouseleave() 메소드를 합친 메소드 입니다.
+        */
+        
+    $(document).ready(function(){
+        $("input").focus(function(){    
+            $(this).css("background-color", "yellow");
+        });
+        
+        $("input").blur(function(){
+            $(this).css("background-color", "#ffffff");
+        });
+        
+        $("#click").click(function(){
+          //id="click" 클릭 했을 때 숨기는 예제
+            $(this).hide();
+            //style="display: none;" 속성이 추가된다.
+        });
+        
+        $("#dblclick").dblclick(function(){
+            //id="dblclick" 더블클릭 했을 때 숨기는 예제
+            $(this).hide();
+            //style="display: none;" 속성이 추가된다.
+        });
+        
+        $("#mouseenter").mouseenter(function(){    
+            $(this).addClass('styleAdd');
+        });
+        
+        $("#mouseenter").mouseleave(function(){    
+           $(this).removeClass('styleAdd');
+        });
+        
+        $("#hover").hover(function(){
+            $(this).addClass('styleAdd');
+        },function(){
+            $(this).removeClass('styleAdd');
+        }); 
+    });
+    </script>
+    
+    <style>
+        .styleAdd{
+            color: aqua;
+        }
+    </style>
+    
+</head>
+<body>
+    <label><input type="text" /> focus[서식필드가 포커스를 얻을 때 실행] + blur[서식필드에 포커스를 잃었을 때 실행] 이벤트 예제</label>
+    <p id="click">click 이벤트 예제 [클릭시 사라짐]</p>
+    <p id="dblclick">dblclick 이벤트 예제 [더블클릭시 사라짐]</p>
+    <p id="mouseenter">mouseenter+mouseleave 이벤트 예제 [마우스 포인터 접근시 실행+빠져나갈때 실행]</p>
+    
+    <p id="hover">hover 이벤트 예제 [mouseenter()와 mouseleave() 메소드를 합친 메소드]</p>
+</body>
+</html>

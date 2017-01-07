@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .addClass0,
+        .addClass1,
+        .addClass2 { background: hotpink; }
+        .removeClass0.select,
+        .removeClass1.select,
+        .removeClass2.select { background: skyblue; }
+    </style>
+    <title>문서 객체의 클래스 속성 추가 / 제거</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        // *addClass() - 문서 객체의 클래스 속성 추가 메서드
+        $(document).ready(function(){
+        // 1.h1 태그에 class 속성 추가 (class="addClass") - 일반적인 코드 {
+            //$('h1').addClass('addClass');
+        // }
+        
+        // 1-1.h1 태그에 class 속성 추가 - 함수를 이용한 코드 {
+            $('h1').addClass(function(index){
+                //alert(index); //0,1,2 출력 [h1태그의 index]
+                return 'addClass'+index;
+            });
+            
+            $('h2').addClass(function(index){
+                //alert(index); //0,1,2 출력 [h1태그의 index]
+                class_tag = 'removeClass'+index+' select';
+                // class 추가는 띄어쓰기로 구분
+                return class_tag;
+            });
+            
+            // class속성 제거
+            $('.removeClass2').removeClass('select');
+        // }
+            
+        // *removeClass() - 문서 객체의 클래스 속성을 제거
+        });
+    </script>
+</head>
+<body>
+    <h1>addClass-0</h1>
+    <h1>addClass-1</h1>
+    <h1>addClass-2</h1>
+    
+    <h2>removeClass-0</h2>
+    <h2>removeClass-1</h2>
+    <h2>removeClass-2</h2>
+</body>
+</html>

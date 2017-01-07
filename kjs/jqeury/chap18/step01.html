@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 
+자바스크립트로 플래시 또는 실버라이트의 시각적 효과를 구현하려면 다음 네 가지 사항을 CSS로 미리 지정해야 한다.
+1.캔버스의 width 스타일 속성과 height 스타일 속성은 필수로 지정한다.
+2.캔버스의 position 스타일 속성은 relative로 지정한다.
+3.캔버스의 overflow 스타일 속성은 hidden으로 지정한다.
+4.구성 요소의 position 스타일 속성은 absolute로 지정한다.   
+-->
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #canvas{
+            background: gray;
+            width: 600px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+        .inner-box{
+            background: orange;
+            width: 100px;
+            height: 100px;
+            /* animate() 메서드롤 left, top속성을 지정하려면 position 스타일 속성이 absolute나 relative여야 한다. */
+            position: absolute;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.inner-box').each(function(index){
+                $(this).css({
+                    left: index * 90,
+                    top: index * 90
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Test Header</h1>
+    <div id="canvas">
+        <div class="inner-box"></div>
+        <div class="inner-box"></div>
+        <div class="inner-box"></div>
+        <div class="inner-box"></div>
+        <div class="inner-box"></div>
+    </div>
+    <h1>Test Header</h1>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

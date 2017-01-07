@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter15.문서 객체 조작</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+       /* 
+       
+      - html() 메서드의 매개변수로 입력하는 함수는 
+        두 번째 매개변수로 원래 있던 HTML 내용물을 얻을 수 있다.
+     
+      - 지금까지 살펴본 attr(), css(). html(). text() 메서드 모두 사용 방법이 비슷.
+
+       */
+        
+        $(document).ready(function(){
+            
+            $('h1').html(function(index,html){ //두번째 매개변수 : 원래 있던 html내용
+                
+                return '★' + html + '★'; 
+            });
+            
+           
+        })
+    </script>
+</head>
+<body>
+    <h1>Header-0</h1>
+    <h1>Header-1</h1>
+    <h1>Header-2</h1>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문서 객체 삽입(1)</title>
+    
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        /*
+            jquery 객체에 문서 객체 추가하기
+            1. $(A).appendTo(B)     :   A를 B의 뒷부분에 추가
+            2. $(A).prependTo(B)    :   A를 B의 앞부분에 추가
+            3. $(A).insertAfter(B)  :   A를 B의 뒤에 추가
+            4. $(A).insertBefore(B) :   A를 B의 앞에 추가
+            
+            [ 반대의 순서로 문서 객체 추가 ]
+            1. $(A).append(B)     :   B를 A의 뒷부분에 추가
+            2. $(A).prepend(B)    :   B를 A의 앞부분에 추가
+            3. $(A).after(B)      :   B를 A의 뒤에 추가
+            4. $(A).before(B)     :   B를 A의 앞에 추가
+            
+            
+            appendTo : 대상의 뒷부분에 문서 객체를 삽입..
+            
+            [삽입 메서드 정리]
+            before()
+            prepend()
+            대상
+            append()
+            after()
+            
+            [ appen 문법 ]
+            1.$(selector).append(content,content,...,content)
+            2.$(selector).append(function(index){});
+            
+            1번의 경우처럼 문자열이 들어갈 수 있고, 객체가 들어갈 수 있다.
+            
+        */
+        $(document).ready(function(){
+            ///////////////////////////////////////////////////////////////////
+            // 1.$(selector).append(content,content,...,content)
+            //변수 선언
+            var h1 = '<h1>Header1</h1>';
+            var h2 = '<h2>Header2</h2>';
+            
+            //문서 객체 추가
+            $('body').append(h1,h2,h1,h2);
+            ///////////////////////////////////////////////////////////////////
+            
+            
+            ///////////////////////////////////////////////////////////////////
+            // 2.$(selector).append(function(index){});
+            //변수 선언
+            /*
+            var content = [
+              { name: '김준성', region: '서울특별시 강남구' },
+              { name: '김새봄', region: '서울특별시 광진구' },
+              { name: '성명운', region: '미국 메사추새츠' }
+            ];
+            
+            //문서 객체 추가
+            $('div').append(function (index){
+                var item = content[index];
+                var output ='';
+                
+                output += '<h1>' + item.name + '</h1>';
+                output += '<h1>' + item.region + '</h1>';
+                
+                return output;
+            });
+            */
+            ///////////////////////////////////////////////////////////////////
+        });
+    </script>
+</head>
+<body>
+    <!--div></div>
+    <div></div>
+    <div></div-->
+</body>
+</html>

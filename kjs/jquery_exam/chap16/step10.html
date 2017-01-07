@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            이벤트 연결 범위 한정 -
+        */
+        $(function(){
+            //$('h1').on('click', function(){
+            
+            //2번째 매개변수로 이벤트 범위를 한정할 수 있다.
+            //이렇게 범위를 한정하는 이벤트 연결방식이 delegate 방식이다.
+            
+//            $('#wrap').on('click', 'h1', function(){
+//               alert("hi"); 
+//            });
+            /*
+            이벤트 연결 방식
+            bind() - 현재 존재하는 문서 객체에만 이벤트를 연걸
+            delegate() - 현재 또는 미래에 존재하는 문서 객체에 이벤트를 연결
+            live() - 현재 또는 미래에 존재하는 문서 객체에 이벤트를 연결
+            
+            jquery 1.9 버전 이전에는 위 3개의 이벤트 연결 방식이 있었다. 1.9 업데이트와 함께 모든 이벤트 연결 방식을 on()메서드로 통일 했으나 너무 많은 애플리케이션이 위 3개의 이벤트를 사용하고 있어서 없어진 직후 잠시 혼란이 있었다. 그래서 bind() 메서드와 delegate()메서드는 다시 사용할 수 있게 만들었다. 하지만 되도록 on() 메서드를 사용하자 아래는 위3개의 메서드를 on()으로 사용 한 것이다.
+            
+            $('h1').bind('click',function(){}) -> $('h1').on('click',function(){})
+            $('#wrap').delegate('click','h1',function(){}) -> $('#wrap').on('click','h1','function(){})
+            $('h1').live('click',function(){}) -> $('h1').on('click','h1',function(){})
+            */
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap" style="background-color:black; height:300px;">
+        <h1 style="background-color:yellow;">오형석</h1>
+    </div>
+</body>
+</html>

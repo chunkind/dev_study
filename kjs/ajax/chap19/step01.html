@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+    /*
+        서버와 클라이언트가 데이터를 주고 받을 때는 특정한 형식을 맞춰야 한다.
+        CSV 형석을 알아보자.
+        CSV(Comma Separated Values)는 각 항목을 쉼표로 구분해 데이터를 표현하는 방법이다.
+
+        CVS형식은 각각의 데이터가 무엇을 나타내는지 알기 힘들고 ,를 사용할수 없다.
+    */
+    var input = '';
+    input += '모던 웹 디자인을 위한 HTML5 + CSS3 입문, 한빛미디어, 윤인성, 30000원\n';
+    input += '모던 웹을 위한 JavaScript + jQuery 입문, 한빛미디어, 윤인성, 32000원\n';
+    input += '모던 웹을 위한 node.js 프로그래밍, 한빛미디어, 윤인성, 22000원\n';
+    input += '모던 웹을 위한 HTML5 프로그래밍, 한빛미디어, 윤인성, 30000원\n';
+
+    //한 줄씩 자른다.
+    input = input.split('\n');
+    var output = '';
+    for(var i=0; i<input.length; i++){
+        //쉼표를 기준으로 자른다.
+        input[i] = input[i].split(',');
+        for(var j=0; j<input[i].length; j++){
+            //각 데이터 양 옆의 공백을 제거한다.
+            input[i][j] = input[i][j].trim();
+            output += input[i][j] + "<br/>";
+        }
+    }
+    document.body.innerHTML += output;
+</script>

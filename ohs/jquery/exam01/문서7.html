@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            문서 객체의 내부 검사
+            html() - 문서 객체 내부의 글자와 관련된 모든 기능을 수행한다.(HTML 태그인식) = innerHTML
+            text() - 문서 객체 내부의 글자와 관련된 모든 기능을 수행한다. = textContent
+
+             문서 객체의 내부 추가
+            1) $(selector).html(value);
+               $(selector).text(value);
+            2) $(selector).html(function(index,html){});
+               $(selector).text(function(index,text){});
+
+
+            */
+
+        //문제
+        //span태그 사이에 ?시 ?분 ?초를 표시하여라
+        //setInterval()함수를 사용해서 1초마다
+        //시간이 바뀌도록 하여라.
+
+
+        function displayTime() {
+            var date = new Date();
+            spanTag.html(date.getHours() + "시 " +
+                                date.getMinutes() + "분 " +
+                                date.getSeconds() + "초");
+        }
+        var spanTag;
+        $(document).ready(function () {
+            spanTag = $('span');
+            setInterval("displayTime()", 1000);
+        });
+
+    </script>
+</head>
+<body>
+    <h1>시분초 표시</h1>
+    <span id="clock" style="color:Green;font-size:1.8em;font-weight:bold"></span>
+</body>
+</html>

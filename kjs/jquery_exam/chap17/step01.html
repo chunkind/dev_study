@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            기본 시각 효과
+            show() - 문서 객체를 크게 하여 보여준다.
+            hide() - 문서 객체를 작게 하며 사라지게 한다.
+            toggle() - show() 메서드와 hide() 메서드를 번갈아 실행한다.
+            slideDown() - 문서 객체를 슬라이드 효과와 함께 보여준다.
+            slideUp() - 문서 객체를 슬라이드 효과와 함께 사라지게 한다.
+            slideToggle() - slideDown() 메서드와 slideUp() 메서드를 번갈아 실행
+            fadeIn() - 문서 객체를 선명하게 보여준다.
+            fadeOut() - 문서 객체를 흐리게 사라지게 한다.
+            fadeToggle() - fadeIn() 메서드와 fadeOut() 메서드를 번갈아 실행
+            
+            다음과 같은 4가지 형태로 사용한다.
+            1. $(selector).method();
+            2. $(selector).method(speed);
+            3. $(selector).method(speed, callback);
+            4. $(selector).method(speed, easing, callback);
+            
+            speed
+             - 효과를 진행할 속도를 지정
+             - 밀리 초 단위의 숫자 또는 문자열 slow, normal, fast를 입력
+            callback
+             - 효과를 모두 완료하고 실행할 함수를 지정
+            easing
+             - 애니메이션의 easing 형태를 지정
+             - 별도의 플러그인을 사용하지 않으면 문자열 linear와 swing만 입력 가능
+        */
+        $(function(){
+            $('button').click(function(){
+                $(".page").toggle();
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>Toggle Show</button>
+    <div class="page">
+        <h1>오형석</h1>
+        <p>29살 입니다</p>
+    </div>
+</body>
+</html>

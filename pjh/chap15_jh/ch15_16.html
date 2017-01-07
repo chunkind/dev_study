@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter15.문서 객체 조작</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+       /* 
+       
+       15.14 문서 객체 삽입(2)
+        
+       - 이전에 설명한 메서드와 반대의 순서로 문서 객체를 추가하는 메서드
+       
+       $(A).append(B) : B를 A의 뒷부분에 추가
+       $(A).prepend(B) : B를 A의 앞부분에 추가
+       $(A).after(B) : B를 A의 뒤에 추가
+       $(A).before(B) : B를 A의 앞에 추가
+       
+       - 이 메서드들은 다음 형태로 사용
+       1. $(selector).append(content, content, ....... content)
+          -> content위치에 문자열이 들어갈 수도 있고, jQuery문서 객체도 들어갈 수 있다.
+       2. $(selector).append(function(index) {});
+       
+       */
+        
+        $(document).ready(function(){
+            
+         //   2. $(selector).append(function(index) {});
+            
+            var content = [ { name: '윤인성', region : '서울' },
+                            { name: '윤하린', region : '부산' },
+                            { name: '윤인아', region : '대구' }
+                          ];
+            
+            $('div').append(function(index){
+                      //div태그 뒷부분에 추가할 문자열을 리턴 
+               var item = content[index];
+               var output = '';
+                
+               output += '<h1>' + item.name + '</h1>';
+               output += '<h2>' + item.region + '</h2>';
+                
+               return output;
+            });
+            
+            
+        })
+    </script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

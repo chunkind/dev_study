@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문서 객체 삽입(1)</title>
+    
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+    /*
+        jquery 객체에 문서 객체 추가하기
+        1. $(A).appendTo(B)     :   A를 B의 뒷부분에 추가
+        2. $(A).prependTo(B)    :   A를 B의 앞부분에 추가
+        3. $(A).insertAfter(B)  :   A를 B의 뒤에 추가
+        4. $(A).insertBefore(B) :   A를 B의 앞에 추가
+
+        [ 반대의 순서로 문서 객체 추가 ]
+        1. $(A).append(B)     :   B를 A의 뒷부분에 추가
+        2. $(A).prepend(B)    :   B를 A의 앞부분에 추가
+        3. $(A).after(B)      :   B를 A의 뒤에 추가
+        4. $(A).before(B)     :   B를 A의 앞에 추가
+    */
+        
+    $(document).ready(function(){
+        $("#appendTo").click(function(){
+            $("<span>appendTo</span>").appendTo("#appendTo_add");
+        });
+        
+        $("#prependTo").click(function(){
+            $("<span>prependTo</span>").prependTo("#prependTo_add");
+        });
+        
+        $("#insertAfter").click(function(){
+            $("<span>insertAfter</span>").insertAfter("#insertAfter_add");
+        });
+        
+        $("#insertBefore").click(function(){
+            $("<span>insertBefore</span>").insertBefore("#insertBefore_add");
+        });
+        
+        
+        $("#append").click(function(){
+            $("p").append(" <b>Appended text</b>.");
+            $("ol").append("<li>Appended item</li>");
+        });
+        
+        $("#prepend").click(function(){
+            $("p").prepend(" <b>prepend text</b>.");
+            $("ol").prepend("<li>prepend item</li>");
+        });
+        
+        $("#after").click(function(){
+            $("p").after(" <b>after text</b>.");
+            $("ol").after("<li>after item</li>");
+        });
+        
+        $("#before").click(function(){
+            $("p").before(" <b>before text</b>.");
+            $("ol").before("<li>before item</li>");
+        });
+    });
+        
+    </script>
+</head>
+<body>
+
+<button id='appendTo'>appendTo</button>
+<h1 id='appendTo_add'>A를 B의 뒷부분에 추가</h1>
+
+<button id='prependTo'>prependTo</button>
+<h1 id='prependTo_add'>A를 B의 앞부분에 추가</h1>
+
+<button id='insertAfter'>insertAfter</button>
+<h1 id='insertAfter_add'>A를 B의 뒤에 추가</h1>
+
+<button id='insertBefore'>insertBefore</button>
+<h1 id='insertBefore_add'>A를 B의 앞에 추가</h1>
+
+<hr/>
+
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+
+<ol>
+  <li>List item 1</li>
+  <li>List item 2</li>
+  <li>List item 3</li>
+</ol>
+
+<button id='append'>append</button>
+<button id='prepend'>prepend</button>
+<button id='after'>after</button>
+<button id='before'>before</button>
+
+</body>
+</html>

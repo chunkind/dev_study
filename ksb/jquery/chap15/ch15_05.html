@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문서 객체의 스타일 추가</title>
+    
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        /*
+            문서 객체에 스타일 추가 방식
+            1. $(selector).css(name,value);
+            2. $(selector).css(name,function(index,style){
+            
+                });
+            3. $(selector).css(object);
+        */
+        $(document).ready(function(){
+            ///////////////////////////////////////////////////////////////////
+            //1번: 선택자로 선택한 문서 객체에 개별적으로 스타일 속성을 적용하고 싶을 때 사용
+            $('h1').css('color','red');
+            ///////////////////////////////////////////////////////////////////
+            
+            
+            ///////////////////////////////////////////////////////////////////
+            //2번: 배열을 선언하고 배열의 내용물을 차례대로 문서 객체의 color 스타일 속성에 지정
+            //변수 선언
+            //var color = ['red','white','purple'];
+            
+            //문서 객체의 스타일 변경
+            /*
+            $('h1').css('color', function(index){
+                return color[index];
+            });
+            */
+            ///////////////////////////////////////////////////////////////////
+            
+            
+            ///////////////////////////////////////////////////////////////////
+            //3번: css()메서드의 매개변수에 객체입력.
+            //변수 선언
+            /*
+            var color = ['red','white','purple'];
+            var backgroundColor = ['orange','black','green'];
+            */
+            
+            //문서 객체의 스타일 변경
+            /*
+                $('h1').css({
+                color: function(index){
+                    return color[index];
+                },
+                //backgroundColor: 'black' //or
+                backgroundColor: function(index){
+                    return backgroundColor[index];
+                }
+                //추가 가능함.
+            });
+            */
+            ///////////////////////////////////////////////////////////////////
+        });
+    </script>
+</head>
+<body>
+    <h1>css1</h1>
+    <h1>css2</h1>
+    <h1>css3</h1>
+</body>
+</html>

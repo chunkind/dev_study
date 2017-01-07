@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter15.문서 객체 조작</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+       /* 
+       
+       15.3 문서 객체의 속성 검사
+        
+       -attr() : 속성과 관련된 모든 기능을 수행한다.
+       
+       - 문서 객체의 속성 값을 얻고자 할 때 => attr('속성명')
+
+       */
+        
+        $(document).ready(function(){
+            
+            var src = $('img').attr('src');
+            
+            alert(src);
+            //값을 알아내는 jQuery 메서드는 여러 개의 문서 객체를 선택했을 때 첫 번째에 위치한 문서 객체의 값을 출력.
+            //따라서 값을 얻는 경우는 하나의 특정한 문서 객체를 선택해서 사용하는 것이 좋다.
+        })
+    </script>
+</head>
+<body>
+    <img src = "img/Chrysanthemum.jpg" width ='200'/>
+    <img src = "img/Desert.jpg" width ='200'/>
+    <img src = "img/Hydrangeas.jpg" width ='200'/>
+</body>
+</html>

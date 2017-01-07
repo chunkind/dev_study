@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+    $(document).ready(function(){
+<<<<<<< HEAD
+        $('#btn').click(function(){
+            // .(점)class , #(샾)id 
+           $('.file_add').append("<input type='file' id='file'/>");
+        }); 
+        
+        $('#btn2').click(function(){
+            $('#file').remove();
+=======
+        
+       
+        $("#btn").click(function(){
+            
+            $(".file_add").append("<input type='file' id='file' name='file' />");
+        });
+        
+        $("#btn2").click(function(){
+            //alert($("input[name=file]").length);
+            
+            if($("input[name=file]").length <= 1){
+                alert('더이상 삭제할 수 없습니다.');
+            }else{
+                //alert($("input[name=file]").length);
+                //파일첨부 개수가 1보다 크다면 삭제 가능..
+                $("#file").remove();
+            }
+>>>>>>> 9d16f2dbf5e5d086fbaf8b351f52e11dca8c834c
+        });
+    });
+    </script>
+</head>
+<body>
+    <div class='file_add'></div>
+    <input type="button" id='btn' value='추가' />
+    <input type="button" id='btn2' value='제거' />
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>trigger()</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        /*
+            trigger() : 이벤트를 강제로 발생
+            
+            [사용형태]
+            1 $(selector).trigger(eventName)
+            2 $(selector).trigger(eventName,data)
+              :매개변수 data는 일반적으로 배열을 집어넣는다.
+        */
+        
+        // document객체에 ready 이벤트 연결
+        $(document).ready(function (event){
+      
+            //이벤트 연결
+            $('h1').click(function(){
+                $(this).html(function(index,html){
+                    return html + '*';
+                });
+            });
+            
+            
+            //1초마다 함수 실행
+            //trigger() 를 사용한 예
+            setlnterval(function () {
+                $('h1').last().trigger('click');
+            }, 1000);
+            
+            /*
+            //간단한 이벤트 강제 실행예제_click()이벤트만 사용
+            setlnterval(function () {
+                $('h1').last().click();
+            }, 1000);
+            */
+            
+        }); 
+    </script>
+</head>
+<body>
+    <h1>Start :</h1>
+    <h1>Start :</h1>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            width: 50px;
+            height: 50px;
+            background-color: orange;
+        }
+    </style>
+    <script src="../../../common/js/jquery-1.10.2.js"></script>
+    <script>
+        /*
+            상대적 애니매이션
+            
+        */
+        $(function(){
+            $('div').click(function(){
+                //변수 선언
+                var width = $(this).css('width');
+                var height = $(this).css('height');
+                
+                //animate() 메서드 사용하여클릭시마다 가로,세로 크기가 50씩 증가하도록 만드세요.
+                
+            });
+        });
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

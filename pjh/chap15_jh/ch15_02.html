@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter15.문서 객체 조작</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <style>
+        .item {background-color: yellow;}
+        .select {color: red;}
+        
+        /*.item0 {background-color: red;}
+        .item1 {background-color: yellow;}
+        .item2 {background-color: orange;}*/
+        
+    </style>
+    <script>
+       /* 
+       
+       15.2 문서 객체의 클래스 속성 제거
+        
+       -removeClass() : 문서 객체의 클래스 속성을 제거한다.
+
+       */
+        
+        $(document).ready(function(){
+            
+            
+            //매개변수에 아무것도 입력하지 않으면 문서 객체의 모든 클래스를 제거
+            $('h1').removeClass();
+            
+            
+            //특정 클래스값 지정
+            //$('h1').removeClass('select'); 
+            
+            
+            //addClass와 마찬가지로 매개변수로 함수 사용 가능
+            /*$('h2').removeClass(function(index){
+                
+                return 'item' + index;
+                
+            }); */
+            
+            
+            // cf) toggleClass()메서드는 매개변수로 입력한 클래스 속성이 이미 지정돼 있으면 제거(removeClass)하고 
+            //     지정돼 있지 않으면 추가.(addClass)
+            
+            $('h1').toggleClass('select');
+            
+            
+        })
+    </script>
+</head>
+<body>
+    <h1 class="item">Header-0</h1>
+    <h1 class="item select">Header-1</h1>
+    <h1 class="item">Header-2</h1>
+    
+    <!--<h2 class="item0">item0</h1>
+    <h2 class="item1">item1</h1>
+    <h2 class="item2">item2</h1>-->
+</body>
+</html>

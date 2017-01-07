@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>문서 객체 이동</title>
+    
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 기존 문서 객체를 선택하고 문서 객체 삽입 메서드를 사용하면 문서 객체를 다른 곳으로 이동시킬 수 있다.
+            // 시간에 따라 이미지의 순서를 지속적으로 변경하는 얘제를 만들어 보자!
+            
+            
+            ///////////////////////////////////////////////////////////////////
+            //1.appendTo() 메서드를 사용한 문서 객체의 이동
+            //$('img').first().appendTo('body');
+            
+             //2.setTnterval() 함수를 이용한 응용예제
+            // img 크기를 조정
+            $('img').css('width',100);
+            
+            //함수를 2초마다 실행
+            setInterval(function(){
+                //첫번째 이미지를 마지막으로 보냄.
+                $('img').first().appendTo('body');
+            },2000); 
+            ///////////////////////////////////////////////////////////////////
+        });
+    </script>
+</head>
+<body>
+<<<<<<< HEAD
+    <img src='../../../common/img/moon.jpg' />
+    <img src='../../../common/img/sun.jpg' />
+    <img src='../../../common/img/moon.jpg' />
+    <img src='../../../common/img/sun.jpg' />
+=======
+    <img src='../../../common/img/cmj.jpg' />
+    <img src='../../../common/img/ohs.jpeg' />
+    <img src='../../../common/img/ohs2.jpg' />
+    <img src='../../../common/img/kuj.jpg' />
+>>>>>>> 9d16f2dbf5e5d086fbaf8b351f52e11dca8c834c
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

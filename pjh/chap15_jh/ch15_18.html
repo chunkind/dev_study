@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - chapter15.문서 객체 조작</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+       /* 
+       
+       15.16 문서 객체 복제
+       - 기존의 문서 객체를 선택하고 문서 객체 삽입 메서드를 사용하면
+         문서 객체가 이동
+     
+       */
+        
+        $(document).ready(function(){
+            
+            //append()메서드를 사용한 문서 객체의 이동 
+            $('div').append($('h1'));
+            
+            //문서 객체를 복제해서 추가하고 싶을 때
+            //clone()메서드 사용. 
+            
+            /* 1. $(selector).clone()
+               2. $(selector ).clone (Boolean dataAndEvents)
+               3. $(selector).clone(Boolean dataAndEvents. Boolean deepDataAndEvents) */
+            
+            //$('div').append($('h1').clone());
+            
+        })
+    </script>
+</head>
+<body>
+    <h1>HEADER</h1>
+    <hr/><div></div><hr/>
+</body>
+</html>

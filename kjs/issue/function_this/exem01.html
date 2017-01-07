@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+    <input type="text" id="txt" name="txt_nm" onkeyup="a(this);" />
+    <input type="text" id="txt2" name="txt_nm2"/>
+</body>
+</html>
+
+
+
+
+<script>
+    $(function(){
+        jthis01 = $(this);
+        
+        
+        $('#txt2').keyup(function(){
+            var this03 = $(this);
+            var this04 = this;
+            console.log(this03);
+        });
+        
+    });
+    jthis02 = $(this);
+    jthis03 = $(this);
+    
+    function a(a){
+        var this01 = $(this);
+        var this02 = this;
+
+        if(this01 == jthis01){
+            console.log("같다??");
+        }
+        
+        if(this01 == jthis02){
+            console.log("같다??");
+        }
+        
+        if(jthis02 == jthis03){
+            console.log("같다??");
+        }
+        
+        jthis02.Document().html('hi1');
+        jthis03.Document().html('hi2');
+        
+    };
+</script>
