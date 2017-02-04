@@ -1,0 +1,8 @@
+package day02_interface;
+
+public class Lion extends Animal implements Predator{
+	// getName 메소드는 인스턴스 변수인 name을 리턴하도록 작성 
+	/*public String getName(){
+		return this.name;
+	}*/
+}

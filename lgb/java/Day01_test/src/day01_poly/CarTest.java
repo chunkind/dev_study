@@ -1,0 +1,61 @@
+package day01_poly;
+/*
+ * 다형성이란 '여러가지 형태를 가질 수 있는 능력' 
+ * 조상클래스 타입의 참조변수로 자손 클래스의 인스턴스를 참조할 수 있도록 하였다. 
+ */
+public class CarTest {
+	public static void main(String[] args) {
+		Car car = new Car();
+		Car car1 = null;
+		FireEngine fe = new FireEngine();
+		FireEngine fe1 = null;
+		
+		/*fe.water();
+		car = fe;
+		fe1 = (FireEngine) car;
+		fe1.water();
+		fe1.drive();*/
+		
+		car.drive();
+		//fe = (FireEngine) car;
+		fe.drive();
+		car1 = fe;
+		car1.drive();
+	}
+}
+
+class Car {
+	String color;
+	int door;
+	
+	void drive(){ // 운전하는 기능 
+		System.out.println("drive fast~~~");
+	}
+	
+	void stop(){ // 정지하는 기능
+		System.out.println("stop!!!!");
+	}
+}	
+
+	class FireEngine extends Car {
+		void water() {
+			System.out.println("water~~!!");
+		}
+		
+		@Override
+		void drive(){
+			super.drive();
+			System.out.println("소방차는 급해!!");
+		}
+	}
+	
+	class Ambulance extends Car {
+		void siren(){
+			System.out.println("siren!!!");
+		}
+	}
+
+
+
+
+

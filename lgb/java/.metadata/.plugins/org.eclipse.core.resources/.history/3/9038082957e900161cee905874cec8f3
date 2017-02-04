@@ -1,0 +1,5 @@
+package day02_interface;
+
+public interface Predator{
+	public String getName();
+}

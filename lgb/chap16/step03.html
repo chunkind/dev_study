@@ -6,26 +6,27 @@
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
 // 기본 이벤트와 이벤트 전달  
-    /*$(function(){
-        $('a').click(function(event){
+    $(function(){
+        /*$('a').click(function(event){
         $(this).css('backgroundcolor','black');
         event.stopPropagation();
-        event.preventDefault();
+        event.preventDefault();*/
     // return false를 사용하면 기본 이벤트만 제거된다는 점     
         $('a').click(function(event){
-        $(this).css('background','blue');        
-        return false;
-    });
-    
-        $('h1').click(function(){
+            $(this).css('background','blue');        
+            return false;
+        });
+        
+        /*$('h1').click(function(){
            $(this).css('background','red'); 
+        });*/
+        
     });
-});*/
 
 // 이벤트 연결 범위 한정 
 // 이벤트를 연결할 때 on() 메서드를 사용
 // on() 메서드의 매개변수 범위를 한정하는 이벤트 연결 방식을 delegate    
-    /*$(function(){
+    $(function(){
        $('#wrap').on('click','h1',function(){
           var length = $('h1').length;
           var targetHTML = $(this).html();
@@ -34,17 +35,18 @@
           // 이벤트를 제거 
            $('#wrap').off('click','h1');
        }); 
-    });*/
+    });
 
 // 마우스 이벤트 
-    $(function(){
+    /*$(function(){
        $('.outer').mouseover(function(){
           $('body').append('<h1>MOUSEOVER</h1>'); 
+           
        });
-        /*.mouseenter(function(){
+        .mouseenter(function(){
           $('body').append('<h1>MOUSEENTER</h1>'); 
-       }); */
-    });
+       }); 
+    });*/
     
 </script>
 <style>
@@ -73,13 +75,13 @@
         <a href="http://hanb.co.kr">Hanb Media</a>
     </h1>-->
     
-    <!--<div id="wrap">
+    <div id="wrap">
         <h1>Header</h1>
-    </div>-->
-    
-    <div class="outer">
-        <div class="inner"></div>
     </div>
+    
+   <!-- <div class="outer">
+        <div class="inner"></div>
+    </div>-->
     
 </body>
 </html>

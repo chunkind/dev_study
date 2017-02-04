@@ -19,7 +19,8 @@
             delay() - 큐에 있는 명령을 잠시 중지한다.
         */
         $(function(){
-            $('div').each(function(index){
+            $('div').each(function(index){ 
+                // index : for문의 index의 값 
                 //(index * 500) 초 후 animate() 메서드를 실행
                 $(this).delay(index*500).animate({
                     left:500
