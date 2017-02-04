@@ -9,12 +9,14 @@
             
             //var regEng = /[^\!-z]/g;    //영문만 정규식
             
-            $('#???').???(function(){
-                var opval = $('#???').val();
-                
+           /* $('#option').change(function(){
+                var opval = $('#option').val();
                     //hit_조건문을 사용하여 속성변경
+                    if(opval == 'select-option'){
+                        $('#text-option').css('display','none');
+                    }
                 }
-            });
+            });*/
             
             
             /*$(".onlynum").keyup(function(){
@@ -26,7 +28,6 @@
         //숫자만 입력 가능.
         var checkIsNum = function(id) {
              var regNum = /[^0-9]/gi;   //숫자만 정규식표현
-            
              var val = $( "#"+id ).val();
              // test() : 문자열에서 일치 테스트 반환값은 false,true 
              // -> 적용방법 :  regexp.test(val)
@@ -34,7 +35,10 @@
              
              // replace(찾을문자열 , 변경할문자열);
              // -> 적용방법 :replace('a','b'); [a를 찾아 b로 변경]
-            
+            if(regNum.test(val)){
+                //alert('숫자를 입력하지마세요.');
+                $('#'+id).val(val.replace(regNum,''));
+            };
             
             //1. 조건문을 사용하여 test() 사용
             
@@ -48,7 +52,7 @@
             <option value="text-option">text option</option>
             <option value="select-option">select option</option>
         </select>
-        <input type="text" id="text-option" maxlength="5" onkeyup="return checkIsNum('text-option');"/>
+        <input type="text" id="text-option" maxlength="10" onkeyup="return checkIsNum('text-option');"/>
         <select  id="select-option" style="display:none;">
             <option>a option</option>
             <option>b option</option>

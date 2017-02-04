@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="test.TestMain2.C"/>
+<fullyQualifiedTypeName name="test.TestMain2"/>
+<fullyQualifiedTypeName name="test.Member"/>
+<fullyQualifiedTypeName name="parent.Person"/>
+<fullyQualifiedTypeName name="child.Student"/>
+<fullyQualifiedTypeName name="child.Empolyee"/>
+<fullyQualifiedTypeName name="java_final.Card"/>
+<fullyQualifiedTypeName name="java_static.StaticEx"/>
+<fullyQualifiedTypeName name="java_static.Counter"/>
+<fullyQualifiedTypeName name="java_accessModifier.Time"/>
+<fullyQualifiedTypeName name="java_singleton.SingletonTest"/>
+<fullyQualifiedTypeName name="java_singleton.Singleton"/>
+<fullyQualifiedTypeName name="java_poly_interface.Animal"/>
+<fullyQualifiedTypeName name="java_poly_interface.Tiger"/>
+<fullyQualifiedTypeName name="java_poly_interface.Lion"/>
+<fullyQualifiedTypeName name="java_poly_interface.ZooKeeper"/>
+<fullyQualifiedTypeName name="java_poly_interface.Predator"/>
+<fullyQualifiedTypeName name="day01_poly.Child"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java_abstract.DuckTest.Duck"/>
+<fullyQualifiedTypeName name="java_abstract.DuckTest"/>
+<fullyQualifiedTypeName name="java_abstract.DuckTest.Bird"/>
+<fullyQualifiedTypeName name="java_abstract.Duck"/>
+</qualifiedTypeNameHistroy>

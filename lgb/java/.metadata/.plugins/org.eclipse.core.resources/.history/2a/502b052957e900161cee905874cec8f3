@@ -1,0 +1,40 @@
+package day02_interface;
+
+/*
+ * ZooKeeper 클래스의 feed 메소드처럼 입력값의 자료형 타입이 다를 경우(Tiger,Lion이 서로 다르다)
+ * 메소드 명을 동일하게(feed 메서드가 같다) 사용할 수 있다. 
+ * 이것이 메서드 오버라이딩..
+ * 여기서 동물이 계속 추가 된다면 귀찮은 작업이 될 것이다.. 
+ */
+public class ZooKeeper {	
+	// 변경 전 
+	/*public void feed(Tiger tiger){
+		System.out.println("feed tiger");
+	}
+	public void feed(Lion lion){
+		System.out.println("feed lion");
+	}*/
+	
+	/*public void feed(Leopard leopard){ // 추가
+		System.out.println("feed leopard");
+	}*/
+	
+	// 변경 후 
+	// Predator 인터페이스의 객체이기 때문에 Predator를 데이터 타입으로 사용 가능하다. 
+	// tiger - Tiger 클래스의 객체, Predator 인터페이스의 객체 
+	// lion - Lion 클래스의 객체, Predator 인터페이스의 객체 
+	public void feed(Predator predator){
+		System.out.println("feed "+ predator.getName());
+	}
+	
+	public static void main(String[] args){
+		Tiger tiger = new Tiger();
+		tiger.setName("tiger");
+		Lion lion = new Lion();
+		lion.setName("lion");
+		
+		ZooKeeper zoo = new ZooKeeper();
+		zoo.feed(lion);
+		zoo.feed(tiger);
+	}
+}
