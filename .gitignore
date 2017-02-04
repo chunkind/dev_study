@@ -1,0 +1,5 @@
+*.lock
+*.mark
+kjs/servlet/.metadata/
+kjs/servlet/RemoteSystemsTempFiles/
+kjs/servlet/Servers/

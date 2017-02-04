@@ -39,14 +39,23 @@
         $(function(){
             $('div').hover(function(){
                 $(this).animate({
+<<<<<<< HEAD
                     left: 1000
                 }, 'slow','swing');
+=======
+                    left: 1500
+                }, 'slow', 'swing', a);
+>>>>>>> b4d82939a79740bbea47f8d58a0eec05ab2993ce
             }, function(){
                 $(this).animate({
                     left: 0
                 }, 'slow');
             });
         });
+        
+        function a(){
+            alert("끝")
+        }
     </script>
 </head>
 <body>

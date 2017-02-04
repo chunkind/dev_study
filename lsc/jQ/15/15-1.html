@@ -3,13 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <script src = "../common/js/jquery-1.10.2.js"></script>
-    <script> $(function(){
-            alert("hi");
+    <script src = "http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script> 
+        $(document).ready(function(){
+            $('h1').addClass('item');
         });
     </script>
+<!--
+   <script>
+    $(document).ready(function(){
+        $('h1').addClass(function(index){
+            return 'class' + index;
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+        $('h1').removeClass('select');
+    });
+    </script>
+-->
 </head>
 <body>
+    <h1>Header-0</h1>
     <h1>Header-1</h1>
+    <h1>Header-2</h1>
 </body>
 </html>
